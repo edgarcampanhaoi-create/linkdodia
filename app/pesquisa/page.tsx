@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SITE } from "@/lib/site";
+import { migalhas } from "@/lib/schema";
 import { resultadoDaPesquisa, pesquisaLigada } from "@/lib/pesquisa";
 import { PERGUNTAS } from "@/lib/pesquisa-perguntas";
 import { Pesquisa } from "@/components/Pesquisa";
 import { Etiqueta } from "@/components/Selos";
+import { Estruturado } from "@/components/Estruturado";
 
 /**
  * A página que fabrica o dado que não existe.
@@ -17,10 +20,17 @@ import { Etiqueta } from "@/components/Selos";
 export const revalidate = 300;
 
 export const metadata: Metadata = {
-  title: "A pesquisa",
+  title: "Quanto um afiliado brasileiro tira de comissão? A pesquisa",
   description:
-    "Seis perguntas de faixa, dois minutos, sem nome e sem e-mail. As respostas viram o benchmark que não existe publicado em lugar nenhum.",
+    "Seis perguntas de faixa, dois minutos, sem nome e sem e-mail. As respostas viram o benchmark de comissão média que nenhuma plataforma divulga.",
   alternates: { canonical: "/pesquisa" },
+  openGraph: {
+    type: "website",
+    title: "A pesquisa do Link do Dia",
+    description:
+      "Seis perguntas, dois minutos, anônima. O resultado volta público, com o número de respostas na cara.",
+    url: `${SITE.url}/pesquisa`,
+  },
 };
 
 export default async function PaginaPesquisa() {
@@ -29,6 +39,8 @@ export default async function PaginaPesquisa() {
 
   return (
     <main className="mx-auto max-w-5xl px-5">
+      <Estruturado dados={migalhas([{ nome: "A pesquisa", caminho: "/pesquisa" }])} />
+
       <section className="border-b border-risco py-10">
         <Etiqueta>A pesquisa</Etiqueta>
         <h1 className="mt-3 max-w-leitura font-serif text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">

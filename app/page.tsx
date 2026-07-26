@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { todosOsPosts, categorias, formatarData } from "@/lib/posts";
 import { SITE } from "@/lib/site";
+import { siteWeb } from "@/lib/schema";
 import { capturaLigada } from "@/lib/lista";
 import { SeloConfianca, Etiqueta } from "@/components/Selos";
+import { Estruturado } from "@/components/Estruturado";
 import { Inscrever } from "@/components/Inscrever";
 
 export default function Home() {
@@ -14,6 +16,8 @@ export default function Home() {
 
   return (
     <main className="mx-auto max-w-5xl px-5">
+      <Estruturado dados={siteWeb()} />
+
       <section className="border-b border-risco py-10">
         <h1 className="max-w-leitura font-serif text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
           O que está funcionando em marketing digital e marketplaces,{" "}

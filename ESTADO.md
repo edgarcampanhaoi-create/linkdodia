@@ -113,6 +113,29 @@ Provada de ponta a ponta em 26 de julho, com a primeira resposta real. O contado
 zero para um nas duas páginas, o que confirma escrita e leitura contra o Redis de produção,
 e descarta gravação duplicada. **Faltam 29 respostas** para o primeiro resultado sair.
 
+## Busca
+
+Passada feita em 26 de julho. O que mudou:
+
+**Título de busca separado da manchete.** O buscador corta perto de 60 caracteres e manchete
+boa passa disso. Cada post agora pode declarar `tituloSeo` e `descricaoSeo` no cabeçalho, que
+valem para a aba e para o resultado de busca. A manchete inteira continua no `h1` e no
+compartilhamento, que é onde ela rende. Sem esses campos, vale o título de sempre, e isso foi
+testado tirando o campo de um post.
+
+**Dado estruturado.** `lib/schema.ts` monta `WebSite` na home, `BreadcrumbList` em post,
+assunto, benchmarks, pesquisa e método, e o `Article` dos posts ganhou autor, seção e
+palavras-chave. O autor é a publicação, e não uma pessoa: inventar nome de autor para agradar
+buscador seria mentira num site que vende conferência de fonte.
+
+**Texto de link interno.** Na página de benchmarks, o link para o post que explica passou a
+ser o título do post. "O texto que explica" não diz nada nem para quem lê nem para quem
+indexa.
+
+O que não foi feito, e vale saber: nenhuma página tem imagem de compartilhamento própria além
+da home e dos posts, e não existe conteúdo escrito para pergunta de volume alto. Isso é
+estratégia de pauta, não de código.
+
 ### O que fica pendente de produto
 
 - O acervo de pesquisa rende de 10 a 15 posts. Depois disso, publicação diária precisa de

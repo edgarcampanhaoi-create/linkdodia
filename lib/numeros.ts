@@ -35,12 +35,21 @@ export type Numero = {
   desde: string;
   /** Slug do post que explica. Precisa existir. */
   post: string;
+  /**
+   * Título do post, resolvido na leitura.
+   *
+   * Serve de texto do link. "O texto que explica" não diz nada nem para quem lê
+   * nem para quem indexa, e link interno com texto vazio é oportunidade jogada
+   * fora em site que precisa ser encontrado.
+   */
+  tituloDoPost: string;
 };
 
 export type Lacuna = {
   pergunta: string;
   porque: string;
   post: string;
+  tituloDoPost: string;
 };
 
 const CONFIANCAS = ["verificado", "parcial", "nao-confirmado"] as const;
@@ -55,7 +64,7 @@ function lerArquivo(): { numeros: Numero[]; lacunas: Lacuna[] } {
   if (!fs.existsSync(ARQUIVO)) return { numeros: [], lacunas: [] };
 
   const { data } = matter(fs.readFileSync(ARQUIVO, "utf8"));
-  const slugsPublicados = new Set(todosOsPosts().map((p) => p.slug));
+  const publicados = new Map(todosOsPosts().map((p) => [p.slug, p.titulo]));
 
   const brutos = Array.isArray(data.numeros) ? data.numeros : [];
   const numeros = brutos.map((b: Record<string, unknown>, i: number) => {
@@ -76,7 +85,8 @@ function lerArquivo(): { numeros: Numero[]; lacunas: Lacuna[] } {
     }
 
     const post = texto(b.post, "post", onde);
-    if (!slugsPublicados.has(post)) {
+    const tituloDoPost = publicados.get(post);
+    if (!tituloDoPost) {
       throw new Error(
         `benchmarks.md: ${onde} aponta para o post "${post}", que não está publicado. Número sem texto que explique não vai ao ar.`,
       );
@@ -94,6 +104,7 @@ function lerArquivo(): { numeros: Numero[]; lacunas: Lacuna[] } {
       fonteUrl: typeof b.fonteUrl === "string" && b.fonteUrl ? b.fonteUrl : undefined,
       desde,
       post,
+      tituloDoPost,
     };
   });
 
@@ -108,13 +119,15 @@ function lerArquivo(): { numeros: Numero[]; lacunas: Lacuna[] } {
   const lacunas = lacunasBrutas.map((b: Record<string, unknown>, i: number) => {
     const onde = `lacuna ${i + 1}`;
     const post = texto(b.post, "post", onde);
-    if (!slugsPublicados.has(post)) {
+    const tituloDoPost = publicados.get(post);
+    if (!tituloDoPost) {
       throw new Error(`benchmarks.md: ${onde} aponta para o post "${post}", que não está publicado.`);
     }
     return {
       pergunta: texto(b.pergunta, "pergunta", onde),
       porque: texto(b.porque, "porque", onde),
       post,
+      tituloDoPost,
     };
   });
 

@@ -1,6 +1,8 @@
 ---
 titulo: "O tagueamento nativo Shopee e Meta chegou ao Brasil, e não resolve tudo"
+tituloSeo: "Tagueamento Shopee no Instagram: requisitos e limites"
 resumo: "Liberado no país no começo de julho de 2026, com quatro requisitos de conta. Tira atrito de quem já decidiu comprar, mas não abre conversa nem captura contato."
+descricaoSeo: "Liberado no Brasil em julho de 2026, com quatro requisitos de conta. Tira atrito de quem já decidiu comprar, e não abre conversa nem captura contato."
 data: 2026-07-26
 categoria: "Marketplace"
 tags: ["shopee", "instagram", "afiliados"]

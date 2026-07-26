@@ -1,6 +1,8 @@
 ---
 titulo: "A janela de 7 dias da Shopee: quem clica por último leva tudo"
+tituloSeo: "Janela de atribuição da Shopee: 7 dias e último clique"
 resumo: "A atribuição vale por sessão e não por produto. Quem clicar depois de você, dentro dos sete dias, leva a comissão inteira, e isso não aparece em relatório nenhum."
+descricaoSeo: "A atribuição da Shopee vale por sessão e dura 7 dias. Quem clicar depois de você leva a comissão inteira, e isso não aparece no seu relatório."
 data: 2026-07-26
 categoria: "Afiliados"
 tags: ["shopee", "atribuição", "afiliados"]

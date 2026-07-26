@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     default: `${SITE.nome}: benchmark e referência para quem vende online`,
     template: `%s · ${SITE.nome}`,
   },
-  description: SITE.descricao,
+  description: SITE.descricaoCurta,
   openGraph: {
     type: "website",
     locale: "pt_BR",

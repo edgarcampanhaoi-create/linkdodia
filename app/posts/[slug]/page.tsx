@@ -1,10 +1,18 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { todosOsPosts, postPorSlug, formatarData, ROTULO_CONFIANCA } from "@/lib/posts";
+import {
+  todosOsPosts,
+  postPorSlug,
+  formatarData,
+  slugCategoria,
+  ROTULO_CONFIANCA,
+} from "@/lib/posts";
 import { SITE } from "@/lib/site";
+import { organizacao, migalhas } from "@/lib/schema";
 import { capturaLigada } from "@/lib/lista";
 import { SeloConfianca, Etiqueta } from "@/components/Selos";
+import { Estruturado } from "@/components/Estruturado";
 import { Inscrever } from "@/components/Inscrever";
 
 /** Todos os posts são estáticos: o conteúdo mora no repositório e só muda com
@@ -16,9 +24,13 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const post = postPorSlug(params.slug);
   if (!post) return {};
+
+  // A aba e o resultado de busca levam a versão curta, quando ela existe. Quem
+  // compartilha o link no WhatsApp vê a manchete inteira, que é onde ela rende.
   return {
-    title: post.titulo,
-    description: post.resumo,
+    title: post.tituloSeo ?? post.titulo,
+    description: post.descricaoSeo ?? post.resumo,
+    keywords: post.tags,
     alternates: { canonical: `/posts/${post.slug}` },
     openGraph: {
       type: "article",
@@ -49,15 +61,25 @@ export default function PostPage({ params }: { params: { slug: string } }) {
     datePublished: post.data,
     dateModified: post.data,
     inLanguage: "pt-BR",
-    publisher: { "@type": "Organization", name: SITE.nome },
+    articleSection: post.categoria,
+    keywords: post.tags.join(", "),
+    // A assinatura é da publicação, e não de uma pessoa. É o que é verdade
+    // aqui, e inventar um nome de autor para agradar buscador seria mentira
+    // num site que vende conferência de fonte.
+    author: organizacao(),
+    publisher: organizacao(),
+    isAccessibleForFree: true,
     mainEntityOfPage: `${SITE.url}/posts/${post.slug}`,
   };
 
   return (
     <main className="mx-auto max-w-5xl px-5">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      <Estruturado dados={jsonLd} />
+      <Estruturado
+        dados={migalhas([
+          { nome: post.categoria, caminho: `/categoria/${slugCategoria(post.categoria)}` },
+          { nome: post.titulo, caminho: `/posts/${post.slug}` },
+        ])}
       />
 
       <article className="py-10">

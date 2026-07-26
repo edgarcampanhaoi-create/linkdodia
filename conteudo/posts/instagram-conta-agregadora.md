@@ -1,6 +1,8 @@
 ---
 titulo: "Conta agregadora: o Instagram passou a olhar proporção, não volume"
+tituloSeo: "Conta agregadora no Instagram: o critério é proporção"
 resumo: "Perfil feito predominantemente de conteúdo de terceiro perde a recomendação para quem ainda não segue. Como o critério é proporção, postar menos repost não resolve nada."
+descricaoSeo: "Perfil feito de conteúdo de terceiro perde a recomendação para quem não segue. Como o critério é proporção, postar menos repost não resolve nada."
 data: 2026-07-26
 categoria: "Algoritmo"
 tags: ["instagram", "alcance", "conteúdo"]

@@ -1,6 +1,8 @@
 ---
 titulo: "O limite do ManyChat que quebra automação de comentário"
+tituloSeo: "ManyChat e o post ID: o limite da automação de comentário"
 resumo: "A ferramenta não entrega ao fluxo qual publicação gerou o comentário. Sem isso, responder o link certo vira trabalho manual, e a saída técnica esbarra num portão da Meta que exige CNPJ."
+descricaoSeo: "O ManyChat não entrega ao fluxo qual publicação gerou o comentário. A saída pelo webhook da Meta exige Advanced Access, e isso exige CNPJ."
 data: 2026-07-26
 categoria: "Automação"
 tags: ["manychat", "instagram", "automação"]

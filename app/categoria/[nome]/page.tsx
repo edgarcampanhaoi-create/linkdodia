@@ -3,7 +3,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { categorias, postsDaCategoria, formatarData } from "@/lib/posts";
 import { SITE } from "@/lib/site";
+import { migalhas } from "@/lib/schema";
 import { SeloConfianca, Etiqueta } from "@/components/Selos";
+import { Estruturado } from "@/components/Estruturado";
 
 export function generateStaticParams() {
   return categorias().map((c) => ({ nome: c.slug }));
@@ -12,10 +14,19 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { nome: string } }): Metadata {
   const cat = categorias().find((c) => c.slug === params.nome);
   if (!cat) return {};
+  const assunto = cat.nome.toLowerCase();
   return {
-    title: cat.nome,
-    description: `Tudo o que o ${SITE.nome} publicou sobre ${cat.nome.toLowerCase()}, com a fonte de cada afirmação.`,
+    title: `${cat.nome}, com a fonte de cada afirmação`,
+    description: `Tudo o que o ${SITE.nome} publicou sobre ${assunto}: ${cat.quantos} ${
+      cat.quantos === 1 ? "publicação" : "publicações"
+    }, cada uma com o documento que sustenta o que afirma.`,
     alternates: { canonical: `/categoria/${cat.slug}` },
+    openGraph: {
+      type: "website",
+      title: `${cat.nome} no ${SITE.nome}`,
+      description: `O que está confirmado sobre ${assunto}, e o que ainda não está.`,
+      url: `${SITE.url}/categoria/${cat.slug}`,
+    },
   };
 }
 
@@ -27,6 +38,10 @@ export default function CategoriaPage({ params }: { params: { nome: string } }) 
 
   return (
     <main className="mx-auto max-w-5xl px-5">
+      <Estruturado
+        dados={migalhas([{ nome: cat.nome, caminho: `/categoria/${cat.slug}` }])}
+      />
+
       <div className="border-b border-risco py-10">
         <Etiqueta>Assunto</Etiqueta>
         <h1 className="mt-2 font-serif text-3xl font-semibold leading-tight tracking-tight">

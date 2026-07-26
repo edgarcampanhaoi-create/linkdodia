@@ -28,7 +28,17 @@ export type Fonte = {
 export type Post = {
   slug: string;
   titulo: string;
+  /**
+   * Título curto para a aba do navegador e para a linha do resultado de busca.
+   *
+   * O buscador corta perto de 60 caracteres, e manchete boa costuma passar
+   * disso. Em vez de encurtar a manchete, que é escolha editorial, o post pode
+   * declarar uma versão curta com o mesmo achado. Sem esse campo, vale o título.
+   */
+  tituloSeo?: string;
   resumo: string;
+  /** Resumo curto para o mesmo lugar. O resumo editorial costuma ser longo demais. */
+  descricaoSeo?: string;
   /** ISO: aaaa-mm-dd */
   data: string;
   categoria: string;
@@ -106,7 +116,9 @@ function lerArquivo(arquivo: string): Post | null {
   return {
     slug,
     titulo: String(data.titulo),
+    tituloSeo: data.tituloSeo ? String(data.tituloSeo) : undefined,
     resumo: String(data.resumo ?? ""),
+    descricaoSeo: data.descricaoSeo ? String(data.descricaoSeo) : undefined,
     data: dataPost,
     categoria: String(data.categoria ?? "Geral"),
     tags: Array.isArray(data.tags) ? data.tags.map(String) : [],

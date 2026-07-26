@@ -1,17 +1,27 @@
 import type { Metadata } from "next";
 import { SITE } from "@/lib/site";
+import { migalhas } from "@/lib/schema";
 import { Etiqueta } from "@/components/Selos";
+import { Estruturado } from "@/components/Estruturado";
 
 export const metadata: Metadata = {
-  title: "O método",
+  title: "O método: como a gente apura e o que se recusa a publicar",
   description:
     "Como o Link do Dia apura, o que significa cada selo de confiança e o que a gente se recusa a publicar.",
   alternates: { canonical: "/sobre" },
+  openGraph: {
+    type: "website",
+    title: `O método do ${SITE.nome}`,
+    description: "Como a gente apura, e o que se recusa a publicar.",
+    url: `${SITE.url}/sobre`,
+  },
 };
 
 export default function SobrePage() {
   return (
     <main className="mx-auto max-w-5xl px-5">
+      <Estruturado dados={migalhas([{ nome: "O método", caminho: "/sobre" }])} />
+
       <article className="max-w-leitura py-10">
         <Etiqueta>O método</Etiqueta>
         <h1 className="mt-2 font-serif text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">

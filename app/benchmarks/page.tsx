@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { numerosPorCategoria, todasAsLacunas, atualizadoEm } from "@/lib/numeros";
 import { formatarData } from "@/lib/posts";
+import { SITE } from "@/lib/site";
+import { migalhas } from "@/lib/schema";
+import { Estruturado } from "@/components/Estruturado";
 import { capturaLigada } from "@/lib/lista";
 import { resultadoDaPesquisa } from "@/lib/pesquisa";
 import { SeloConfianca, Etiqueta } from "@/components/Selos";
@@ -22,10 +25,17 @@ import { Inscrever } from "@/components/Inscrever";
 export const revalidate = 300;
 
 export const metadata: Metadata = {
-  title: "Benchmarks",
+  title: "Benchmarks de afiliado e marketplace, com a fonte de cada número",
   description:
-    "Os números que valem em marketplace e redes sociais, cada um com o documento que o sustenta, a data e o que fazer com ele. Junto, a lista do que ainda não dá para afirmar.",
+    "Comissão base, janela de atribuição, requisitos de tagueamento e prazos da Meta. Cada número com o documento que o sustenta, a data, e o que fazer com ele.",
   alternates: { canonical: "/benchmarks" },
+  openGraph: {
+    type: "website",
+    title: "Benchmarks de afiliado e marketplace",
+    description:
+      "Os números que valem, com o documento de cada um. E a lista do que ainda não dá para afirmar.",
+    url: `${SITE.url}/benchmarks`,
+  },
 };
 
 export default async function Benchmarks() {
@@ -38,6 +48,8 @@ export default async function Benchmarks() {
 
   return (
     <main className="mx-auto max-w-5xl px-5">
+      <Estruturado dados={migalhas([{ nome: "Benchmarks", caminho: "/benchmarks" }])} />
+
       <section className="border-b border-risco py-10">
         <Etiqueta>Referência</Etiqueta>
         <h1 className="mt-3 max-w-leitura font-serif text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
@@ -99,12 +111,12 @@ export default async function Benchmarks() {
                     ) : (
                       n.fonte
                     )}
-                    , de {formatarData(n.desde)}.{" "}
+                    , de {formatarData(n.desde)}. Explicado em{" "}
                     <Link
                       href={`/posts/${n.post}`}
                       className="font-medium text-farol underline underline-offset-2"
                     >
-                      O texto que explica
+                      {n.tituloDoPost}
                     </Link>
                   </p>
                 </div>
@@ -148,7 +160,7 @@ export default async function Benchmarks() {
                 href={`/posts/${l.post}`}
                 className="mt-3 inline-block text-sm font-medium text-farol underline underline-offset-2"
               >
-                Onde isso aparece
+                {l.tituloDoPost}
               </Link>
             </article>
           ))}

@@ -1,6 +1,8 @@
 ---
 titulo: "A comissão da Shopee é 3%. Os \"15% a 30%\" que os blogs repetem são o teto."
+tituloSeo: "Comissão da Shopee para afiliado: a base é 3%, não 15%"
 resumo: "A base é 3%. O que passa disso vem de Comissão Extra bancada pelo vendedor, e varia por produto. Para quem já tem audiência, essa diferença é a alavanca mais barata que existe."
+descricaoSeo: "A comissão base do afiliado Shopee é 3%. A faixa de 15% a 30% é teto, e quem banca é o vendedor. Como calcular a sua e o que fazer com o número."
 data: 2026-07-26
 categoria: "Afiliados"
 tags: ["shopee", "comissão", "marketplace"]
