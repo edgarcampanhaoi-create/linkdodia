@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 import { SITE } from "@/lib/site";
-import { FONTES_OG } from "@/lib/og";
+import { opcoesDeFonte } from "@/lib/og";
 
 /**
  * Imagem que aparece quando alguém cola o link do site no WhatsApp, no LinkedIn
@@ -23,6 +23,9 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default function Imagem() {
+  const fontes = opcoesDeFonte();
+  const familia = "fonts" in fontes ? "Newsreader" : "serif";
+
   return new ImageResponse(
     (
       <div
@@ -34,7 +37,7 @@ export default function Imagem() {
           justifyContent: "space-between",
           background: "#fbfaf7",
           padding: "72px 80px",
-          fontFamily: "Newsreader",
+          fontFamily: familia,
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
@@ -69,6 +72,6 @@ export default function Imagem() {
         </div>
       </div>
     ),
-    { ...size, fonts: FONTES_OG() },
+    { ...size, ...fontes },
   );
 }

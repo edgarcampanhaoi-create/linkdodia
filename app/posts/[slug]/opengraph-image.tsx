@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { postPorSlug, formatarData, ROTULO_CONFIANCA } from "@/lib/posts";
 import { SITE } from "@/lib/site";
-import { FONTES_OG } from "@/lib/og";
+import { opcoesDeFonte } from "@/lib/og";
 
 /**
  * Cada post tem a sua imagem de compartilhamento, com o título dentro. Quem vê
@@ -17,6 +17,8 @@ export const contentType = "image/png";
 
 export default function Imagem({ params }: { params: { slug: string } }) {
   const post = postPorSlug(params.slug);
+  const fontes = opcoesDeFonte();
+  const familia = "fonts" in fontes ? "Newsreader" : "serif";
   const titulo = post?.titulo ?? SITE.nome;
   const tamanhoTitulo = titulo.length > 90 ? 46 : titulo.length > 60 ? 54 : 62;
 
@@ -31,7 +33,7 @@ export default function Imagem({ params }: { params: { slug: string } }) {
           justifyContent: "space-between",
           background: "#fbfaf7",
           padding: "68px 80px",
-          fontFamily: "Newsreader",
+          fontFamily: familia,
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
@@ -77,6 +79,6 @@ export default function Imagem({ params }: { params: { slug: string } }) {
         </div>
       </div>
     ),
-    { ...size, fonts: FONTES_OG() },
+    { ...size, ...fontes },
   );
 }
