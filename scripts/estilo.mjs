@@ -14,6 +14,10 @@ import path from "node:path";
 
 const ALVOS = [
   { pasta: path.join(process.cwd(), "conteudo", "posts"), ext: /\.mdx?$/ },
+  // A lista de benchmarks é texto de leitor como qualquer outro, então passa
+  // pelas mesmas regras. Alvo pelo nome do arquivo, e não pela pasta inteira,
+  // porque o próprio ESTILO.md cita os caracteres proibidos para explicá-los.
+  { pasta: path.join(process.cwd(), "conteudo"), ext: /^benchmarks\.md$/ },
   { pasta: path.join(process.cwd(), "app"), ext: /\.tsx?$/ },
   { pasta: path.join(process.cwd(), "components"), ext: /\.tsx?$/ },
   { pasta: path.join(process.cwd(), "lib"), ext: /^site\.ts$/ },

@@ -55,6 +55,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Link href="/" className="hover:text-tinta">
                 Publicações
               </Link>
+              <Link href="/benchmarks" className="hover:text-tinta">
+                Benchmarks
+              </Link>
               <Link href="/sobre" className="hover:text-tinta">
                 Método
               </Link>

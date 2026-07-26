@@ -77,13 +77,29 @@ ainda estiver marcado para redirecionar ao `www`, porque os dois juntos formam l
 é discreta. Tem que limpar o redirecionamento do domínio seco primeiro, salvar, e só então
 configurar o `www`.
 
-## O que fica pendente de produto
+## A página de benchmarks
+
+Em `/benchmarks`, ligada no menu e na lateral da home. É a página de consulta, e é onde o
+produto pago vai morar.
+
+Tem três partes. A tabela de números, com oito itens, cada um com o documento que o
+sustenta, a data do documento, o que fazer com aquilo e o link para o texto que explica. A
+calculadora de comissão média, que roda inteira no navegador e não envia nada para lugar
+nenhum. E a lista de lacunas, com as seis perguntas que nenhuma fonte pública responde.
+
+Os dados moram em `conteudo/benchmarks.md`, em cabeçalho YAML, para que apurar não exija
+mexer em componente. `lib/numeros.ts` valida na leitura e quebra o build quando falta fonte,
+data ou quando o número aponta para post que não existe.
+
+### O que fica pendente de produto
 
 - O acervo de pesquisa rende de 10 a 15 posts. Depois disso, publicação diária precisa de
   fonte nova de matéria-prima.
 - O produto pago não está definido. A decisão foi adiada de propósito para ser tomada com
   dado de audiência, e o relógio começou agora, com o site no ar e o Analytics ligado.
-- Falta a página de benchmarks, que é onde o produto pago vai morar.
+- As seis lacunas são a matéria-prima do benchmark próprio. Nenhuma se resolve lendo
+  documento: só juntando medição de muita gente que opera. Esse levantamento não existe
+  ainda, e a página diz isso com todas as letras.
 
 ## O projeto anterior
 

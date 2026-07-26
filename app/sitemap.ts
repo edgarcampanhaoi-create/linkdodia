@@ -8,6 +8,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     { url: SITE.url, lastModified: new Date(maisRecente), changeFrequency: "daily", priority: 1 },
+    {
+      url: `${SITE.url}/benchmarks`,
+      lastModified: new Date(maisRecente),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
     { url: `${SITE.url}/sobre`, changeFrequency: "monthly", priority: 0.5 },
     ...categorias().map((c) => ({
       url: `${SITE.url}/categoria/${c.slug}`,

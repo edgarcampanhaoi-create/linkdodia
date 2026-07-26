@@ -73,6 +73,23 @@ export default function Home() {
             <aside className="mt-10 flex flex-col gap-4 md:mt-0">
               {lista && <Inscrever origem="home-lateral" />}
 
+              <div className="rounded-xl border border-farol/25 bg-farol-claro p-5">
+                <Etiqueta>Referência</Etiqueta>
+                <p className="mt-2 font-serif text-lg font-semibold leading-snug">
+                  Os números, com o documento de cada um
+                </p>
+                <p className="mt-1.5 text-sm leading-relaxed text-tinta-2">
+                  A página de consulta: o que está conferido, o que ainda não dá para
+                  afirmar e a conta que diz onde você está.
+                </p>
+                <Link
+                  href="/benchmarks"
+                  className="mt-3 inline-block text-sm font-semibold text-farol underline underline-offset-2"
+                >
+                  Ver os benchmarks
+                </Link>
+              </div>
+
               <div className="rounded-xl border border-risco bg-papel-alto p-5">
                 <Etiqueta>Assuntos</Etiqueta>
                 <ul className="mt-3 flex flex-col gap-2 text-sm">
