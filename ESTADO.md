@@ -51,10 +51,15 @@ Ligada. O Redis da Upstash (`upstash-kv-emerald-flame`) foi conectado ao projeto
 em 26 de julho, e o formulário passou a renderizar no ar, com o campo de e-mail visível e o
 campo-armadilha escondido, como projetado.
 
-Renderizar prova que o site enxerga as variáveis de ambiente, porque `capturaLigada()` é o
-que decide se o formulário existe. **Não prova que a gravação funciona**: endereço ou token
-errados só apareceriam na hora de gravar. Falta um cadastro de teste de ponta a ponta, que
-escreve de verdade na lista e por isso depende de autorização.
+A gravação foi provada de ponta a ponta, com autorização, usando o endereço fictício
+`teste-linkdodia-26jul@example.com`. Ele está na lista e pode ser apagado pelo painel da
+Upstash, no conjunto `lista:emails`.
+
+O teste teve controle negativo embutido. O primeiro cadastro respondeu "Pronto! Você recebe
+o próximo" e o segundo, com o mesmo endereço, respondeu "Você já estava na lista". Essa
+diferença só existe se o `SADD` devolveu 0 na segunda vez, o que exige que a primeira
+escrita tenha ficado gravada de verdade no Upstash. Formulário que responde sempre a mesma
+coisa não prova nada.
 
 Lembrete de operação: variável de ambiente nova só vale em publicação nova. Conectar
 serviço pelo painel não muda o site sozinho.
