@@ -107,8 +107,17 @@ for (const alvo of ALVOS) {
     }
 
     // Frase longa demais: mede só o corpo do post, onde o ritmo importa.
+    //
+    // Citação em bloco fica de fora. Documento oficial escreve em período longo,
+    // e a citação é literal por obrigação: encurtar a frase de um artigo de lei
+    // para agradar este script seria falsificar a fonte, que é o oposto do que
+    // o site faz. Avisar sobre ela só criaria pressão para isso.
     if (alvo.ext.source.includes("md")) {
-      const corpo = texto.replace(/^---[\s\S]*?---/, "");
+      const corpo = texto
+        .replace(/^---[\s\S]*?---/, "")
+        .split("\n")
+        .filter((linha) => !linha.trimStart().startsWith(">"))
+        .join("\n");
       const longas = corpo
         .split(/(?<=[.!?])\s+/)
         .filter((f) => f.split(/\s+/).length > 42);

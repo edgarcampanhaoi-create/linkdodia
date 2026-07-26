@@ -89,7 +89,9 @@ Em 30 de abril de 2026 o Instagram passou a tratar de forma diferente as contas 
 
 O critério é proporção, e não volume. Isso derruba a primeira reação de quem se vê afetado, que é postar menos repost. Cinco reposts em dez publicações dá na mesma que um repost em duas.
 
-O que move o ponteiro é aumentar a fatia de material seu, ainda que o total publicado siga igual. Antes de opinar sobre a sua proporção, conte quantas das suas últimas 30 publicações são gravadas por você. Conte mesmo, em vez de estimar. O raciocínio completo está em [Conta agregadora: o Instagram passou a olhar proporção](/posts/instagram-conta-agregadora).
+O que move o ponteiro é aumentar a fatia de material seu, ainda que o total publicado siga igual. Antes de opinar sobre a sua proporção, conte quantas das suas últimas 30 publicações são gravadas por você. Conte mesmo, em vez de estimar.
+
+Existe um segundo pedágio, e ele não vem de plataforma. O artigo 104 da Lei 9.610/98 responsabiliza solidariamente quem utiliza obra reproduzida com fraude para obter lucro direto ou indireto. Comissão de afiliado é ganho indireto, e quem reposta vídeo de terceiro costuma achar que está fora disso porque não vendeu o vídeo. O raciocínio completo, com a citação do artigo, está em [Conta agregadora: o Instagram passou a olhar proporção](/posts/instagram-conta-agregadora).
 
 ## Como fazer a automação responder o link certo
 

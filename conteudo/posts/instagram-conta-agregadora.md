@@ -10,6 +10,8 @@ confianca: "verificado"
 ressalva: "A política e o critério estão documentados. O tamanho do impacto por perfil não é público e varia."
 fontes:
   - texto: "Política do Instagram sobre contas agregadoras, anunciada em 30 de abril de 2026"
+  - texto: "Lei 9.610/98, artigos 29, 102 e 104, texto oficial no portal da Presidência da República"
+    url: "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
 ---
 
 Em 30 de abril de 2026 o Instagram passou a tratar de forma diferente as chamadas contas agregadoras: perfis cujo conteúdo é predominantemente de terceiros, seja repostagem, recorte ou compilação.
@@ -32,7 +34,17 @@ Essa mecânica agora paga dois pedágios que se somam.
 
 O primeiro é de alcance. A conta perde a distribuição para quem não segue, que era o que fazia o repost valer a pena.
 
-O segundo é jurídico. Republicar vídeo de terceiro com finalidade comercial expõe a operação. A Lei 9.610/98 trata da reprodução não autorizada, e há previsão de responsabilizar quem se beneficia dela, inclusive por lucro indireto. Não é risco de manual: um vídeo basta para gerar notificação.
+O segundo é jurídico, e ele tem artigo com número.
+
+A Lei 9.610/98 diz, no artigo 29, inciso I, que a reprodução parcial ou integral de uma obra depende de autorização prévia e expressa do autor. Até aí, nada que surpreenda quem reposta.
+
+O artigo 104 é o que pega a operação de afiliado, porque ele alcança quem só usa:
+
+> "Quem vender, expuser a venda, ocultar, adquirir, distribuir, tiver em depósito ou utilizar obra ou fonograma reproduzidos com fraude, com a finalidade de vender, obter ganho, vantagem, proveito, lucro direto ou indireto, para si ou para outrem, será solidariamente responsável com o contrafator"
+
+Repare em "lucro direto ou indireto". Quem reposta vídeo de terceiro não vende o vídeo, e é por isso que muita gente acha que está fora. A comissão do link é ganho indireto, e o texto legal já previu isso.
+
+A lei também não fala em quantidade. Pelo artigo 102, o titular de uma obra reproduzida sem autorização pode pedir a apreensão ou a indenização, e um vídeo já é uma obra.
 
 O resultado prático é que conteúdo original deixou de ser o jeito bonito de fazer e virou o único jeito de crescer nesse tipo de perfil.
 
