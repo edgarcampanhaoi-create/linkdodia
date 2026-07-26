@@ -1,44 +1,47 @@
 ---
 titulo: "Conta agregadora: o Instagram passou a olhar proporção, não volume"
-resumo: "Perfil predominantemente feito de conteúdo de terceiro perde recomendação para não-seguidores. O critério é a proporção — então postar menos não protege ninguém."
+resumo: "Perfil feito predominantemente de conteúdo de terceiro perde a recomendação para quem ainda não segue. Como o critério é proporção, postar menos repost não resolve nada."
 data: 2026-07-26
 categoria: "Algoritmo"
 tags: ["instagram", "alcance", "conteúdo"]
 confianca: "verificado"
 ressalva: "A política e o critério estão documentados. O tamanho do impacto por perfil não é público e varia."
 fontes:
-  - texto: "Política do Instagram sobre contas agregadoras, anunciada em 30/04/2026"
+  - texto: "Política do Instagram sobre contas agregadoras, anunciada em 30 de abril de 2026"
 ---
 
-Em 30 de abril de 2026 o Instagram passou a tratar de forma diferente as chamadas **contas agregadoras**: perfis cujo conteúdo é predominantemente **não-original** — repostagem de vídeo de terceiro, recorte, compilação.
+Em 30 de abril de 2026 o Instagram passou a tratar de forma diferente as chamadas contas agregadoras: perfis cujo conteúdo é predominantemente de terceiros, seja repostagem, recorte ou compilação.
 
-A penalidade não é banimento. É pior para quem vive de crescimento: essas contas **perdem a recomendação para não-seguidores**. Ou seja, param de aparecer para quem ainda não segue — que é exatamente o canal pelo qual uma página cresce.
+A penalidade não é banimento. Para quem vive de crescimento, é pior. Essas contas perdem a recomendação para não seguidores, que é justamente o canal por onde uma página cresce.
 
-## O detalhe que inverte a estratégia mais comum
+## O detalhe que inverte a reação óbvia
 
-O critério é **proporção**, não volume.
+O critério é proporção, e não volume.
 
-Isso derruba a reação instintiva de quem se vê afetado: "vou postar menos repost". Postar menos repost não muda a proporção se o original também não aumentar. Cinco reposts por dia em dez publicações é a mesma proporção que um repost por dia em duas.
+Isso derruba o primeiro instinto de quem se vê afetado, que é postar menos repost. Diminuir repost não muda a proporção se o conteúdo original também não subir. Cinco reposts em dez publicações dá na mesma que um repost em duas.
 
-O que muda a proporção é **subir a fração de conteúdo original** — gravar mais, mesmo que publique o mesmo tanto.
+O que muda a proporção é aumentar a fatia de conteúdo próprio. Gravar mais, ainda que publique o mesmo tanto.
 
-## Por que isso é maior do que parece pra quem vende
+## Por que isso pesa para quem vende
 
-Muita operação de afiliado no Brasil se apoia numa mecânica simples: achar vídeo que já viralizou, repostar, colocar o link. Funciona rápido, custa quase nada e escala sem talento de produção.
+Boa parte da operação de afiliado no Brasil se apoia numa mecânica simples: achar vídeo que já viralizou, repostar e colocar o link. Funciona rápido, custa quase nada e escala sem talento de produção.
 
-Essa mecânica agora tem dois pedágios acumulados:
+Essa mecânica agora paga dois pedágios que se somam.
 
-1. **Alcance**: a conta perde a distribuição para não-seguidores, que era justamente o que fazia o repost valer a pena.
-2. **Direito autoral**: republicar vídeo de terceiro com finalidade comercial expõe a operação. No Brasil, a Lei 9.610/98 trata da reprodução não autorizada, e há previsão de responsabilização de quem se beneficia dela — inclusive por lucro indireto. Não é risco teórico: um único vídeo basta para gerar notificação.
+O primeiro é de alcance. A conta perde a distribuição para quem não segue, que era o que fazia o repost valer a pena.
 
-O ponto prático: **o conteúdo original deixou de ser "o jeito bonito de fazer" e virou o único jeito de crescer** nesse tipo de perfil.
+O segundo é jurídico. Republicar vídeo de terceiro com finalidade comercial expõe a operação. A Lei 9.610/98 trata da reprodução não autorizada, e há previsão de responsabilizar quem se beneficia dela, inclusive por lucro indireto. Não é risco de manual: um vídeo basta para gerar notificação.
+
+O resultado prático é que conteúdo original deixou de ser o jeito bonito de fazer e virou o único jeito de crescer nesse tipo de perfil.
 
 ## O que fazer com isso
 
-- **Meça sua proporção antes de opinar sobre ela.** Conte, nos últimos 30 posts, quantos são material seu. A maioria das pessoas erra essa estimativa para menos.
-- **Aumente o numerador, não diminua o denominador.** Um vídeo original a mais por dia muda mais a sua situação do que cortar dois reposts.
-- **Produto na mão resolve pauta.** Programas de amostra de marketplace (a Shopee tem o seu) existem para o afiliado gravar conteúdo próprio: o vendedor manda o produto, você grava. É insumo de conteúdo original a custo zero, e alinhado com o que a plataforma quer premiar.
+Meça a sua proporção antes de opinar sobre ela. Conte, nos últimos 30 posts, quantos são material seu. Quase todo mundo erra essa estimativa para menos.
 
-## O que este texto não afirma
+Aumente o numerador em vez de diminuir o denominador. Um vídeo original a mais por dia muda mais a sua situação do que cortar dois reposts.
 
-Não existe número público de "quanto de alcance se perde". A política descreve o mecanismo (perda de recomendação a não-seguidores) e o critério (proporção); a magnitude varia por conta e não é divulgada. Desconfie de qualquer post que te der uma porcentagem exata de queda — ela não existe em fonte oficial.
+E resolva a pauta com produto na mão. Programas de amostra de marketplace existem para o afiliado gravar conteúdo próprio: o vendedor manda o produto, você grava. É insumo de conteúdo original a custo zero, alinhado com o que a plataforma quer premiar.
+
+## O que não dá para afirmar
+
+Não existe número público de quanto alcance se perde. A política descreve o mecanismo, que é a perda de recomendação a não seguidores, e o critério, que é proporção. A magnitude varia por conta e não é divulgada. Desconfie de quem publicar uma porcentagem exata de queda, porque ela não existe em fonte oficial.

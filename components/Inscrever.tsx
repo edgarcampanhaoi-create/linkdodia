@@ -13,13 +13,13 @@ function Botao() {
       disabled={pending}
       className="shrink-0 rounded-lg bg-farol px-4 py-2.5 text-sm font-semibold text-white transition hover:brightness-110 disabled:opacity-60"
     >
-      {pending ? "Enviando…" : "Quero receber"}
+      {pending ? "Enviando" : "Quero receber"}
     </button>
   );
 }
 
 /**
- * Caixa de cadastro. Só é renderizada quando existe destino configurado — quem
+ * Caixa de cadastro. Só é renderizada quando existe destino configurado. Quem
  * decide é o servidor, em `capturaLigada()`.
  */
 export function Inscrever({

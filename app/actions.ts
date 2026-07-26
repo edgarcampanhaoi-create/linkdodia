@@ -9,8 +9,8 @@ export type EstadoInscricao = { ok: boolean; mensagem?: string };
  *
  * O campo `sobrenome` é uma armadilha para robô (honeypot): fica escondido no
  * formulário, gente não preenche, robô preenche tudo. Se vier preenchido, a
- * gente responde "deu certo" e não grava nada — dizer "você é um robô" só
- * ensina o robô a passar da próxima vez.
+ * gente responde "deu certo" e não grava nada. Dizer "você é um robô" só ensina
+ * o robô a passar da próxima vez.
  */
 export async function inscreverNaLista(
   _anterior: EstadoInscricao,
@@ -28,7 +28,7 @@ export async function inscreverNaLista(
   return {
     ok: true,
     mensagem: r.jaEstava
-      ? "Você já estava na lista — tudo certo."
+      ? "Você já estava na lista. Tudo certo."
       : "Pronto! Você recebe o próximo.",
   };
 }

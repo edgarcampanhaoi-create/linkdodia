@@ -23,7 +23,7 @@ const sans = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: `${SITE.nome} — benchmark e referência para quem vende online`,
+    default: `${SITE.nome}: benchmark e referência para quem vende online`,
     template: `%s · ${SITE.nome}`,
   },
   description: SITE.descricao,
@@ -74,8 +74,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </p>
             <p className="mt-4 text-xs text-tinta-3">
               {SITE.nome} · {SITE.dominio} · publicação independente. Não somos afiliados,
-              parceiros nem representantes das plataformas citadas; marcas e documentos são
-              referenciados apenas para análise.
+              parceiros nem representantes das plataformas citadas. Marcas e documentos
+              aparecem aqui apenas como objeto de análise.
             </p>
           </div>
         </footer>

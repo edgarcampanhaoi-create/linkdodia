@@ -9,14 +9,14 @@ export default function Home() {
   const posts = todosOsPosts();
   const [destaque, ...resto] = posts;
   const cats = categorias();
-  // Sem destino configurado, o formulário nem aparece — ver lib/lista.ts.
+  // Sem destino configurado, o formulário nem aparece. Ver lib/lista.ts.
   const lista = capturaLigada();
 
   return (
     <main className="mx-auto max-w-5xl px-5">
       <section className="border-b border-risco py-10">
         <h1 className="max-w-leitura font-serif text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
-          O que está funcionando em marketing digital e marketplaces —{" "}
+          O que está funcionando em marketing digital e marketplaces,{" "}
           <em className="italic text-tinta-2">com a fonte na mesa</em>.
         </h1>
         <p className="mt-4 max-w-leitura text-base leading-relaxed text-tinta-2">

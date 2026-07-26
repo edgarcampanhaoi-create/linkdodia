@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/estilo.mjs && node scripts/contraste.mjs",
     "build": "next build",
+    "estilo": "node scripts/estilo.mjs",
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",

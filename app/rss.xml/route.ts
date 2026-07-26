@@ -3,7 +3,7 @@ import { SITE } from "@/lib/site";
 
 /**
  * RSS. Num site de publicação diária, é o canal que não depende de algoritmo de
- * rede nenhuma — e o público deste site (gente que trabalha com marketing) é
+ * rede nenhuma. E o público deste site, gente que trabalha com marketing, é
  * justamente quem ainda usa leitor de feed.
  */
 

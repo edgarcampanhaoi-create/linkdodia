@@ -1,52 +1,54 @@
 ---
 titulo: "A comissão da Shopee é 3%. Os \"15% a 30%\" que os blogs repetem são o teto."
-resumo: "A base é 3%; o resto depende de Comissão Extra paga pelo vendedor. Entender a diferença é a alavanca mais barata que existe para quem já tem audiência."
+resumo: "A base é 3%. O que passa disso vem de Comissão Extra bancada pelo vendedor, e varia por produto. Para quem já tem audiência, essa diferença é a alavanca mais barata que existe."
 data: 2026-07-26
 categoria: "Afiliados"
 tags: ["shopee", "comissão", "marketplace"]
 confianca: "verificado"
-ressalva: "Percentuais e regras de validação conferidos no T&C oficial. A faixa que cada categoria paga hoje muda com frequência e precisa ser conferida no seu painel."
+ressalva: "Percentuais e regras de validação conferidos no contrato oficial. A faixa que cada categoria paga hoje muda com frequência e tem que ser conferida no seu painel."
 fontes:
-  - texto: "Termos e Condições do Programa de Afiliados Shopee, artigos 124094 e 124095 — atualizados em 30/06/2026"
+  - texto: "Termos e Condições do Programa de Afiliados Shopee, artigos 124094 e 124095, atualizados em 30 de junho de 2026"
 ---
 
-Procure "quanto paga o afiliado Shopee" e você vai achar dezenas de textos dizendo "de 15% a 30%". O número existe. Ele só não é a regra — é o **teto**.
+Procure "quanto paga o afiliado Shopee" e vão aparecer dezenas de textos com a mesma faixa: de 15% a 30%. O número existe. Ele só não é a regra. É o teto.
 
-## Como a conta funciona de verdade
+## Como a conta funciona
 
-**A comissão-base é 3%.** O que faz alguns produtos pagarem muito mais é a **Comissão Extra**, que é bancada pelo vendedor, não pela Shopee. Somando as duas, dá pra chegar perto de 20% ou 30% em alguns itens — e ficar nos 3% em outros.
+A comissão base é de 3%. O que faz alguns produtos pagarem muito mais é a Comissão Extra, e quem banca isso é o vendedor, não a Shopee. Somando as duas, dá para chegar perto de 20% ou 30% em alguns itens e ficar nos 3% em outros.
 
-Três detalhes que mudam o valor final e costumam ser omitidos:
+Três detalhes mexem no valor final e quase nunca aparecem nos textos que repetem a faixa.
 
-- **A base de cálculo é o valor líquido.** Sai imposto, sai cupom, sai frete. A comissão não incide sobre o total que o cliente pagou.
-- **A comissão só vale depois da entrega e da confirmação de pagamento.** O que aparece como "estimada" no painel ainda pode virar zero — pedido cancelado, devolvido, não pago.
-- **"Sem teto por pedido" é ação temporária.** O contrato descreve a ausência de limite por pedido como **ação por tempo limitado** (art. 124095). Ou seja: é revogável, e não é premissa de plano de longo prazo.
+O primeiro é a base de cálculo. A conta usa o valor líquido: sai imposto, sai cupom, sai frete. A comissão não incide sobre o total que o cliente pagou.
 
-## Por que isso é a alavanca mais barata que existe
+O segundo é o momento da validação. A comissão só vale depois da entrega e da confirmação do pagamento. O que aparece como estimado no painel ainda pode virar zero em pedido cancelado, devolvido ou não pago.
 
-Aqui está a parte que interessa a quem já tem audiência.
+O terceiro está no artigo 124095. A ausência de teto por pedido é descrita como ação por tempo limitado. Ou seja, é revogável, e não serve de premissa para plano de um ano.
 
-Se a sua comissão média está perto de **3%**, o seu problema não é volume — é **categoria**. Mudar o tipo de produto que você divulga pode multiplicar sua receita várias vezes **sem uma visualização a mais**. Não custa mídia, não custa mais gravação, não custa audiência nova. Custa mudar o que você escolhe.
+## Por que isso é a alavanca mais barata
 
-Se ela já está perto de **15%**, aí sim a única alavanca que sobra é volume — mais audiência, mais posts, mais distribuição, tudo caro.
+Aqui está o que interessa a quem já tem audiência.
+
+Se a sua comissão média está perto de 3%, o problema não é volume. É categoria. Trocar o tipo de produto que você divulga pode multiplicar a receita várias vezes sem uma visualização a mais. Não custa mídia, não custa mais gravação, não custa audiência nova. Custa mudar a escolha.
+
+Se ela já está perto de 15%, a única alavanca que sobra é volume. Mais audiência, mais posts, mais distribuição, tudo caro.
 
 Um número, dois planos completamente diferentes. E ele está no seu extrato, não em benchmark de blog nenhum.
 
 ## Como achar o seu número
 
-No painel de afiliado, exporte os últimos **90 dias** (não 30 — trinta dias não separa sorte de padrão) e faça duas contas:
+No painel de afiliado, exporte os últimos 90 dias. Não 30. Trinta dias não separa sorte de padrão.
 
-| Conta | Como | O que ela responde |
+| Conta | Como | O que responde |
 |---|---|---|
 | Comissão média | Comissão ÷ Pedidos | Você está na base ou perto do teto? |
 | Comissão por categoria | a mesma conta, quebrada por categoria | Qual categoria paga a sua conta? |
 
-A segunda é a que vale ouro. É comum descobrir que **uma categoria minoritária no seu conteúdo responde pela maior parte da comissão** — e que a categoria que você mais divulga é justamente a que menos paga.
+A segunda vale ouro. É comum descobrir que uma categoria minoritária no seu conteúdo responde pela maior parte da comissão, e que aquela em que você mais posta é justamente a que menos paga.
 
 ## O erro de leitura mais comum
 
-Confundir **comissão estimada** com dinheiro. O painel mostra estimativa no momento do pedido; a validação vem depois da entrega. Se você planeja em cima do estimado, você planeja com um número que ainda vai encolher — e a diferença não é pequena em categorias com muita devolução (roupa e calçado, tipicamente).
+Confundir comissão estimada com dinheiro. O painel mostra a estimativa no momento do pedido, e a validação vem depois da entrega. Quem planeja em cima do estimado planeja com um número que ainda vai encolher. Em categoria com muita devolução, como roupa e calçado, a diferença não é pequena.
 
-## O que este texto não afirma
+## O que este texto não faz
 
-Não damos aqui a tabela de quanto cada categoria paga hoje. Esse número muda por campanha, por vendedor e por período — qualquer tabela publicada envelhece em semanas, e republicá-la sem data é o tipo de coisa que faz um site perder credibilidade. **Confira no seu painel**, que é onde ela está certa.
+Não publicamos aqui a tabela de quanto cada categoria paga hoje. Esse número muda por campanha, por vendedor e por período. Tabela publicada sem data envelhece em semanas e vira desinformação com cara de referência. Confira no seu painel, que é onde ela está certa.

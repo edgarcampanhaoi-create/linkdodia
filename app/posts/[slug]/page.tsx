@@ -100,7 +100,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
             <Inscrever
               origem={`post-${post.slug}`}
               titulo="Recebe o próximo por e-mail"
-              texto="Uma publicação por dia sobre o que está funcionando — sempre com a fonte junto."
+              texto="Uma publicação por dia sobre o que está funcionando, sempre com a fonte junto."
             />
           </div>
         )}
