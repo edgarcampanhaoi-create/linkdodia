@@ -132,6 +132,11 @@ buscador seria mentira num site que vende conferência de fonte.
 ser o título do post. "O texto que explica" não diz nada nem para quem lê nem para quem
 indexa.
 
+**Search Console.** Propriedade `https://linkdodia.com` verificada em 26 de julho, pelo
+método de arquivo HTML. O arquivo é `public/google6ec048a3dfe6fea8.html` e **não pode ser
+apagado**: o Google refaz essa checagem de tempos em tempos, e sem o arquivo a propriedade
+cai. Está versionado, então some só se alguém apagar de propósito.
+
 O que não foi feito, e vale saber: nenhuma página tem imagem de compartilhamento própria além
 da home e dos posts, e não existe conteúdo escrito para pergunta de volume alto. Isso é
 estratégia de pauta, não de código.
