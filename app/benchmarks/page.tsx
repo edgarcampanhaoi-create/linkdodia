@@ -111,7 +111,10 @@ export default async function Benchmarks() {
                     ) : (
                       n.fonte
                     )}
-                    , de {formatarData(n.desde)}. Explicado em{" "}
+                    {n.dataDe === "consulta"
+                      ? `, conferida em ${formatarData(n.desde)}`
+                      : `, de ${formatarData(n.desde)}`}
+                    . Explicado em{" "}
                     <Link
                       href={`/posts/${n.post}`}
                       className="font-medium text-farol underline underline-offset-2"

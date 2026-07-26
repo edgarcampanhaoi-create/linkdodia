@@ -25,7 +25,7 @@ Medido em `linkdodia.com`, no site publicado, não presumido.
 | Rota | Resposta |
 | --- | --- |
 | `/` | 200, HTML |
-| os cinco posts | 200, HTML |
+| os posts | 200, HTML |
 | as quatro páginas de assunto | 200, HTML |
 | `/sobre` | 200, HTML |
 | `/opengraph-image` | 200, PNG de 43 KB |
@@ -137,9 +137,20 @@ método de arquivo HTML. O arquivo é `public/google6ec048a3dfe6fea8.html` e **n
 apagado**: o Google refaz essa checagem de tempos em tempos, e sem o arquivo a propriedade
 cai. Está versionado, então some só se alguém apagar de propósito.
 
+**A peça guarda-chuva.** `programa-de-afiliados-shopee-como-funciona`, publicada em 26 de
+julho, escrita para a pergunta com mais volume do assunto. Ela não traz apuração nova: reúne
+o que os cinco posts anteriores já sustentam, com artigo e data, e amarra tudo com links
+internos. Confiança **parcial**, porque mistura cláusula de contrato com leitura de campo, e
+o texto diz qual é qual em cada trecho.
+
+Foi montada com orquestração de agentes: um levantou o inventário de afirmações com trecho
+literal de apoio, três escreveram estruturas independentes, três juízes com lentes distintas
+escolheram uma, e dois refutadores adversariais tentaram derrubar o vencedor. Os refutadores
+acharam sete e catorze problemas, todos corrigidos antes de publicar. A escrita final é
+humana, sobre esse material.
+
 O que não foi feito, e vale saber: nenhuma página tem imagem de compartilhamento própria além
-da home e dos posts, e não existe conteúdo escrito para pergunta de volume alto. Isso é
-estratégia de pauta, não de código.
+da home e dos posts.
 
 ### O que fica pendente de produto
 

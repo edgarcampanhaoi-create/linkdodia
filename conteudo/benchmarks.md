@@ -84,6 +84,7 @@ numeros:
     confianca: "verificado"
     fonte: "Documentação da Meta sobre requisitos de Advanced Access e verificação de negócio"
     desde: "2026-07-26"
+    dataDe: "consulta"
     post: "manychat-limite-post-id"
 
   - id: "advanced-access-cnpj"
@@ -95,6 +96,7 @@ numeros:
     confianca: "verificado"
     fonte: "Documentação da Meta para webhooks de comentários do Instagram, campo comments, objeto media.id"
     desde: "2026-07-26"
+    dataDe: "consulta"
     post: "manychat-limite-post-id"
 
 lacunas:

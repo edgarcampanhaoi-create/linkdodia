@@ -31,8 +31,17 @@ export type Numero = {
   /** Nome do documento, com artigo quando existe. */
   fonte: string;
   fonteUrl?: string;
-  /** ISO aaaa-mm-dd: a data do documento, não a da publicação nossa. */
+  /** ISO aaaa-mm-dd: a data do documento, ou a da consulta quando o documento não tem data. */
   desde: string;
+  /**
+   * O que aquela data significa.
+   *
+   * Documentação viva, como a da Meta, não traz data de versão. Carimbar o dia
+   * em que a gente leu como se fosse a data do documento é impreciso, e num
+   * site que vende conferência de fonte a imprecisão sai caro. Então a página
+   * escreve "conferido em" quando é consulta, e "de" quando é documento.
+   */
+  dataDe: "documento" | "consulta";
   /** Slug do post que explica. Precisa existir. */
   post: string;
   /**
@@ -77,6 +86,13 @@ function lerArquivo(): { numeros: Numero[]; lacunas: Lacuna[] } {
       throw new Error(`benchmarks.md: ${onde} está sem data válida em "desde" (aaaa-mm-dd).`);
     }
 
+    const dataDe = String(b.dataDe ?? "documento");
+    if (dataDe !== "documento" && dataDe !== "consulta") {
+      throw new Error(
+        `benchmarks.md: ${onde} tem dataDe "${dataDe}". Use "documento" ou "consulta".`,
+      );
+    }
+
     const confianca = String(b.confianca ?? "");
     if (!CONFIANCAS.includes(confianca as Confianca)) {
       throw new Error(
@@ -103,6 +119,7 @@ function lerArquivo(): { numeros: Numero[]; lacunas: Lacuna[] } {
       fonte: texto(b.fonte, "fonte", onde),
       fonteUrl: typeof b.fonteUrl === "string" && b.fonteUrl ? b.fonteUrl : undefined,
       desde,
+      dataDe: dataDe as "documento" | "consulta",
       post,
       tituloDoPost,
     };
@@ -153,8 +170,16 @@ export function numerosPorCategoria(): { categoria: string; numeros: Numero[] }[
   return grupos;
 }
 
-/** A data do documento mais recente da lista. Serve de "atualizado em". */
+/**
+ * A data do documento mais recente da lista.
+ *
+ * Conta só o que é data de documento. Data de consulta é quando a gente leu, e
+ * misturar as duas faria a página anunciar documento novo que não existe.
+ */
 export function atualizadoEm(): string | null {
-  const datas = todosOsNumeros().map((n) => n.desde).sort();
+  const datas = todosOsNumeros()
+    .filter((n) => n.dataDe === "documento")
+    .map((n) => n.desde)
+    .sort();
   return datas.length > 0 ? datas[datas.length - 1] : null;
 }
