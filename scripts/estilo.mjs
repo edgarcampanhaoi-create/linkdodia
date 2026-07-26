@@ -113,13 +113,20 @@ for (const alvo of ALVOS) {
     // para agradar este script seria falsificar a fonte, que é o oposto do que
     // o site faz. Avisar sobre ela só criaria pressão para isso.
     if (alvo.ext.source.includes("md")) {
-      const corpo = texto
+      // Mede linha a linha, e não o texto corrido.
+      //
+      // Intertítulo não termina em ponto, então um split por pontuação cola o
+      // parágrafo anterior, o título e o parágrafo seguinte numa "frase" só, e
+      // o aviso dispara sozinho. Item de lista tem o mesmo problema. Como aqui
+      // cada parágrafo ocupa uma linha, medir por linha é a leitura fiel.
+      const linhas = texto
         .replace(/^---[\s\S]*?---/, "")
         .split("\n")
-        .filter((linha) => !linha.trimStart().startsWith(">"))
-        .join("\n");
-      const longas = corpo
-        .split(/(?<=[.!?])\s+/)
+        .map((l) => l.trim())
+        .filter((l) => l && !l.startsWith(">") && !l.startsWith("#") && !l.startsWith("|"));
+
+      const longas = linhas
+        .flatMap((linha) => linha.split(/(?<=[.!?])\s+/))
         .filter((f) => f.split(/\s+/).length > 42);
       if (longas.length > 0) {
         avisos += 1;

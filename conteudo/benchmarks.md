@@ -100,6 +100,10 @@ numeros:
     post: "manychat-limite-post-id"
 
 lacunas:
+  - pergunta: "Quanto um afiliado brasileiro ganha por mês?"
+    porque: "Não existe resposta publicada com fonte, e a ausência tem causa: a venda que migra some do relatório, a comissão varia por produto e por vendedor, e o valor de hoje ainda pode encolher na validação. É a pergunta com mais procura do assunto, e a que mais recebe número inventado."
+    post: "quanto-ganha-um-afiliado"
+
   - pergunta: "Quanta comissão migra para outro afiliado por último clique?"
     porque: "A Shopee não reporta a venda que deixou de ser sua. Não existe forma pública de medir isso, e qualquer porcentagem que apareça por aí é chute, inclusive quando vem com gráfico."
     post: "shopee-janela-7-dias-ultimo-clique"

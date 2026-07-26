@@ -80,6 +80,30 @@ test("não publica antes do piso, e diz quantas faltam", () => {
   assert.equal(cheia.faltam, 0);
 });
 
+test("percentual usa o n da pergunta, e não o da amostra", () => {
+  // Simula pergunta acrescentada depois: metade das respostas não a tem.
+  const alvo = PERGUNTAS[1].id;
+  const amostra = [
+    validarResposta(respostaValida())!,
+    validarResposta(respostaValida())!,
+    { ...validarResposta(respostaValida())!, [alvo]: "" },
+    { ...validarResposta(respostaValida())!, [alvo]: "" },
+  ];
+
+  const saida = agregar(amostra);
+  const pergunta = saida.perguntas.find((p) => p.id === alvo)!;
+  const escolhida = pergunta.opcoes.find((o) => o.id === PERGUNTAS[1].opcoes[0].id)!;
+
+  assert.equal(saida.n, 4);
+  assert.equal(pergunta.n, 2);
+  // Dois de dois responderam essa opção. Sobre o total da amostra daria 50%.
+  assert.equal(escolhida.percentual, 100);
+
+  // Pergunta que todo mundo respondeu segue contando sobre a amostra inteira.
+  const intacta = saida.perguntas.find((p) => p.id === PERGUNTAS[0].id)!;
+  assert.equal(intacta.n, 4);
+});
+
 test("amostra vazia não divide por zero", () => {
   const vazia = agregar([]);
   assert.equal(vazia.n, 0);

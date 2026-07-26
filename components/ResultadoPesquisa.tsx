@@ -54,6 +54,12 @@ export function ResultadoPesquisa({ dados }: { dados: Agregado }) {
           return (
             <div key={pergunta.id} className="rounded-xl border border-risco bg-papel-alto p-5">
               <h3 className="font-serif text-lg font-semibold leading-snug">{pergunta.texto}</h3>
+              {pergunta.n !== dados.n && (
+                <p className="mt-1 text-xs text-tinta-3">
+                  {pergunta.n} de {dados.n} responderam esta pergunta. Os percentuais abaixo
+                  são sobre {pergunta.n}.
+                </p>
+              )}
 
               <ul className="mt-4 flex flex-col gap-3">
                 {pergunta.opcoes.map((opcao) => (

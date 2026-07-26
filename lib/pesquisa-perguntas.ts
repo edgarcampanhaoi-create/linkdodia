@@ -139,6 +139,15 @@ export type OpcaoContada = {
 export type PerguntaContada = {
   id: string;
   texto: string;
+  /**
+   * Quantas respostas responderam ESTA pergunta.
+   *
+   * Não é sempre o total da amostra. Pergunta acrescentada depois do começo da
+   * coleta só existe nas respostas posteriores, e dividir pelo total faria toda
+   * opção dela parecer menor do que é. O percentual desta pergunta se calcula
+   * sobre este n, e a página mostra o n de cada uma.
+   */
+  n: number;
   opcoes: OpcaoContada[];
 };
 
@@ -152,19 +161,26 @@ export type Agregado = {
 export function agregar(respostas: Resposta[]): Agregado {
   const n = respostas.length;
 
-  const perguntas = PERGUNTAS.map((pergunta) => ({
-    id: pergunta.id,
-    texto: pergunta.texto,
-    opcoes: pergunta.opcoes.map((opcao) => {
-      const quantos = respostas.filter((r) => r[pergunta.id] === opcao.id).length;
-      return {
-        id: opcao.id,
-        rotulo: opcao.rotulo,
-        quantos,
-        percentual: n > 0 ? Math.round((quantos / n) * 100) : 0,
-      };
-    }),
-  }));
+  const perguntas = PERGUNTAS.map((pergunta) => {
+    const responderam = respostas.filter((r) =>
+      pergunta.opcoes.some((o) => o.id === r[pergunta.id]),
+    ).length;
+
+    return {
+      id: pergunta.id,
+      texto: pergunta.texto,
+      n: responderam,
+      opcoes: pergunta.opcoes.map((opcao) => {
+        const quantos = respostas.filter((r) => r[pergunta.id] === opcao.id).length;
+        return {
+          id: opcao.id,
+          rotulo: opcao.rotulo,
+          quantos,
+          percentual: responderam > 0 ? Math.round((quantos / responderam) * 100) : 0,
+        };
+      }),
+    };
+  });
 
   return {
     n,
