@@ -45,10 +45,19 @@ na máquina de desenvolvimento: o gerador do Next falha no Windows ao resolver o
 fonte. No Linux da Vercel elas respondem. A tipografia da imagem não foi comparada lado a
 lado, só a geração foi medida.
 
-## O que falta
+## A captura de e-mail
 
-**Ligar a captura de e-mail.** Ver `.env.example`: ou `LISTA_WEBHOOK_URL`, ou um Redis
-Upstash conectado pelo painel da Vercel. O formulário só renderiza depois disso.
+Ligada. O Redis da Upstash (`upstash-kv-emerald-flame`) foi conectado ao projeto pelo painel
+em 26 de julho, e o formulário passou a renderizar no ar, com o campo de e-mail visível e o
+campo-armadilha escondido, como projetado.
+
+Renderizar prova que o site enxerga as variáveis de ambiente, porque `capturaLigada()` é o
+que decide se o formulário existe. **Não prova que a gravação funciona**: endereço ou token
+errados só apareceriam na hora de gravar. Falta um cadastro de teste de ponta a ponta, que
+escreve de verdade na lista e por isso depende de autorização.
+
+Lembrete de operação: variável de ambiente nova só vale em publicação nova. Conectar
+serviço pelo painel não muda o site sozinho.
 
 ## Duas armadilhas do domínio, já pagas
 
