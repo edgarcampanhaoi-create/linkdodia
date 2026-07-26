@@ -109,6 +109,10 @@ Quando publica, vai junto o que a amostra não permite dizer: leitor deste site 
 aleatória do mercado, tudo é autodeclarado, e resposta anônima não dá para impedir de
 repetir.
 
+Provada de ponta a ponta em 26 de julho, com a primeira resposta real. O contador saiu de
+zero para um nas duas páginas, o que confirma escrita e leitura contra o Redis de produção,
+e descarta gravação duplicada. **Faltam 29 respostas** para o primeiro resultado sair.
+
 ### O que fica pendente de produto
 
 - O acervo de pesquisa rende de 10 a 15 posts. Depois disso, publicação diária precisa de
