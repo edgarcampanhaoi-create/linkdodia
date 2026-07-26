@@ -76,8 +76,8 @@ Tudo isso descreve dias que já passaram. Nada aí projeta o mês que vem.
 
 ## O que estamos medindo, e o que não estamos
 
-A [pesquisa](/pesquisa) coleta faixa de comissão média, categoria que mais paga, proporção de conteúdo próprio, uso de tagueamento e tamanho de audiência. Sem nome e sem e-mail.
+A [pesquisa](/pesquisa) pergunta, em faixa e sem identificar ninguém, quanto de comissão a pessoa recebeu no último mês fechado. Junto vão comissão média, categoria que mais paga, proporção de conteúdo próprio, uso de tagueamento e tamanho de audiência.
 
-Isso constrói a distribuição de **comissão média** entre quem opera, que é metade da conta e hoje não existe publicada em lugar nenhum. Não constrói o ganho mensal, porque para isso faltaria o volume de vendas, e a pesquisa não pergunta isso.
+O que isso constrói é a distribuição do que os respondentes recebem, e não a média do mercado brasileiro. A diferença entre as duas coisas é o texto inteiro acima. Quem responde aqui é leitor de um site sobre método, o número é autodeclarado, ninguém enviou extrato, e existe uma opção de não responder que vai aparecer no resultado como opção escolhida, e não como zero.
 
-Nada garante que a coleta feche com resposta suficiente. Se fechar, o resultado sai com o número de respostas na cara e com o que a amostra não permite dizer escrito junto, como todo o resto daqui.
+Nada garante que a coleta feche com resposta suficiente. Se fechar, o resultado sai com o número de respostas na cara e com o que a amostra não permite dizer escrito junto, como todo o resto daqui. E o que não vai acontecer é o resultado virar "o afiliado brasileiro ganha tanto", que é exatamente a alegação número doze desta página.

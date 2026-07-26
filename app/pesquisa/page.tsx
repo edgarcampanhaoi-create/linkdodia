@@ -48,8 +48,8 @@ export default async function PaginaPesquisa() {
           <em className="italic text-tinta-2">ninguém publica</em>.
         </h1>
         <p className="mt-4 max-w-leitura text-base leading-relaxed text-tinta-2">
-          Quanto um afiliado brasileiro tira de comissão média de verdade? Qual categoria
-          paga a conta? Quanta gente já usa tagueamento nativo e quanta abandonou? Nenhuma
+          Quanto um afiliado brasileiro recebe de comissão por mês? Qual categoria paga a
+          conta? Quanta gente já usa tagueamento nativo e quanta abandonou? Nenhuma
           plataforma divulga isso, e nenhum blog mede. Só dá para saber perguntando a quem
           opera.
         </p>
@@ -61,8 +61,10 @@ export default async function PaginaPesquisa() {
           </p>
           <p>
             <strong className="font-semibold">Anônima de verdade.</strong> Não pedimos nome,
-            não pedimos e-mail e não guardamos nada que identifique você. Não há campo onde
-            caiba um dado pessoal, então isso não depende da nossa palavra.
+            não pedimos e-mail e não guardamos nada que identifique você. Toda resposta é
+            faixa, inclusive a de dinheiro, e a de dinheiro tem opção para quem prefere não
+            responder. Não há campo onde caiba um dado pessoal, então isso não depende da
+            nossa palavra.
           </p>
           <p>
             <strong className="font-semibold">O resultado é público.</strong> Vai para a{" "}

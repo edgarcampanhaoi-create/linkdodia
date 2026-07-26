@@ -104,6 +104,34 @@ export const PERGUNTAS: Pergunta[] = [
       { id: "acima-200k", rotulo: "Acima de duzentos mil" },
     ],
   },
+  /**
+   * A pergunta que responde a busca com mais procura do assunto, e a mais
+   * delicada do conjunto. Fica por último de propósito: quem chegou até aqui já
+   * respondeu seis, e pedir o número de dinheiro na primeira tela derrubaria a
+   * resposta inteira.
+   *
+   * Três cuidados que mudam o resultado. "Ainda não recebi nada" existe porque
+   * quem ganha zero é parte do retrato, e uma pesquisa que só ouve quem ganha
+   * publica um número inflado. "Prefiro não dizer" existe para a pessoa não ter
+   * que mentir para conseguir enviar. E a faixa é de comissão recebida, não de
+   * faturamento, porque é o que a pessoa consegue responder sem consultar nada.
+   */
+  {
+    id: "ganho",
+    texto: "No último mês fechado, quanto de comissão você recebeu?",
+    ajuda:
+      "A comissão que entrou de verdade, e não a estimada do painel. Faixa larga, sem centavos, e tem opção para quem prefere não responder.",
+    opcoes: [
+      { id: "nada", rotulo: "Ainda não recebi nada" },
+      { id: "ate-100", rotulo: "Até R$ 100" },
+      { id: "100-a-500", rotulo: "De R$ 100 a R$ 500" },
+      { id: "500-a-2k", rotulo: "De R$ 500 a R$ 2 mil" },
+      { id: "2k-a-5k", rotulo: "De R$ 2 mil a R$ 5 mil" },
+      { id: "5k-a-20k", rotulo: "De R$ 5 mil a R$ 20 mil" },
+      { id: "acima-20k", rotulo: "Acima de R$ 20 mil" },
+      { id: "nao-digo", rotulo: "Prefiro não dizer" },
+    ],
+  },
 ];
 
 export type Resposta = Record<string, string>;

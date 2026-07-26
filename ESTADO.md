@@ -100,6 +100,12 @@ não depende de promessa.
 As respostas vão para o mesmo Redis da lista, em chave separada (`pesquisa:respostas`), como
 lista e não como conjunto: duas pessoas com a mesma resposta são duas respostas.
 
+Em 26 de julho ganhou a sétima pergunta, a faixa de comissão recebida no último mês fechado.
+Ela fica por último de propósito, tem "ainda não recebi nada" para não inflar o retrato, e tem
+"prefiro não dizer" para ninguém precisar mentir para conseguir enviar. Como ela entrou depois
+do início da coleta, o percentual de cada pergunta é calculado sobre o número de quem
+respondeu aquela pergunta, e não sobre o total da amostra.
+
 O resultado aparece na página de benchmarks, e só a partir de **30 respostas**
 (`MIN_RESPOSTAS`, em `lib/pesquisa-perguntas.ts`). Abaixo disso a página mostra quantas
 faltam e nenhuma porcentagem. Publicar percentual de amostra pequena é o que este site acusa
