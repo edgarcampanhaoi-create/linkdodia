@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { todosOsPosts } from "@/lib/posts";
+import { todosOsPosts, categorias } from "@/lib/posts";
 import { SITE } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -9,6 +9,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: SITE.url, lastModified: new Date(maisRecente), changeFrequency: "daily", priority: 1 },
     { url: `${SITE.url}/sobre`, changeFrequency: "monthly", priority: 0.5 },
+    ...categorias().map((c) => ({
+      url: `${SITE.url}/categoria/${c.slug}`,
+      lastModified: new Date(maisRecente),
+      changeFrequency: "weekly" as const,
+      priority: 0.6,
+    })),
     ...posts.map((p) => ({
       url: `${SITE.url}/posts/${p.slug}`,
       lastModified: new Date(p.data),

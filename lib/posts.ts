@@ -135,12 +135,26 @@ export function postPorSlug(slug: string): Post | null {
   return todosOsPosts().find((p) => p.slug === slug) ?? null;
 }
 
-export function categorias(): { nome: string; quantos: number }[] {
+/** "Afiliados" vira "afiliados"; "Automação" vira "automacao". */
+export function slugCategoria(nome: string): string {
+  return nome
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+export function categorias(): { nome: string; slug: string; quantos: number }[] {
   const conta = new Map<string, number>();
   for (const p of todosOsPosts()) conta.set(p.categoria, (conta.get(p.categoria) ?? 0) + 1);
   return Array.from(conta.entries())
-    .map(([nome, quantos]) => ({ nome, quantos }))
+    .map(([nome, quantos]) => ({ nome, slug: slugCategoria(nome), quantos }))
     .sort((a, b) => b.quantos - a.quantos);
+}
+
+export function postsDaCategoria(slug: string): Post[] {
+  return todosOsPosts().filter((p) => slugCategoria(p.categoria) === slug);
 }
 
 const DATA_BR = new Intl.DateTimeFormat("pt-BR", {

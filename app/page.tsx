@@ -77,9 +77,14 @@ export default function Home() {
                 <Etiqueta>Assuntos</Etiqueta>
                 <ul className="mt-3 flex flex-col gap-2 text-sm">
                   {cats.map((c) => (
-                    <li key={c.nome} className="flex justify-between gap-3 text-tinta-2">
-                      <span>{c.nome}</span>
-                      <span className="tabular-nums text-tinta-3">{c.quantos}</span>
+                    <li key={c.slug}>
+                      <Link
+                        href={`/categoria/${c.slug}`}
+                        className="flex justify-between gap-3 text-tinta-2 hover:text-farol"
+                      >
+                        <span>{c.nome}</span>
+                        <span className="tabular-nums text-tinta-3">{c.quantos}</span>
+                      </Link>
                     </li>
                   ))}
                 </ul>
