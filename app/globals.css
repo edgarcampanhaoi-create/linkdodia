@@ -2,26 +2,123 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background: theme(colors.papel.DEFAULT);
+  color: theme(colors.tinta.DEFAULT);
+  font-family: var(--fonte-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* ── Corpo do post ────────────────────────────────────────────
+   Estilo do HTML que vem do Markdown. Fica aqui, e não em classe solta, porque
+   o conteúdo é gerado — não dá pra pendurar classe em cada parágrafo. */
+
+.prosa {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+
+.prosa > * + * {
+  margin-top: 1.15em;
+}
+
+.prosa h2 {
+  font-family: var(--fonte-serif), Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin-top: 2.2em;
+  margin-bottom: 0.2em;
+}
+
+.prosa h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-top: 1.8em;
+  margin-bottom: 0.1em;
+}
+
+.prosa a {
+  color: theme(colors.farol.DEFAULT);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prosa strong {
+  font-weight: 650;
+}
+
+.prosa ul,
+.prosa ol {
+  padding-left: 1.25rem;
+}
+
+.prosa li + li {
+  margin-top: 0.4em;
+}
+
+.prosa ul li {
+  list-style: disc;
+}
+
+.prosa ol li {
+  list-style: decimal;
+}
+
+/* Citação de fonte primária: é o que este site vende. Tem que parecer
+   documento, não enfeite. */
+.prosa blockquote {
+  border-left: 3px solid theme(colors.farol.DEFAULT);
+  background: theme(colors.papel.fundo);
+  padding: 0.9rem 1.1rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+  font-size: 0.975rem;
+  color: theme(colors.tinta.2);
+}
+
+.prosa blockquote > * + * {
+  margin-top: 0.6em;
+}
+
+.prosa code {
+  font-size: 0.9em;
+  background: theme(colors.papel.fundo);
+  border: 1px solid theme(colors.risco);
+  border-radius: 0.35rem;
+  padding: 0.1em 0.35em;
+}
+
+.prosa table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  display: block;
+  overflow-x: auto;
+}
+
+.prosa th,
+.prosa td {
+  border-bottom: 1px solid theme(colors.risco);
+  padding: 0.55rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.prosa th {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: theme(colors.tinta.3);
+  font-weight: 700;
+}
+
+.prosa td {
+  font-variant-numeric: tabular-nums;
+}
+
+.prosa hr {
+  border: 0;
+  border-top: 1px solid theme(colors.risco);
+  margin: 2.2em 0;
 }
