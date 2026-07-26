@@ -42,8 +42,10 @@ No painel de afiliado, exporte os últimos 90 dias. Não 30. Trinta dias não se
 
 | Conta | Como | O que responde |
 |---|---|---|
-| Comissão média | Comissão ÷ Pedidos | Você está na base ou perto do teto? |
+| Comissão média | Comissão ÷ valor dos pedidos | Você está na base ou perto do teto? |
 | Comissão por categoria | a mesma conta, quebrada por categoria | Qual categoria paga a sua conta? |
+
+Repare no denominador: é o valor dos pedidos, e não a quantidade deles. Dividir pela quantidade dá reais por pedido, que é outra informação e não se compara com os 3% do contrato.
 
 A segunda vale ouro. É comum descobrir que uma categoria minoritária no seu conteúdo responde pela maior parte da comissão, e que aquela em que você mais posta é justamente a que menos paga.
 
