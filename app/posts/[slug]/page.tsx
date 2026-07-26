@@ -3,7 +3,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { todosOsPosts, postPorSlug, formatarData, ROTULO_CONFIANCA } from "@/lib/posts";
 import { SITE } from "@/lib/site";
+import { capturaLigada } from "@/lib/lista";
 import { SeloConfianca, Etiqueta } from "@/components/Selos";
+import { Inscrever } from "@/components/Inscrever";
 
 /** Todos os posts são estáticos: o conteúdo mora no repositório e só muda com
  *  deploy. Página gerada no build = rápida e barata. */
@@ -92,6 +94,16 @@ export default function PostPage({ params }: { params: { slug: string } }) {
           className="prosa mt-10 max-w-leitura"
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
+
+        {capturaLigada() && (
+          <div className="mt-12 max-w-leitura">
+            <Inscrever
+              origem={`post-${post.slug}`}
+              titulo="Recebe o próximo por e-mail"
+              texto="Uma publicação por dia sobre o que está funcionando — sempre com a fonte junto."
+            />
+          </div>
+        )}
 
         {post.fontes.length > 0 && (
           <section className="mt-12 max-w-leitura border-t border-risco pt-6">

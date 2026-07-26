@@ -43,6 +43,22 @@ npm run build                 # gera as páginas estáticas dos posts
 node scripts/contraste.mjs    # confere a paleta em WCAG AA (falha se reprovar)
 ```
 
+## Ligar a captura de e-mail
+
+O formulário **só aparece** quando existe destino configurado. Escolha um (ver
+`.env.example`):
+
+| Opção | Como | Quando usar |
+|---|---|---|
+| `LISTA_WEBHOOK_URL` | POST com `{email, origem, em}` | Já tem ferramenta de newsletter (Buttondown, Kit) ou quer cair numa Planilha via Apps Script / Zapier / Make |
+| Redis Upstash | Vercel → Storage → Upstash Redis → Connect | Não tem ferramenta ainda e quer só juntar os endereços; dedupe é automático (`SADD`) |
+
+O campo `origem` diz de qual página veio o cadastro (`home-lateral`,
+`post-<slug>`) — é o que responde "qual assunto converte leitor em lista".
+
+**Sem destino configurado o formulário some do site.** É deliberado: prometer
+cadastro e descartar o endereço é pior que não ter caixa nenhuma.
+
 ## Decisões que valem registro
 
 - **Conteúdo em Markdown no repositório**, sem banco e sem CMS. Publicar vira commit: texto

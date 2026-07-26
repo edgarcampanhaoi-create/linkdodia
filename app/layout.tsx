@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Inter, Newsreader } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { SITE } from "@/lib/site";
 import "./globals.css";
 
@@ -78,6 +79,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </p>
           </div>
         </footer>
+
+        {/* Medição de audiência da Vercel: sem cookie e sem identificar
+            visitante, então não puxa banner de consentimento. É o dado que vai
+            decidir o que essa audiência quer comprar. */}
+        <Analytics />
       </body>
     </html>
   );

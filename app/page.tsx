@@ -1,12 +1,16 @@
 import Link from "next/link";
 import { todosOsPosts, categorias, formatarData } from "@/lib/posts";
 import { SITE } from "@/lib/site";
+import { capturaLigada } from "@/lib/lista";
 import { SeloConfianca, Etiqueta } from "@/components/Selos";
+import { Inscrever } from "@/components/Inscrever";
 
 export default function Home() {
   const posts = todosOsPosts();
   const [destaque, ...resto] = posts;
   const cats = categorias();
+  // Sem destino configurado, o formulário nem aparece — ver lib/lista.ts.
+  const lista = capturaLigada();
 
   return (
     <main className="mx-auto max-w-5xl px-5">
@@ -66,7 +70,9 @@ export default function Home() {
               ))}
             </div>
 
-            <aside className="mt-10 md:mt-0">
+            <aside className="mt-10 flex flex-col gap-4 md:mt-0">
+              {lista && <Inscrever origem="home-lateral" />}
+
               <div className="rounded-xl border border-risco bg-papel-alto p-5">
                 <Etiqueta>Assuntos</Etiqueta>
                 <ul className="mt-3 flex flex-col gap-2 text-sm">
@@ -79,7 +85,7 @@ export default function Home() {
                 </ul>
               </div>
 
-              <div className="mt-4 rounded-xl border border-risco bg-papel-fundo p-5">
+              <div className="rounded-xl border border-risco bg-papel-fundo p-5">
                 <Etiqueta>Como lemos</Etiqueta>
                 <p className="mt-2 text-sm leading-relaxed text-tinta-2">{SITE.promessa}</p>
                 <Link
