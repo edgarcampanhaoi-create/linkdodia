@@ -91,6 +91,24 @@ Os dados moram em `conteudo/benchmarks.md`, em cabeçalho YAML, para que apurar 
 mexer em componente. `lib/numeros.ts` valida na leitura e quebra o build quando falta fonte,
 data ou quando o número aponta para post que não existe.
 
+## A pesquisa
+
+Em `/pesquisa`. Seis perguntas de escolha única, toda resposta em faixa, nenhum campo
+aberto, sem nome e sem e-mail. Não existe campo onde caiba dado pessoal, então o anonimato
+não depende de promessa.
+
+As respostas vão para o mesmo Redis da lista, em chave separada (`pesquisa:respostas`), como
+lista e não como conjunto: duas pessoas com a mesma resposta são duas respostas.
+
+O resultado aparece na página de benchmarks, e só a partir de **30 respostas**
+(`MIN_RESPOSTAS`, em `lib/pesquisa-perguntas.ts`). Abaixo disso a página mostra quantas
+faltam e nenhuma porcentagem. Publicar percentual de amostra pequena é o que este site acusa
+os outros de fazer.
+
+Quando publica, vai junto o que a amostra não permite dizer: leitor deste site não é amostra
+aleatória do mercado, tudo é autodeclarado, e resposta anônima não dá para impedir de
+repetir.
+
 ### O que fica pendente de produto
 
 - O acervo de pesquisa rende de 10 a 15 posts. Depois disso, publicação diária precisa de

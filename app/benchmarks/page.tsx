@@ -3,8 +3,10 @@ import Link from "next/link";
 import { numerosPorCategoria, todasAsLacunas, atualizadoEm } from "@/lib/numeros";
 import { formatarData } from "@/lib/posts";
 import { capturaLigada } from "@/lib/lista";
+import { resultadoDaPesquisa } from "@/lib/pesquisa";
 import { SeloConfianca, Etiqueta } from "@/components/Selos";
 import { Calculadora } from "@/components/Calculadora";
+import { ResultadoPesquisa } from "@/components/ResultadoPesquisa";
 import { Inscrever } from "@/components/Inscrever";
 
 /**
@@ -16,6 +18,9 @@ import { Inscrever } from "@/components/Inscrever";
  * saber o que ninguém sabe vale tanto quanto saber o número.
  */
 
+/** O bloco da pesquisa lê a contagem no banco, então a página não congela no build. */
+export const revalidate = 300;
+
 export const metadata: Metadata = {
   title: "Benchmarks",
   description:
@@ -23,12 +28,13 @@ export const metadata: Metadata = {
   alternates: { canonical: "/benchmarks" },
 };
 
-export default function Benchmarks() {
+export default async function Benchmarks() {
   const grupos = numerosPorCategoria();
   const lacunas = todasAsLacunas();
   const atualizado = atualizadoEm();
   const quantos = grupos.reduce((soma, g) => soma + g.numeros.length, 0);
   const lista = capturaLigada();
+  const pesquisa = await resultadoDaPesquisa();
 
   return (
     <main className="mx-auto max-w-5xl px-5">
@@ -149,6 +155,26 @@ export default function Benchmarks() {
         </div>
       </section>
 
+      {pesquisa && (
+        <section className="border-b border-risco py-10">
+          <Etiqueta>O benchmark de quem opera</Etiqueta>
+          <h2 className="mt-3 max-w-leitura font-serif text-2xl font-semibold leading-snug tracking-tight">
+            {pesquisa.publicavel
+              ? "O que a operação de verdade está reportando"
+              : "O número que nenhuma plataforma divulga está sendo medido aqui"}
+          </h2>
+          <p className="mt-3 max-w-leitura text-[15px] leading-relaxed text-tinta-2">
+            Os números acima vêm de documento. Estes vêm de gente que opera, respondendo em
+            faixa e sem se identificar. É a única forma de saber quanto um afiliado
+            brasileiro tira de comissão média, porque isso não está publicado em lugar
+            nenhum.
+          </p>
+          <div className="mt-6">
+            <ResultadoPesquisa dados={pesquisa} />
+          </div>
+        </section>
+      )}
+
       <section className="py-10">
         <div className="grid gap-8 md:grid-cols-[1fr_320px]">
           <div className="max-w-leitura">
@@ -159,12 +185,15 @@ export default function Benchmarks() {
             <p className="mt-3 text-[15px] leading-relaxed text-tinta-2">
               Nenhuma delas se resolve lendo documento, porque a resposta não está publicada
               em lugar nenhum. Ela só aparece juntando medição de muita gente que opera e
-              anota. É isso que a gente pretende montar aqui, com quem estiver na lista.
+              anota. A{" "}
+              <Link href="/pesquisa" className="text-farol underline underline-offset-2">
+                pesquisa
+              </Link>{" "}
+              é a máquina de juntar, e leva dois minutos.
             </p>
             <p className="mt-3 text-[15px] leading-relaxed text-tinta-2">
-              Esse levantamento ainda não existe. Quando existir, ele vai nascer com o mesmo
-              rótulo de confiança do resto: o número de respostas na cara, e o que a amostra
-              não permite dizer escrito junto.
+              O resultado nasce com o mesmo rótulo de confiança do resto: o número de
+              respostas na cara, e o que a amostra não permite dizer escrito junto.
             </p>
           </div>
 

@@ -91,6 +91,23 @@ export default function Home() {
               </div>
 
               <div className="rounded-xl border border-risco bg-papel-alto p-5">
+                <Etiqueta>A pesquisa</Etiqueta>
+                <p className="mt-2 font-serif text-lg font-semibold leading-snug">
+                  Quanto um afiliado tira de verdade?
+                </p>
+                <p className="mt-1.5 text-sm leading-relaxed text-tinta-2">
+                  Seis perguntas de faixa, dois minutos, sem nome e sem e-mail. O resultado
+                  volta público para todo mundo.
+                </p>
+                <Link
+                  href="/pesquisa"
+                  className="mt-3 inline-block text-sm font-semibold text-farol underline underline-offset-2"
+                >
+                  Responder
+                </Link>
+              </div>
+
+              <div className="rounded-xl border border-risco bg-papel-alto p-5">
                 <Etiqueta>Assuntos</Etiqueta>
                 <ul className="mt-3 flex flex-col gap-2 text-sm">
                   {cats.map((c) => (
