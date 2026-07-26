@@ -4,7 +4,12 @@ Atualizado em 26 de julho de 2026.
 
 ## Onde está
 
-**No ar**, em https://linkdodia.vercel.app.
+**No ar**, em https://linkdodia.com.
+
+O `www.linkdodia.com` redireciona para o domínio seco com 308, e não o contrário. Isso
+importa porque as tags canônicas, o sitemap e o robots declaram o domínio seco: o endereço
+que serve e o endereço que o site diz ser precisam ser o mesmo, ou o buscador recebe sinal
+trocado.
 
 O projeto na Vercel é `linkdodia`, na equipe `edgarcampanhaoi-creates-projects`, conectado ao
 repositório `github.com/edgarcampanhaoi-create/linkdodia`, branch `master`. Conexão de git
@@ -15,43 +20,48 @@ estilo editorial e o de contraste.
 
 ## O que foi conferido no ar
 
-Medido no site publicado, não presumido.
+Medido em `linkdodia.com`, no site publicado, não presumido.
 
 | Rota | Resposta |
 | --- | --- |
 | `/` | 200, HTML |
-| `/posts/comissao-shopee-3-por-cento` | 200, HTML |
-| `/categoria/afiliados` | 200, HTML |
+| os cinco posts | 200, HTML |
+| as quatro páginas de assunto | 200, HTML |
 | `/sobre` | 200, HTML |
 | `/opengraph-image` | 200, PNG de 43 KB |
 | `/posts/<slug>/opengraph-image` | 200, PNG de 43 KB |
-| `/sitemap.xml` | 200, XML |
+| `/sitemap.xml` | 200, com as onze URLs no domínio certo |
 | `/rss.xml` | 200, RSS |
-| `/robots.txt` | 200 |
+| `/robots.txt` | 200, apontando o host e o sitemap certos |
 | `/icon.svg` | 200, SVG |
 | rota inexistente | 404 com a página própria |
 
-Nenhum erro de console. O Analytics carrega. O formulário de e-mail não aparece, que é o
-comportamento correto enquanto não houver destino configurado.
+Tag canônica, `og:url` e `og:image` conferem com o endereço que serve. Nenhum erro de
+console. O Analytics carrega. O formulário de e-mail não aparece, que é o comportamento
+correto enquanto não houver destino configurado.
 
 As duas rotas de imagem de compartilhamento eram a maior dúvida, porque nunca puderam rodar
 na máquina de desenvolvimento: o gerador do Next falha no Windows ao resolver o caminho da
 fonte. No Linux da Vercel elas respondem. A tipografia da imagem não foi comparada lado a
 lado, só a geração foi medida.
 
-## O que falta, nesta ordem
+## O que falta
 
-1. **Mover o domínio.** Hoje `linkdodia.com` ainda serve o painel antigo da Mesa. Tirar
-   `linkdodia.com` e `www.linkdodia.com` do projeto `mesa` e adicionar no `linkdodia`. Isso
-   é trabalho de painel: o token da integração não cria projeto nem administra domínio.
-   A Mesa continua acessível em `mesa-seven-mocha.vercel.app`.
+**Ligar a captura de e-mail.** Ver `.env.example`: ou `LISTA_WEBHOOK_URL`, ou um Redis
+Upstash conectado pelo painel da Vercel. O formulário só renderiza depois disso.
 
-   Tem pressa moderada. As tags canônicas do site já apontam para `linkdodia.com`, então
-   enquanto o domínio não mudar de dono o buscador recebe uma indicação que não confere com
-   o que está publicado.
+## Duas armadilhas do domínio, já pagas
 
-2. **Ligar a captura de e-mail.** Ver `.env.example`: ou `LISTA_WEBHOOK_URL`, ou um Redis
-   Upstash conectado pelo painel da Vercel. O formulário só renderiza depois disso.
+Ficam registradas porque custaram três rodadas e voltam em qualquer projeto novo.
+
+O domínio registrado é `linkdodia.com`. Não existe `linkdodia.com.br`, e um domínio não
+registrado adicionado ao projeto fica em Invalid Configuration para sempre, sem que a tela
+diga que o problema é esse.
+
+E a Vercel recusa marcar o `www` para redirecionar ao domínio seco enquanto o domínio seco
+ainda estiver marcado para redirecionar ao `www`, porque os dois juntos formam laço. A recusa
+é discreta. Tem que limpar o redirecionamento do domínio seco primeiro, salvar, e só então
+configurar o `www`.
 
 ## O que fica pendente de produto
 
