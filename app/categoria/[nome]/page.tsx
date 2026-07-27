@@ -4,7 +4,8 @@ import { notFound } from "next/navigation";
 import { categorias, postsDaCategoria, formatarData } from "@/lib/posts";
 import { SITE } from "@/lib/site";
 import { migalhas } from "@/lib/schema";
-import { SeloConfianca, Etiqueta } from "@/components/Selos";
+import { SeloConfianca } from "@/components/Selos";
+import { Faixa } from "@/components/Faixa";
 import { Estruturado } from "@/components/Estruturado";
 
 export function generateStaticParams() {
@@ -37,21 +38,23 @@ export default function CategoriaPage({ params }: { params: { nome: string } }) 
   const posts = postsDaCategoria(params.nome);
 
   return (
-    <main className="mx-auto max-w-5xl px-5">
+    <main>
       <Estruturado
         dados={migalhas([{ nome: cat.nome, caminho: `/categoria/${cat.slug}` }])}
       />
 
-      <div className="border-b border-risco py-10">
-        <Etiqueta>Assunto</Etiqueta>
-        <h1 className="mt-2 font-serif text-3xl font-semibold leading-tight tracking-tight">
-          {cat.nome}
-        </h1>
-        <p className="mt-2 text-tinta-2">
-          {posts.length} {posts.length === 1 ? "publicação" : "publicações"}
-        </p>
-      </div>
+      <Faixa
+        etiqueta="Assunto"
+        titulo={cat.nome}
+        abaixo={
+          <>
+            {posts.length} {posts.length === 1 ? "publicação" : "publicações"}, cada uma com
+            o documento que sustenta o que afirma
+          </>
+        }
+      />
 
+      <div className="mx-auto max-w-5xl px-5">
       <div className="flex max-w-leitura flex-col divide-y divide-risco py-6">
         {posts.map((post) => (
           <article key={post.slug} className="py-6 first:pt-0">
@@ -73,6 +76,7 @@ export default function CategoriaPage({ params }: { params: { nome: string } }) 
         <Link href="/" className="text-sm font-semibold text-farol underline underline-offset-2">
           Ver todas as publicações
         </Link>
+      </div>
       </div>
     </main>
   );

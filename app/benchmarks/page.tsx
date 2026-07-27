@@ -8,6 +8,7 @@ import { Estruturado } from "@/components/Estruturado";
 import { capturaLigada } from "@/lib/lista";
 import { resultadoDaPesquisa } from "@/lib/pesquisa";
 import { SeloConfianca, Etiqueta } from "@/components/Selos";
+import { Faixa } from "@/components/Faixa";
 import { Calculadora } from "@/components/Calculadora";
 import { ResultadoPesquisa } from "@/components/ResultadoPesquisa";
 import { Inscrever } from "@/components/Inscrever";
@@ -47,25 +48,27 @@ export default async function Benchmarks() {
   const pesquisa = await resultadoDaPesquisa();
 
   return (
-    <main className="mx-auto max-w-5xl px-5">
+    <main>
       <Estruturado dados={migalhas([{ nome: "Benchmarks", caminho: "/benchmarks" }])} />
 
-      <section className="border-b border-risco py-10">
-        <Etiqueta>Referência</Etiqueta>
-        <h1 className="mt-3 max-w-leitura font-serif text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
-          Os números que valem,{" "}
-          <em className="italic text-tinta-2">com o documento de cada um</em>.
-        </h1>
-        <p className="mt-4 max-w-leitura text-base leading-relaxed text-tinta-2">
-          Aqui entra número que tem documento por trás, com nome e data. Estimativa de
-          mercado, print de grupo e faixa repetida por blog ficam de fora. O que não deu
-          para confirmar aparece no fim da página, dito com todas as letras.
-        </p>
-        <p className="mt-4 text-sm text-tinta-3">
-          {quantos} números conferidos
-          {atualizado ? ` · documento mais recente de ${formatarData(atualizado)}` : ""}
-        </p>
-      </section>
+      <Faixa
+        etiqueta="Referência"
+        titulo={
+          <>
+            Os números que valem,{" "}
+            <em className="italic text-fumaca">com o documento de cada um</em>.
+          </>
+        }
+        texto="Aqui entra número que tem documento por trás, com nome e data. Estimativa de mercado, print de grupo e faixa repetida por blog ficam de fora. O que não deu para confirmar aparece no fim da página, dito com todas as letras."
+        abaixo={
+          <>
+            {quantos} números conferidos
+            {atualizado ? ` · documento mais recente de ${formatarData(atualizado)}` : ""}
+          </>
+        }
+      />
+
+      <div className="mx-auto max-w-5xl px-5">
 
       {grupos.map((grupo) => (
         <section key={grupo.categoria} className="border-b border-risco py-10">
@@ -215,6 +218,7 @@ export default async function Benchmarks() {
           {lista && <Inscrever origem="benchmarks" titulo="Quero acompanhar" />}
         </div>
       </section>
+      </div>
     </main>
   );
 }

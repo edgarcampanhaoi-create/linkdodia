@@ -46,22 +46,27 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="pt-BR" className={`${serif.variable} ${sans.variable}`}>
       <body className="min-h-screen antialiased">
-        <header className="border-b border-risco">
-          <div className="mx-auto flex max-w-5xl items-baseline justify-between gap-4 px-5 py-4">
+        {/* O cabeçalho é escuro para emendar na faixa do topo sem costura. Sem
+            borda embaixo pelo mesmo motivo: as duas peças formam uma região só. */}
+        <header className="bg-carvao text-papel">
+          <div className="mx-auto flex max-w-5xl flex-wrap items-baseline justify-between gap-x-4 gap-y-2 px-5 py-4">
             <Link href="/" className="font-serif text-xl font-semibold tracking-tight">
               Link do Dia
             </Link>
-            <nav className="flex items-center gap-5 text-sm font-medium text-tinta-2">
-              <Link href="/" className="hover:text-tinta">
+            <nav className="flex items-center gap-5 text-sm font-medium text-fumaca">
+              <Link href="/" className="transition hover:text-papel">
                 Publicações
               </Link>
-              <Link href="/benchmarks" className="hover:text-tinta">
+              <Link href="/benchmarks" className="transition hover:text-papel">
                 Benchmarks
               </Link>
-              <Link href="/sobre" className="hover:text-tinta">
+              <Link href="/pesquisa" className="transition hover:text-papel">
+                Pesquisa
+              </Link>
+              <Link href="/sobre" className="transition hover:text-papel">
                 Método
               </Link>
-              <a href="/rss.xml" className="hover:text-tinta">
+              <a href="/rss.xml" className="transition hover:text-papel">
                 RSS
               </a>
             </nav>
@@ -70,12 +75,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {children}
 
-        <footer className="mt-20 border-t border-risco">
-          <div className="mx-auto max-w-5xl px-5 py-10">
-            <p className="max-w-leitura text-sm leading-relaxed text-tinta-2">
-              {SITE.promessa}
-            </p>
-            <p className="mt-4 text-xs text-tinta-3">
+        <footer className="mt-20 bg-carvao text-papel">
+          <div className="mx-auto max-w-5xl px-5 py-12">
+            <p className="max-w-leitura font-serif text-lg leading-snug">{SITE.promessa}</p>
+            <nav className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-fumaca">
+              <Link href="/benchmarks" className="transition hover:text-papel">
+                Os números
+              </Link>
+              <Link href="/pesquisa" className="transition hover:text-papel">
+                A pesquisa
+              </Link>
+              <Link href="/sobre" className="transition hover:text-papel">
+                O método
+              </Link>
+              <a href="/rss.xml" className="transition hover:text-papel">
+                RSS
+              </a>
+            </nav>
+            <p className="mt-8 max-w-leitura text-xs leading-relaxed text-fumaca">
               {SITE.nome} · {SITE.dominio} · publicação independente. Não somos afiliados,
               parceiros nem representantes das plataformas citadas. Marcas e documentos
               aparecem aqui apenas como objeto de análise.

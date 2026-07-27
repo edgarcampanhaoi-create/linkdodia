@@ -12,6 +12,7 @@ import { SITE } from "@/lib/site";
 import { organizacao, migalhas } from "@/lib/schema";
 import { capturaLigada } from "@/lib/lista";
 import { SeloConfianca, Etiqueta } from "@/components/Selos";
+import { Faixa } from "@/components/Faixa";
 import { Estruturado } from "@/components/Estruturado";
 import { Inscrever } from "@/components/Inscrever";
 
@@ -73,7 +74,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
   };
 
   return (
-    <main className="mx-auto max-w-5xl px-5">
+    <main>
       <Estruturado dados={jsonLd} />
       <Estruturado
         dados={migalhas([
@@ -82,27 +83,33 @@ export default function PostPage({ params }: { params: { slug: string } }) {
         ])}
       />
 
-      <article className="py-10">
-        <div className="flex flex-wrap items-center gap-3">
-          <Etiqueta>{post.categoria}</Etiqueta>
-          <SeloConfianca confianca={post.confianca} />
-        </div>
+      {/* A maior parte de quem chega por busca entra por um post, e não pela
+          home. Então é aqui que a faixa escura mais decide se a pessoa fica. */}
+      <Faixa
+        acima={
+          <>
+            <Link
+              href={`/categoria/${slugCategoria(post.categoria)}`}
+              className="text-[11px] font-bold uppercase tracking-[0.14em] text-fumaca transition hover:text-papel"
+            >
+              {post.categoria}
+            </Link>
+            <SeloConfianca confianca={post.confianca} />
+          </>
+        }
+        titulo={post.titulo}
+        texto={<span className="text-[17px] text-papel">{post.resumo}</span>}
+        abaixo={
+          <>
+            {formatarData(post.data)} · {post.minutos} min de leitura
+          </>
+        }
+      />
 
-        <h1 className="mt-3 max-w-leitura font-serif text-3xl font-semibold leading-tight tracking-tight sm:text-[38px]">
-          {post.titulo}
-        </h1>
-
-        <p className="mt-4 max-w-leitura text-lg leading-relaxed text-tinta-2">
-          {post.resumo}
-        </p>
-
-        <p className="mt-4 text-sm text-tinta-3">
-          {formatarData(post.data)} · {post.minutos} min de leitura
-        </p>
-
+      <article className="mx-auto max-w-5xl px-5 py-10">
         {/* O veredito de confiança vem ANTES do texto, não escondido no fim:
             quem lê tem direito de saber o peso do que vai ler. */}
-        <div className="mt-8 max-w-leitura rounded-xl border border-risco bg-papel-fundo p-4">
+        <div className="max-w-leitura rounded-xl border border-risco bg-papel-fundo p-4">
           <Etiqueta>{ROTULO_CONFIANCA[post.confianca].rotulo}</Etiqueta>
           <p className="mt-1.5 text-sm leading-relaxed text-tinta-2">
             {ROTULO_CONFIANCA[post.confianca].explica}
@@ -153,7 +160,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
       </article>
 
       {outros.length > 0 && (
-        <section className="border-t border-risco py-10">
+        <section className="mx-auto max-w-5xl border-t border-risco px-5 py-10">
           <Etiqueta>Continue</Etiqueta>
           <div className="mt-4 grid gap-6 sm:grid-cols-3">
             {outros.map((o) => (

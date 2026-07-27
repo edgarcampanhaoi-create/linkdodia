@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { SITE } from "@/lib/site";
 import { migalhas } from "@/lib/schema";
-import { Etiqueta } from "@/components/Selos";
+import { Faixa } from "@/components/Faixa";
 import { Estruturado } from "@/components/Estruturado";
 
 export const metadata: Metadata = {
@@ -19,16 +19,17 @@ export const metadata: Metadata = {
 
 export default function SobrePage() {
   return (
-    <main className="mx-auto max-w-5xl px-5">
+    <main>
       <Estruturado dados={migalhas([{ nome: "O método", caminho: "/sobre" }])} />
 
-      <article className="max-w-leitura py-10">
-        <Etiqueta>O método</Etiqueta>
-        <h1 className="mt-2 font-serif text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
-          Como a gente apura, e o que se recusa a publicar
-        </h1>
+      <Faixa
+        etiqueta="O método"
+        titulo="Como a gente apura, e o que se recusa a publicar"
+        texto="A regra não tem exceção: toda afirmação vem com a fonte, e o que não deu para confirmar é publicado como não confirmado."
+      />
 
-        <div className="prosa mt-8">
+      <article className="mx-auto max-w-5xl px-5 py-10">
+        <div className="prosa max-w-leitura">
           <p>
             O conteúdo sobre marketing digital tem um problema específico:
             número sem fonte. Uma porcentagem aparece num post, é copiada por
