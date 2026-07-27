@@ -24,6 +24,8 @@ export type Numero = {
   /** O dado em si, curto o bastante para caber num cartão. */
   valor: string;
   titulo: string;
+  /** Rótulo de duas ou três palavras, para a tira de números do topo. */
+  curto: string;
   oQueE: string;
   oQueFazer: string;
   categoria: string;
@@ -112,6 +114,7 @@ function lerArquivo(): { numeros: Numero[]; lacunas: Lacuna[] } {
       id: texto(b.id, "id", onde),
       valor: texto(b.valor, "valor", onde),
       titulo: texto(b.titulo, "titulo", onde),
+      curto: texto(b.curto, "curto", onde),
       oQueE: texto(b.oQueE, "oQueE", onde),
       oQueFazer: texto(b.oQueFazer, "oQueFazer", onde),
       categoria: texto(b.categoria, "categoria", onde),

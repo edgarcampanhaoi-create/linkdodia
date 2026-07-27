@@ -9,6 +9,8 @@
 const PAPEL = "#fbfaf7";
 const PAPEL_ALTO = "#ffffff";
 const PAPEL_FUNDO = "#f2efe9";
+const CARVAO = "#141110";
+const CARVAO_2 = "#241f1c";
 
 const PARES = [
   ["tinta sobre papel", "#14100e", PAPEL, "texto"],
@@ -22,6 +24,15 @@ const PARES = [
   ["brasa sobre papel", "#a8390f", PAPEL, "texto"],
   ["brasa sobre brasa-claro", "#a8390f", "#fbeae2", "texto"],
   ["risco sobre papel", "#e4ded4", PAPEL, "linha"],
+
+  // Faixa escura do topo. Texto claro sobre fundo escuro tem a mesma exigência.
+  ["papel sobre carvão", PAPEL, CARVAO, "texto"],
+  ["fumaça sobre carvão", "#a49a92", CARVAO, "texto"],
+  ["farol-alto sobre carvão", "#8ea9ff", CARVAO, "texto"],
+  ["papel sobre carvão-2", PAPEL, CARVAO_2, "texto"],
+  ["fumaça sobre carvão-2", "#a49a92", CARVAO_2, "texto"],
+  ["farol-alto sobre carvão-2", "#8ea9ff", CARVAO_2, "texto"],
+  ["carvão sobre papel", CARVAO, PAPEL, "texto"],
 ];
 
 function luminancia(hex) {

@@ -35,6 +35,22 @@ const config: Config = {
           claro: "#fbeae2",
         },
         risco: "#e4ded4", // linhas
+        /**
+         * Faixa escura do topo.
+         *
+         * O nicho inteiro abre com promessa de benefício sobre gradiente. Medimos
+         * quatro concorrentes que ranqueiam nos nossos termos: 56, 24, 17 e 7
+         * elementos com gradiente, e vocabulário de venda em todos. A saída não é
+         * ser mais colorido que eles, é abrir com um número e a fonte dele.
+         *
+         * Contraste de cada par medido em scripts/contraste.mjs.
+         */
+        carvao: {
+          DEFAULT: "#141110", // fundo da faixa
+          2: "#241f1c", // cartão dentro da faixa
+        },
+        fumaca: "#a49a92", // texto secundário sobre carvão, 6,82:1
+        "farol-alto": "#8ea9ff", // ação e link sobre carvão, 8,30:1
       },
       fontFamily: {
         serif: ["var(--fonte-serif)", "Georgia", "serif"],
