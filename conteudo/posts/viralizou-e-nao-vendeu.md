@@ -11,7 +11,8 @@ ressalva: "As regras de atribuição, base de cálculo e validação vêm do con
 fontes:
   - texto: "Termos e Condições do Programa de Afiliados Shopee, artigos 124094 e 124095, atualizados em 30 de junho de 2026"
   - texto: "Central de Ajuda Shopee, artigo 223917, sobre tagueamento de produtos em conteúdo Meta, disponível no Brasil desde 1º de julho de 2026"
-  - texto: "Política do Instagram sobre contas agregadoras, anunciada em 30 de abril de 2026"
+  - texto: "Instagram for Creators, sobre recomendações e originalidade, 30 de abril de 2024"
+    url: "https://creators.instagram.com/recommendations-and-originality"
 ---
 
 Antes de perguntar por que o vídeo não vendeu, conte quantas pessoas pediram o link.
@@ -32,11 +33,11 @@ Um aviso de procedência, porque ele vale para a página inteira: **esta divisã
 
 Se a sua queixa é muita visualização, o topo da fila provavelmente não é o seu vazamento. Ainda assim a conta é rápida e vale fazer, porque ela é a única que explica queda de alcance sem queda de esforço.
 
-Conte, entre as suas últimas 30 publicações, quantas são material gravado por você. Conte de verdade, em vez de estimar.
+Abra o status da conta no aplicativo e conte quantas repostagens você publicou nos últimos 30 dias.
 
-A conta existe por causa da política do Instagram sobre contas agregadoras, de 30 de abril de 2026, e o critério dela é proporção. O mecanismo, o que ele penaliza e o que não penaliza estão em [Conta agregadora](/posts/instagram-conta-agregadora).
+A conta existe por causa da política do Instagram sobre contas agregadoras, cujo documento oficial, de 30 de abril de 2024, fixa dez repostagens em 30 dias como limite para sair das recomendações. O mecanismo, o caminho de volta e a apelação estão em [Conta agregadora](/posts/instagram-conta-agregadora).
 
-Aqui vem o limite desta etapa. A magnitude da perda não é divulgada, e a política também não publica um limiar de proporção. Você consegue saber se a sua proporção é baixa. Não consegue saber quanto de alcance isso custou, nem a partir de que ponto o problema começa.
+Aqui vem o limite desta etapa. Você consegue saber se passou do limite, porque o número é publicado e a sua situação aparece no aplicativo. O que você não consegue saber é quanto de alcance isso custou, porque a magnitude da perda não é divulgada.
 
 ## Etapa 2: quanta gente pediu o link
 
@@ -85,7 +86,7 @@ Se você já usa tagueamento nativo, existe um quarto teste, e ele tem prazo pr�
 - Como separar, no extrato, o clique que não converteu do clique que converteu para outra pessoa. Não dá.
 - Quanta comissão migra por último clique, e quanto alcance uma conta agregadora perde. Sem número público nos dois casos.
 - Se a comissão do tagueamento nativo é igual à do link manual, e se dá para saber de qual publicação veio a venda quando o produto é marcado na etiqueta.
-- A partir de que proporção de conteúdo próprio a política do Instagram passa a pesar. O critério é publicado, o limiar não.
+- Quanto alcance uma conta perde ao passar do limite de dez repostagens. O limite é publicado, a magnitude não.
 
 Falta a pergunta que abre o mês de quem faz essa conta pela primeira vez: quanto é normal ganhar com isso. Não existe resposta publicada com fonte, e por isso ela está na nossa lista de lacunas em vez de virar número bonito.
 

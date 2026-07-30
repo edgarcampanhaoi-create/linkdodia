@@ -64,6 +64,29 @@ export default function SobrePage() {
             </li>
           </ul>
 
+          <h2>Quando a gente erra</h2>
+          <p>
+            A correção fica no alto do texto errado, com a data, o que estava
+            escrito antes e o que o documento diz. Ela não sai de lá depois que
+            passa o susto. Errar escondido custa mais barato no dia e destrói o
+            único ativo que este site tem.
+          </p>
+          <p>
+            A primeira correção publicada é de 30 de julho de 2026, no texto
+            sobre contas agregadoras do Instagram. A gente tinha descrito o
+            critério da política como proporção entre conteúdo próprio e de
+            terceiro, e concluído que cortar repostagem não resolvia. Fomos ler
+            o documento oficial e ele fixa um número, dez repostagens em trinta
+            dias, e descreve cortar repostagem como o caminho de volta. Estava
+            errado no critério e no conselho.
+          </p>
+          <p>
+            O erro apareceu porque a gente citava a política pelo nome sem nunca
+            ter aberto o documento. Desde então, fonte sem endereço não fecha
+            texto: se não dá para linkar o documento, o texto diz que não achou o
+            documento.
+          </p>
+
           <h2>O que não publicamos</h2>
           <ul>
             <li>

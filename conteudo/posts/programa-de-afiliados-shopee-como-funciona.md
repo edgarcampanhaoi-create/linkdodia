@@ -11,7 +11,8 @@ ressalva: "As regras de comissão, base de cálculo, validação, atribuição e
 fontes:
   - texto: "Termos e Condições do Programa de Afiliados Shopee, artigos 124094 e 124095, atualizados em 30 de junho de 2026"
   - texto: "Central de Ajuda Shopee, artigo 223917, sobre tagueamento de produtos em conteúdo Meta, disponível no Brasil desde 1º de julho de 2026"
-  - texto: "Política do Instagram sobre contas agregadoras, anunciada em 30 de abril de 2026"
+  - texto: "Instagram for Creators, sobre recomendações e originalidade, 30 de abril de 2024"
+    url: "https://creators.instagram.com/recommendations-and-originality"
   - texto: "Comunidade oficial ManyChat, resposta de moderador sobre obter o post ID no gatilho de comentários"
     url: "https://community.manychat.com/ideas/get-post-id-for-comments-trigger-3752"
   - texto: "Documentação da Meta para webhooks de comentários do Instagram e requisitos de Advanced Access, conferida em 26 de julho de 2026"
@@ -85,13 +86,13 @@ Dá para testar sem apostar a operação inteira. Use etiqueta em uma publicaç�
 
 ## "Repostar vídeo que já viralizou é o caminho curto"
 
-Em 30 de abril de 2026 o Instagram passou a tratar de forma diferente as contas agregadoras, que o próprio anúncio descreve como perfis de conteúdo predominantemente de terceiros. A penalidade descrita não é banimento. Essas contas perdem a recomendação para quem ainda não segue, que é o canal por onde uma página cresce.
+O documento do Instagram para criadores, de 30 de abril de 2024, fixa um número: dez ou mais repostagens em 30 dias tiram a conta das recomendações para quem ainda não segue. A penalidade não é banimento, e quem já segue continua vendo.
 
-O critério é proporção, e não volume. Isso derruba a primeira reação de quem se vê afetado, que é postar menos repost. Cinco reposts em dez publicações dá na mesma que um repost em duas.
+O critério é contagem em janela móvel, e não proporção. A conta volta a ser recomendada quando cai abaixo de dez no período, e o status da conta, dentro do aplicativo, mostra a situação e oferece apelação.
 
-O que move o ponteiro é aumentar a fatia de material seu, ainda que o total publicado siga igual. Antes de opinar sobre a sua proporção, conte quantas das suas últimas 30 publicações são gravadas por você. Conte mesmo, em vez de estimar.
+Então a primeira coisa a fazer não é estimar proporção. É abrir o status da conta e contar as repostagens dos últimos 30 dias.
 
-Existe um segundo pedágio, e ele não vem de plataforma. O artigo 104 da Lei 9.610/98 responsabiliza solidariamente quem utiliza obra reproduzida com fraude para obter lucro direto ou indireto. Comissão de afiliado é ganho indireto, e quem reposta vídeo de terceiro costuma achar que está fora disso porque não vendeu o vídeo. O raciocínio completo, com a citação do artigo, está em [Conta agregadora: o Instagram passou a olhar proporção](/posts/instagram-conta-agregadora).
+Existe um segundo pedágio, e ele não vem de plataforma. O artigo 104 da Lei 9.610/98 responsabiliza solidariamente quem utiliza obra reproduzida com fraude para obter lucro direto ou indireto. Comissão de afiliado é ganho indireto, e quem reposta vídeo de terceiro costuma achar que está fora disso porque não vendeu o vídeo. O raciocínio completo, com a citação do artigo, está em [Conta agregadora: o limite é dez reposts em 30 dias](/posts/instagram-conta-agregadora).
 
 ## Como fazer a automação responder o link certo
 
