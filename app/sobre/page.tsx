@@ -73,18 +73,19 @@ export default function SobrePage() {
           </p>
           <p>
             A primeira correção publicada é de 30 de julho de 2026, no texto
-            sobre contas agregadoras do Instagram. A gente tinha descrito o
-            critério da política como proporção entre conteúdo próprio e de
-            terceiro, e concluído que cortar repostagem não resolvia. Fomos ler
-            o documento oficial e ele fixa um número, dez repostagens em trinta
-            dias, e descreve cortar repostagem como o caminho de volta. Estava
-            errado no critério e no conselho.
+            sobre contas agregadoras do Instagram, e ela teve duas etapas no
+            mesmo dia. A versão original descrevia o critério da política sem que
+            a gente tivesse aberto documento nenhum. Ao conferir, achamos
+            primeiro o documento de 2024 e corrigimos o texto para o número dele.
+            Continuando a procurar, achamos o documento de 2026, que é o que está
+            em vigor, e o texto foi corrigido de novo. As duas etapas ficaram
+            registradas no alto do post.
           </p>
           <p>
-            O erro apareceu porque a gente citava a política pelo nome sem nunca
-            ter aberto o documento. Desde então, fonte sem endereço não fecha
-            texto: se não dá para linkar o documento, o texto diz que não achou o
-            documento.
+            Duas regras saíram daí, e valem daqui em diante. Fonte sem endereço
+            não fecha texto: se não dá para linkar o documento, o texto diz que
+            não achou o documento. E achar um documento não encerra a busca,
+            porque plataforma atualiza política sem avisar quem escreveu antes.
           </p>
 
           <h2>O que não publicamos</h2>

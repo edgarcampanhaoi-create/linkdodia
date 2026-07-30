@@ -11,8 +11,8 @@ ressalva: "As regras de atribuição, base de cálculo e validação vêm do con
 fontes:
   - texto: "Termos e Condições do Programa de Afiliados Shopee, artigos 124094 e 124095, atualizados em 30 de junho de 2026"
   - texto: "Central de Ajuda Shopee, artigo 223917, sobre tagueamento de produtos em conteúdo Meta, disponível no Brasil desde 1º de julho de 2026"
-  - texto: "Instagram for Creators, sobre recomendações e originalidade, 30 de abril de 2024"
-    url: "https://creators.instagram.com/recommendations-and-originality"
+  - texto: "Instagram for Creators, sobre recompensar criadores originais, 30 de abril de 2026"
+    url: "https://creators.instagram.com/blog/rewarding-original-creators-on-instagram"
 ---
 
 Antes de perguntar por que o vídeo não vendeu, conte quantas pessoas pediram o link.
@@ -33,11 +33,11 @@ Um aviso de procedência, porque ele vale para a página inteira: **esta divisã
 
 Se a sua queixa é muita visualização, o topo da fila provavelmente não é o seu vazamento. Ainda assim a conta é rápida e vale fazer, porque ela é a única que explica queda de alcance sem queda de esforço.
 
-Abra o status da conta no aplicativo e conte quantas repostagens você publicou nos últimos 30 dias.
+Abra o Status da Conta nas configurações do aplicativo. Ele diz se a sua conta está com limite de alcance, e essa é a única informação sobre o seu caso que não é palpite.
 
-A conta existe por causa da política do Instagram sobre contas agregadoras, cujo documento oficial, de 30 de abril de 2024, fixa dez repostagens em 30 dias como limite para sair das recomendações. O mecanismo, o caminho de volta e a apelação estão em [Conta agregadora](/posts/instagram-conta-agregadora).
+A tela existe por causa da política de originalidade do Instagram, cujo documento em vigor, de 30 de abril de 2026, tira das recomendações quem posta principalmente conteúdo não original, em reels, fotos e carrosséis. O critério de volta, o que conta como original e a apelação estão em [Conta agregadora](/posts/instagram-conta-agregadora).
 
-Aqui vem o limite desta etapa. Você consegue saber se passou do limite, porque o número é publicado e a sua situação aparece no aplicativo. O que você não consegue saber é quanto de alcance isso custou, porque a magnitude da perda não é divulgada.
+Aqui vem o limite desta etapa. Você consegue saber se está fora das recomendações, porque a tela diz. O que você não consegue saber é quanto de alcance isso custou, porque a magnitude da perda não é divulgada.
 
 ## Etapa 2: quanta gente pediu o link
 

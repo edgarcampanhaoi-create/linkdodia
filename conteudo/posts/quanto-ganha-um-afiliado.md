@@ -10,8 +10,8 @@ confianca: "parcial"
 ressalva: "As regras citadas vêm do contrato oficial e da política das plataformas, com artigo e data. A explicação de por que o número agregado não existe é leitura nossa a partir dessas regras, e está marcada como tal."
 fontes:
   - texto: "Termos e Condições do Programa de Afiliados Shopee, artigos 124094 e 124095, atualizados em 30 de junho de 2026"
-  - texto: "Instagram for Creators, sobre recomendações e originalidade, 30 de abril de 2024"
-    url: "https://creators.instagram.com/recommendations-and-originality"
+  - texto: "Instagram for Creators, sobre recompensar criadores originais, 30 de abril de 2026"
+    url: "https://creators.instagram.com/blog/rewarding-original-creators-on-instagram"
   - texto: "Central de Ajuda Shopee, artigo 223917, sobre tagueamento de produtos em conteúdo Meta, disponível no Brasil desde 1º de julho de 2026"
 ---
 
@@ -29,7 +29,7 @@ A segunda é que a comissão não é uma taxa só. A base é do contrato e o exc
 
 A terceira é o tempo. A validação vem depois da entrega e da confirmação do pagamento, então quem opera não sabe hoje quanto ganhou hoje.
 
-Some a isso o topo da fila. A política do Instagram sobre contas agregadoras, cujo documento é de 30 de abril de 2024, publica o limite e não publica a magnitude da perda de alcance. Quantas pessoas veem o seu conteúdo é a primeira variável da conta, e o tamanho do que se perde não tem número público.
+Some a isso o topo da fila. A política de originalidade do Instagram, de 30 de abril de 2026, publica o critério e não publica a magnitude da perda de alcance. Quantas pessoas veem o seu conteúdo é a primeira variável da conta, e o tamanho do que se perde não tem número público.
 
 ## Onze alegações, e o que conferir
 
