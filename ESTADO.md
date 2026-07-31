@@ -287,6 +287,22 @@ pré-visualização vira um botão de disparar e-mail para a lista real.
 Também ficou confirmado que a produção usa os nomes `KV_REST_API_URL` e `KV_REST_API_TOKEN`,
 e não `UPSTASH_REDIS_REST_*`. Ler as duas grafias em `lib/redis.ts` não era precaução vazia.
 
+### A armadilha do PowerShell, já paga
+
+Criar variável de ambiente mandando o valor por cano no PowerShell acrescenta um retorno de
+carro invisível no fim. A Vercel recusa a publicação inteira com "contains leading or trailing
+whitespace, which is not allowed in HTTP header values", e a mensagem não diz que o culpado é
+o terminal. Custou uma publicação quebrada em 31 de julho.
+
+O jeito certo, no Git Bash:
+
+```
+printf '%s' "$VALOR" | vercel env add NOME production
+```
+
+O `printf` sem `\n` é o detalhe que importa. `echo` do PowerShell manda `\r\n`, e a Vercel
+apara o `\n` e deixa o `\r`.
+
 ### O que falta para ligar
 
 1. **Criar a conta no Resend**, em resend.com, na faixa gratuita.
@@ -300,6 +316,10 @@ Antes do primeiro envio de verdade, chamar `/api/alerta?ensaio=1` com o segredo 
 `Authorization: Bearer`. O ensaio faz a rodada inteira sem enviar e sem gravar, e devolve o
 que sairia. É a única forma de conferir isto em produção sem usar a caixa de e-mail de gente
 real como ambiente de teste.
+
+Medido em produção em 31 de julho, com as duas variáveis já no ar: sem cabeçalho a rota
+responde 401, e com o segredo responde 200 dizendo que falta apenas `RESEND_API_KEY`. O Redis
+não aparece na lista de faltas, o que confirma que a rota alcança o banco de produção.
 
 ## Próximo passo, em ordem
 
