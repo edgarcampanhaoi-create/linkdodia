@@ -1,6 +1,36 @@
 # Estado do projeto
 
-Atualizado em 26 de julho de 2026.
+Atualizado em 31 de julho de 2026.
+
+## A correção de 30 de julho, e as duas regras que saíram dela
+
+Fomos ler o documento oficial da política de originalidade do Instagram pela primeira
+vez, e descobrimos que o acervo citava a política pelo nome sem nunca ter aberto o
+documento. O texto publicado dava conselho contrário ao que o documento diz.
+
+A correção teve duas etapas no mesmo dia, e as duas estão registradas no alto do post:
+o primeiro documento encontrado era o de 2024, e publicamos o número dele; continuando a
+busca, achamos o de 2026, que é o que está em vigor. As duas etapas ficaram públicas.
+
+Duas regras nasceram daí e valem sempre:
+
+1. **Fonte sem endereço não fecha texto.** Se não dá para linkar o documento, o texto diz
+   que não achou o documento.
+2. **Achar um documento não encerra a busca.** Plataforma atualiza política sem avisar
+   quem escreveu antes.
+
+A política de correção pública está em `/sobre`.
+
+## O padrão visual do nicho, medido
+
+Quatro concorrentes que ranqueiam nos termos do site, medidos em 30 de julho de 2026:
+achadinhopro (56 gradientes), tactus (24), vendedorlucrativo (17), rallydevendas (7).
+Vocabulário de venda nos quatro, botão de WhatsApp em três, e os quatro abrindo com
+promessa de benefício. Nenhum abre com um número e a fonte dele. Metade já usa fundo
+escuro, então escuro sozinho não diferencia.
+
+É por isso que a faixa do topo abre com um dado e o artigo do contrato, e o site não usa
+gradiente nenhum.
 
 ## Onde está
 
