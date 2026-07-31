@@ -70,8 +70,9 @@ Tag canônica, `og:url` e `og:image` conferem com o endereço que serve. Nenhum 
 console. O Analytics carrega. O formulário de e-mail não aparece, que é o comportamento
 correto enquanto não houver destino configurado.
 
-O registro de mudanças, publicado em 31 de julho, acrescenta a décima segunda URL ao
-sitemap. Ela foi conferida na máquina, e ainda não no ar.
+A tabela acima é a medição de 26 de julho, e as onze URLs do sitemap são as daquele dia. Com
+os posts publicados depois e com o registro de mudanças, o sitemap no ar tem dezoito, medido
+em 31 de julho.
 
 As duas rotas de imagem de compartilhamento eram a maior dúvida, porque nunca puderam rodar
 na máquina de desenvolvimento: o gerador do Next falha no Windows ao resolver o caminho da
