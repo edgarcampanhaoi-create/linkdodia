@@ -266,20 +266,40 @@ gerada com o conteúdo real, sem enviar para ninguém.
 
 `/sair` e `/api` saíram do índice, no `robots.txt`.
 
+### Por que o Resend não veio pelo Marketplace
+
+A descoberta de 31 de julho: pelo Marketplace da Vercel, o Resend só tem plano Pro, a US$ 20
+por mês, e Scale, a US$ 90. Não existe faixa gratuita por esse caminho. Direto no Resend
+existe: 3.000 e-mails por mês e 100 por dia, com um domínio.
+
+A lista de hoje tem poucos endereços e o alerta só dispara quando algo muda, então a faixa
+gratuita sobra com folga. A decisão foi conta direta, e o que se perde é a cobrança unificada
+e o provisionamento automático da chave, que não valem US$ 240 por ano nesta etapa.
+
+Se um dia o volume justificar, migrar é trocar o valor de uma variável.
+
+### O que já está configurado
+
+`ALERTA_DE` e `CRON_SECRET` foram criadas em 31 de julho, **só no ambiente de produção**. Isso
+é de propósito: deploy de pré-visualização não pode ter segredo válido, ou qualquer
+pré-visualização vira um botão de disparar e-mail para a lista real.
+
+Também ficou confirmado que a produção usa os nomes `KV_REST_API_URL` e `KV_REST_API_TOKEN`,
+e não `UPSTASH_REDIS_REST_*`. Ler as duas grafias em `lib/redis.ts` não era precaução vazia.
+
 ### O que falta para ligar
 
-1. **Aceitar os termos do Resend no Marketplace.** É acordo legal, então é o dono da conta que
-   aceita. O CLI para exatamente aí, com a mensagem `integration_terms_acceptance_required`.
-2. **Instalar a integração**, com `vercel integration add resend/resend-email`. Ela injeta a
-   `RESEND_API_KEY` no projeto.
-3. **Verificar `linkdodia.com` no painel do Resend**, com os registros de DNS. Sem domínio
-   verificado o envio é recusado.
-4. **Criar duas variáveis no projeto**: `ALERTA_DE`, com o remetente, e `CRON_SECRET`, com um
-   segredo qualquer. Sem o segundo a rota fica fechada, que é o comportamento correto.
-5. **Publicar depois disso.** Variável de ambiente nova só vale em publicação nova.
+1. **Criar a conta no Resend**, em resend.com, na faixa gratuita.
+2. **Adicionar e verificar o domínio `linkdodia.com`**, com os registros de DNS que o painel
+   do Resend indicar. Sem domínio verificado o envio é recusado.
+3. **Gerar a chave de API e colocá-la no projeto**, como `RESEND_API_KEY`, em produção.
+   Credencial não passa por conversa nem por commit.
+4. **Publicar depois disso.** Variável de ambiente nova só vale em publicação nova.
 
-Antes do primeiro envio de verdade, chamar `/api/alerta?ensaio=1` com o segredo. O ensaio faz
-a rodada inteira sem enviar e sem gravar, e devolve o que sairia.
+Antes do primeiro envio de verdade, chamar `/api/alerta?ensaio=1` com o segredo no cabeçalho
+`Authorization: Bearer`. O ensaio faz a rodada inteira sem enviar e sem gravar, e devolve o
+que sairia. É a única forma de conferir isto em produção sem usar a caixa de e-mail de gente
+real como ambiente de teste.
 
 ## Próximo passo, em ordem
 
