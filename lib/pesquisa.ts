@@ -1,4 +1,5 @@
 import { validarResposta, agregar, type Resposta, type Agregado } from "@/lib/pesquisa-perguntas";
+import { bancoLigado, comando } from "@/lib/redis";
 
 /**
  * Onde as respostas da pesquisa ficam.
@@ -17,34 +18,8 @@ const CHAVE = "pesquisa:respostas";
 /** Teto de leitura. Muito acima do que a amostra vai ter, e evita puxar o mundo. */
 const LIMITE = 5000;
 
-function urlRedis(): string | null {
-  return process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL || null;
-}
-
-function tokenRedis(): string | null {
-  return process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN || null;
-}
-
 export function pesquisaLigada(): boolean {
-  return Boolean(urlRedis() && tokenRedis());
-}
-
-async function comando(partes: (string | number)[]): Promise<unknown> {
-  const base = urlRedis();
-  const token = tokenRedis();
-  if (!base || !token) throw new Error("pesquisa sem banco configurado");
-
-  const r = await fetch(base, {
-    method: "POST",
-    headers: { authorization: `Bearer ${token}`, "content-type": "application/json" },
-    body: JSON.stringify(partes.map(String)),
-    cache: "no-store",
-    signal: AbortSignal.timeout(8000),
-  });
-  if (!r.ok) throw new Error(`redis respondeu ${r.status}`);
-
-  const corpo = (await r.json()) as { result?: unknown };
-  return corpo.result;
+  return bancoLigado();
 }
 
 export async function guardarResposta(bruto: Record<string, unknown>): Promise<boolean> {

@@ -27,6 +27,10 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
+# O `.env.example` fica versionado de propósito: é a documentação do que o
+# projeto precisa. Por isso a regra é `.env` e `.env*.local`, e não `.env*`,
+# que a CLI da Vercel adiciona sozinha e leva o exemplo junto.
+.env
 .env*.local
 
 # vercel

@@ -19,23 +19,18 @@
  *
  * Os nomes de variável são lidos em várias grafias porque a integração da
  * Vercel já mudou de nome mais de uma vez — mesma defesa que usamos pra
- * connection string no outro projeto.
+ * connection string no outro projeto. Ela mora em `lib/redis.ts`, que é onde o
+ * resto do site também fala com o banco.
  */
+
+import { bancoLigado, urlRedis, tokenRedis } from "@/lib/redis";
 
 export type ResultadoInscricao =
   | { ok: true; jaEstava: boolean }
   | { ok: false; motivo: string };
 
-function urlRedis(): string | null {
-  return process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL || null;
-}
-
-function tokenRedis(): string | null {
-  return process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN || null;
-}
-
 export function capturaLigada(): boolean {
-  return Boolean(process.env.LISTA_WEBHOOK_URL || (urlRedis() && tokenRedis()));
+  return Boolean(process.env.LISTA_WEBHOOK_URL || bancoLigado());
 }
 
 /**

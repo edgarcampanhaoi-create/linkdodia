@@ -1,6 +1,7 @@
 "use server";
 
 import { inscrever } from "@/lib/lista";
+import { sairDaLista } from "@/lib/saida";
 import { guardarResposta } from "@/lib/pesquisa";
 import { PERGUNTAS } from "@/lib/pesquisa-perguntas";
 
@@ -33,6 +34,41 @@ export async function inscreverNaLista(
       ? "Você já estava na lista. Tudo certo."
       : "Pronto! Você recebe o próximo.",
   };
+}
+
+export type EstadoSaida = { ok: boolean; mensagem?: string; concluido?: boolean };
+
+/**
+ * A baixa na lista.
+ *
+ * Fica atrás de um botão, e não do simples abrir do link, porque programa de
+ * e-mail e antivírus visitam sozinhos os endereços de uma mensagem. Sem o botão,
+ * quem nunca pediu para sair sairia calado, e só descobriria ao parar de receber.
+ */
+export async function removerDaLista(
+  _anterior: EstadoSaida,
+  dados: FormData,
+): Promise<EstadoSaida> {
+  const ficha = String(dados.get("ficha") ?? "");
+
+  try {
+    const r = await sairDaLista(ficha);
+    if (!r.ok) {
+      return {
+        ok: false,
+        mensagem: "Esse link não vale mais. Se você já saiu, está tudo certo.",
+      };
+    }
+    return {
+      ok: true,
+      concluido: true,
+      mensagem: r.jaEstavaFora
+        ? "Você já não estava na lista. Nada muda."
+        : "Pronto. Seu endereço saiu da lista e não recebe mais aviso.",
+    };
+  } catch {
+    return { ok: false, mensagem: "Não consegui processar agora. Tenta de novo em instantes?" };
+  }
 }
 
 export type EstadoPesquisa = { ok: boolean; mensagem?: string };

@@ -78,8 +78,8 @@ export function Inscrever({
       )}
 
       <p className="mt-3 text-xs leading-relaxed text-tinta-3">
-        Guardamos só o endereço, para enviar as publicações. Não repassamos a ninguém e dá
-        pra sair em um clique, em qualquer e-mail.
+        Guardamos só o endereço, para avisar quando uma regra ou um número mudar. Não
+        repassamos a ninguém, e dá para sair pelo link que vai no rodapé de todo aviso.
       </p>
     </section>
   );

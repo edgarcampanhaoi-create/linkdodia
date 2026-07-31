@@ -21,7 +21,9 @@ const ALVOS = [
   { pasta: path.join(process.cwd(), "conteudo"), ext: /^(benchmarks|mudancas)\.md$/ },
   { pasta: path.join(process.cwd(), "app"), ext: /\.tsx?$/ },
   { pasta: path.join(process.cwd(), "components"), ext: /\.tsx?$/ },
-  { pasta: path.join(process.cwd(), "lib"), ext: /^site\.ts$/ },
+  // O texto do alerta por e-mail passa pelas mesmas regras dos posts. Está no
+  // ESTILO.md: a regra vale para o que é publicado e para o que sai por e-mail.
+  { pasta: path.join(process.cwd(), "lib"), ext: /^(site|alerta)\.ts$/ },
 ];
 
 /** Quebra o build. */

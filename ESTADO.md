@@ -226,17 +226,71 @@ em seguida. Validação que ninguém tentou furar é decoração.
 O arquivo também passou a ser alvo do portão de estilo, junto com os posts e a lista de
 benchmarks.
 
+## O alerta por e-mail
+
+Escrito em 31 de julho. O código está pronto e provado; **falta configuração para ligar**, e
+o que falta está listado no fim desta seção.
+
+A rota `/api/alerta` roda uma vez por dia, chamada pelo cron da Vercel (`vercel.json`, às 12h
+UTC, que é 9h de Brasília). Ela lê o que está publicado, compara com o registro do que já saiu
+e manda só a diferença. Três coisas disparam aviso: entrada nova no registro de mudanças,
+número do benchmark que mudou de valor, de fonte ou de data, e publicação nova.
+
+`lib/alerta.ts` decide o que é novidade e escreve o texto, sem banco e sem rede, para poder
+ser testado. `lib/alerta-envio.ts` é o que fala com o Redis e com o Resend. Onze testes cobrem
+a decisão de quem recebe e-mail e por quê.
+
+Quatro armadilhas foram fechadas de propósito, e cada uma custaria caro:
+
+**A primeira rodada não envia nada.** Se o registro `alerta:visto` estiver vazio, ela grava o
+que existe e sai calada. Sem isso, ligar o alerta despacharia o acervo inteiro para quem
+assinou esperando ser avisado do que muda daqui em diante.
+
+**Acerto de texto não vira e-mail.** A impressão de uma entrada do registro e de um post
+ignora o conteúdo. Só o número leva valor, fonte e data na impressão, porque é disso que a
+lista quer ser avisada.
+
+**A saída da lista não acontece ao abrir o link.** Programa de e-mail e antivírus visitam
+sozinhos os endereços de uma mensagem, então a baixa fica atrás de um botão, em `/sair/<ficha>`.
+O caminho de um clique existe pelo cabeçalho `List-Unsubscribe-Post`, que é o botão que o
+Gmail mostra, e ele responde em `POST /api/sair`.
+
+**O endereço nunca vai na URL.** O que viaja é uma ficha opaca, guardada em `lista:tokens`, e
+a página mostra o endereço encoberto.
+
+Medido em 31 de julho, no servidor rodando: sem `CRON_SECRET` a rota responde 503 e fica
+fechada; com segredo configurado, chamada sem cabeçalho e com segredo errado respondem 401; com
+o segredo certo responde 200 dizendo o que falta para enviar. Ficha malformada em `/api/sair`
+responde 404 sem tocar no banco, e só POST é aceito, com 405 no GET. Uma amostra do e-mail foi
+gerada com o conteúdo real, sem enviar para ninguém.
+
+`/sair` e `/api` saíram do índice, no `robots.txt`.
+
+### O que falta para ligar
+
+1. **Aceitar os termos do Resend no Marketplace.** É acordo legal, então é o dono da conta que
+   aceita. O CLI para exatamente aí, com a mensagem `integration_terms_acceptance_required`.
+2. **Instalar a integração**, com `vercel integration add resend/resend-email`. Ela injeta a
+   `RESEND_API_KEY` no projeto.
+3. **Verificar `linkdodia.com` no painel do Resend**, com os registros de DNS. Sem domínio
+   verificado o envio é recusado.
+4. **Criar duas variáveis no projeto**: `ALERTA_DE`, com o remetente, e `CRON_SECRET`, com um
+   segredo qualquer. Sem o segundo a rota fica fechada, que é o comportamento correto.
+5. **Publicar depois disso.** Variável de ambiente nova só vale em publicação nova.
+
+Antes do primeiro envio de verdade, chamar `/api/alerta?ensaio=1` com o segredo. O ensaio faz
+a rodada inteira sem enviar e sem gravar, e devolve o que sairia.
+
 ## Próximo passo, em ordem
 
 **É por aqui que a próxima sessão começa.**
 
-1. **Alerta por e-mail quando uma regra mudar.** A lista existe e não tem uso, e agora o
-   motivo de assinar está pronto: o registro de mudanças é a matéria-prima do alerta. O
-   motivo de assinar deixa de ser newsletter e passa a ser vigilância.
-2. **Página de correções.** Hoje a política está em `/sobre` e a correção está no post.
+1. **Página de correções.** Hoje a política está em `/sobre` e a correção está no post.
    Juntar tudo numa página vira prova de honestidade, que é o ativo do site.
-3. **Checklist do Status da Conta.** A descoberta de que bio e foto de perfil derrubam
+2. **Checklist do Status da Conta.** A descoberta de que bio e foto de perfil derrubam
    recomendação é acionável e quase ninguém sabe. Vira ferramenta de uma página.
+3. **Imagem de compartilhamento própria** para `/mudancas` e `/benchmarks`. Hoje só a home e
+   os posts têm.
 
 ### O que fica pendente de produto
 
