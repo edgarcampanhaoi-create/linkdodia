@@ -228,8 +228,8 @@ benchmarks.
 
 ## O alerta por e-mail
 
-Escrito em 31 de julho. O código está pronto e provado; **falta configuração para ligar**, e
-o que falta está listado no fim desta seção.
+Escrito e **ligado** em 31 de julho. Provado de ponta a ponta: um e-mail saiu do servidor e
+chegou numa caixa de verdade.
 
 A rota `/api/alerta` roda uma vez por dia, chamada pelo cron da Vercel (`vercel.json`, às 12h
 UTC, que é 9h de Brasília). Ela lê o que está publicado, compara com o registro do que já saiu
@@ -303,23 +303,68 @@ printf '%s' "$VALOR" | vercel env add NOME production
 O `printf` sem `\n` é o detalhe que importa. `echo` do PowerShell manda `\r\n`, e a Vercel
 apara o `\n` e deixa o `\r`.
 
-### O que falta para ligar
+### O DNS de envio, e o que ele significa
 
-1. **Criar a conta no Resend**, em resend.com, na faixa gratuita.
-2. **Adicionar e verificar o domínio `linkdodia.com`**, com os registros de DNS que o painel
-   do Resend indicar. Sem domínio verificado o envio é recusado.
-3. **Gerar a chave de API e colocá-la no projeto**, como `RESEND_API_KEY`, em produção.
-   Credencial não passa por conversa nem por commit.
-4. **Publicar depois disso.** Variável de ambiente nova só vale em publicação nova.
+Quatro registros na zona, todos propagados e conferidos em dois resolvedores independentes:
 
-Antes do primeiro envio de verdade, chamar `/api/alerta?ensaio=1` com o segredo no cabeçalho
+| Nome | Tipo | Para que serve |
+| --- | --- | --- |
+| `send` | MX | recebe devolução e reclamação, via `feedback-smtp.sa-east-1.amazonses.com` |
+| `send` | TXT | SPF, autoriza o SES a enviar pelo subdomínio |
+| `resend._domainkey` | TXT | chave pública DKIM, 218 caracteres, cabe em um pedaço só |
+| `_dmarc` | TXT | `v=DMARC1; p=none;`, declarado em 31 de julho |
+
+O MX fica em `send.linkdodia.com`, e não na raiz, então o domínio principal continua sem
+receber e-mail. É por isso que o rodapé do alerta avisa que responder não chega a ninguém.
+
+O DMARC saiu sem campo de relatório (`rua`) de propósito. Ele só funcionaria apontando para
+um endereço no próprio domínio, que não recebe, ou para um Gmail, e nesse caso o `gmail.com`
+precisaria publicar um registro autorizando o nosso domínio a mandar relatório para lá. Isso
+não está ao nosso alcance, então `rua` ali seria enfeite que não entrega nada. Depois de
+algumas semanas de envio limpo, dá para subir de `none` para `quarantine`.
+
+### A prova de entrega, e o que ela mostrou
+
+`/api/alerta?prova=<endereço>` manda uma mensagem para um endereço só, com o mesmo corpo e o
+mesmo cabeçalho de saída de um aviso real, e sem tocar no registro do que já saiu. Existe
+porque o trecho do envio é o único que teste nenhum alcança.
+
+Disparada com autorização em 31 de julho. Resultado: **SPF e DKIM passando**, e a mensagem
+caiu na aba **Promoções** do Gmail.
+
+Promoções não é falha de autenticação, que daria spam. É classificação de conteúdo, e é o
+destino esperado de um domínio sem histórico nenhum, com vários links e cabeçalho de cancelar
+inscrição, que é a marca de correspondência em massa. O cabeçalho não sai: tirá-lo pioraria a
+entrega e o Gmail exige de quem envia em volume.
+
+O que move a agulha, em ordem: quem recebe arrastar para a caixa principal, histórico de
+envio limpo, e o DMARC que agora existe. Aba é decisão por destinatário, e ninguém garante
+caixa de entrada.
+
+### A chave que o Resend recusou
+
+A primeira chave voltou `401 API key is invalid`, com a variável preenchida e o site
+enxergando ela. Não era domínio (daria 403) nem remetente (daria erro de validação).
+
+O `vercel env pull` não ajuda a diagnosticar: ele devolve `[SENSITIVE]` no lugar do valor.
+A causa provável é que o Resend mostra a chave uma única vez, e quem fecha a janela e volta
+depois copia a versão mascarada, que parece chave e não é. Gerar outra resolveu.
+
+Lembrete que vale para as três variáveis: **variável nova só vale em publicação nova**.
+Trocar a chave sem republicar deixa a antiga rodando.
+
+### A semeadura, e o controle negativo dela
+
+A primeira rodada de verdade correu em 31 de julho. Ela respondeu `semeou: true` e enviou
+zero mensagens, que é a proteção projetada. O ensaio chamado logo em seguida **não repetiu**
+o `semeou`, e é isso que prova a gravação: se a escrita não tivesse chegado ao Redis, a
+segunda chamada encontraria o registro vazio de novo e diria a mesma coisa.
+
+Daqui em diante, só o que mudar depois de 31 de julho vira aviso.
+
+Antes de qualquer envio de verdade, chamar `/api/alerta?ensaio=1` com o segredo no cabeçalho
 `Authorization: Bearer`. O ensaio faz a rodada inteira sem enviar e sem gravar, e devolve o
-que sairia. É a única forma de conferir isto em produção sem usar a caixa de e-mail de gente
-real como ambiente de teste.
-
-Medido em produção em 31 de julho, com as duas variáveis já no ar: sem cabeçalho a rota
-responde 401, e com o segredo responde 200 dizendo que falta apenas `RESEND_API_KEY`. O Redis
-não aparece na lista de faltas, o que confirma que a rota alcança o banco de produção.
+que sairia.
 
 ## Próximo passo, em ordem
 
