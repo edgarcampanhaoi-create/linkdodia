@@ -141,6 +141,74 @@ async function enviarLote(mensagens: Mensagem[]): Promise<number> {
   return Array.isArray(corpo.data) ? corpo.data.length : mensagens.length;
 }
 
+/**
+ * Uma prova de entrega, para um endereço só.
+ *
+ * Existe porque o caminho do envio é o único trecho que nenhum teste alcança:
+ * ele depende de chave certa, de domínio verificado, de DKIM propagado e de o
+ * outro lado aceitar a mensagem. Sem isto, o primeiro envio de verdade seria
+ * também o primeiro teste, e a plateia seria a lista inteira.
+ *
+ * Não toca no registro do que já saiu, então não atrapalha a rodada diária. O
+ * assunto diz que é prova, para ninguém confundir com aviso real.
+ */
+export async function enviarProva(email: string): Promise<Relatorio & { para?: string }> {
+  if (!alertaLigado()) {
+    return { ligado: false, falta: oQueFalta(), novidades: 0, itens: [], assinantes: 0, enviados: 0 };
+  }
+
+  const itens = itensDoSite({
+    mudancas: todasAsMudancas(),
+    numeros: todosOsNumeros(),
+    posts: todosOsPosts(),
+  });
+
+  // Os três primeiros, tratados como se fossem novidade: é o formato de um
+  // aviso movimentado, que é o que vale a pena olhar numa prova.
+  const novas = novidades(itens, {}).slice(0, 3);
+  if (novas.length === 0) {
+    return { ligado: true, novidades: 0, itens: [], assinantes: 0, enviados: 0, erro: "nada publicado para montar a prova" };
+  }
+
+  const ficha = await registrarFicha(email);
+  const urlSaida = `${SITE.url}/sair/${ficha ?? "ficha"}`;
+
+  try {
+    const enviados = await enviarLote([
+      {
+        from: remetente() as string,
+        to: [email],
+        reply_to: paraResponder(),
+        subject: `Prova de entrega: ${assunto(novas)}`,
+        text: corpoTexto(novas, SITE.url, urlSaida, paraResponder()),
+        html: corpoHtml(novas, SITE.url, urlSaida, paraResponder()),
+        headers: {
+          "List-Unsubscribe": `<${SITE.url}/api/sair?t=${ficha}>`,
+          "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
+        },
+      },
+    ]);
+    return {
+      ligado: true,
+      para: email,
+      novidades: novas.length,
+      itens: novas.map((n) => ({ raiz: n.raiz, titulo: n.titulo, alterado: n.alterado })),
+      assinantes: 0,
+      enviados,
+    };
+  } catch (e) {
+    return {
+      ligado: true,
+      para: email,
+      novidades: novas.length,
+      itens: [],
+      assinantes: 0,
+      enviados: 0,
+      erro: (e as Error).message,
+    };
+  }
+}
+
 export type Relatorio = {
   ligado: boolean;
   falta?: string[];

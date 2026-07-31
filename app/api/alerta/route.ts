@@ -1,4 +1,5 @@
-import { rodarAlerta } from "@/lib/alerta-envio";
+import { rodarAlerta, enviarProva } from "@/lib/alerta-envio";
+import { normalizarEmail } from "@/lib/lista";
 
 /**
  * A rodada diária do alerta, chamada pelo cron da Vercel.
@@ -32,9 +33,22 @@ export async function GET(pedido: Request) {
     return Response.json({ erro: "não autorizado" }, { status: 401 });
   }
 
-  const ensaio = new URL(pedido.url).searchParams.get("ensaio") === "1";
+  const parametros = new URL(pedido.url).searchParams;
+  const ensaio = parametros.get("ensaio") === "1";
+
+  // `?prova=<endereço>` manda uma mensagem para um endereço só, sem mexer no
+  // registro do que já saiu. É como se confere entrega de verdade sem usar a
+  // lista como cobaia.
+  const prova = parametros.get("prova");
 
   try {
+    if (prova) {
+      const email = normalizarEmail(prova);
+      if (!email) return Response.json({ erro: "endereço de prova inválido" }, { status: 400 });
+      const relatorio = await enviarProva(email);
+      return Response.json(relatorio, { status: relatorio.erro ? 502 : 200 });
+    }
+
     const relatorio = await rodarAlerta({ ensaio });
     return Response.json(relatorio, { status: relatorio.erro ? 502 : 200 });
   } catch (e) {
