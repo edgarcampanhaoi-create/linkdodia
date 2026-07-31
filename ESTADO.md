@@ -112,10 +112,10 @@ configurar o `www`.
 Em `/benchmarks`, ligada no menu e na lateral da home. É a página de consulta, e é onde o
 produto pago vai morar.
 
-Tem três partes. A tabela de números, com oito itens, cada um com o documento que o
+Tem três partes. A tabela de números, com nove itens, cada um com o documento que o
 sustenta, a data do documento, o que fazer com aquilo e o link para o texto que explica. A
 calculadora de comissão média, que roda inteira no navegador e não envia nada para lugar
-nenhum. E a lista de lacunas, com as seis perguntas que nenhuma fonte pública responde.
+nenhum. E a lista de lacunas, com as sete perguntas que nenhuma fonte pública responde.
 
 Os dados moram em `conteudo/benchmarks.md`, em cabeçalho YAML, para que apurar não exija
 mexer em componente. `lib/numeros.ts` valida na leitura e quebra o build quando falta fonte,
@@ -123,7 +123,7 @@ data ou quando o número aponta para post que não existe.
 
 ## A pesquisa
 
-Em `/pesquisa`. Seis perguntas de escolha única, toda resposta em faixa, nenhum campo
+Em `/pesquisa`. Sete perguntas de escolha única, toda resposta em faixa, nenhum campo
 aberto, sem nome e sem e-mail. Não existe campo onde caiba dado pessoal, então o anonimato
 não depende de promessa.
 
@@ -187,6 +187,37 @@ humana, sobre esse material.
 
 O que não foi feito, e vale saber: nenhuma página tem imagem de compartilhamento própria além
 da home e dos posts.
+
+## Próximo passo decidido: o changelog de plataforma
+
+**É por aqui que a próxima sessão começa.**
+
+A ideia nasceu do erro de 30 de julho. Ninguém no Brasil mantém registro datado de mudança
+de política da Shopee e da Meta para quem vive disso, e o mercado inteiro segue citando
+versão vencida. A gente descobriu isso na marra.
+
+O que a página é: uma linha do tempo de mudanças de regra de plataforma, cada entrada com
+data da mudança, o que mudou, o documento linkado e o que ela quebra na prática de quem
+opera. Já temos três entradas para nascer com conteúdo:
+
+- 30/abr/2024, Instagram: originalidade em reels, com limiar de dez repostagens em 30 dias.
+- 30/abr/2026, Instagram: expansão a fotos e carrosséis, critério passa a ser proporção.
+- 1º/jul/2026, Shopee e Meta: tagueamento nativo disponível no Brasil.
+
+Por que ela vale mais que um post: é defensável, difícil de copiar, cresce sozinha a cada
+mudança, e dá motivo real para alguém voltar ao site e para assinar a lista.
+
+Formato provável: mesmo padrão de `conteudo/benchmarks.md`, arquivo de dados com validação
+na leitura, para que registrar mudança não exija mexer em componente.
+
+### Depois do changelog, em ordem
+
+1. **Alerta por e-mail quando um número mudar.** A lista existe e não tem uso. O motivo de
+   assinar deixa de ser newsletter e passa a ser vigilância.
+2. **Página de correções.** Hoje a política está em `/sobre` e a correção está no post.
+   Juntar tudo numa página vira prova de honestidade, que é o ativo do site.
+3. **Checklist do Status da Conta.** A descoberta de que bio e foto de perfil derrubam
+   recomendação é acionável e quase ninguém sabe. Vira ferramenta de uma página.
 
 ### O que fica pendente de produto
 
