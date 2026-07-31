@@ -171,7 +171,26 @@ function linhaDeValor(n: Novidade): string | null {
   return n.valor;
 }
 
-export function corpoTexto(novas: Novidade[], base: string, urlSaida: string): string {
+/**
+ * O aviso sobre resposta.
+ *
+ * O remetente é um endereço que não recebe: a raiz do domínio não tem MX. Quem
+ * responder fala com o vazio e nem erro recebe de volta. Num site cujo produto é
+ * honestidade, isso precisa estar escrito, a menos que exista uma caixa de
+ * verdade configurada para receber a resposta.
+ */
+function linhaDeResposta(responder?: string): string {
+  return responder
+    ? `Pode responder este e-mail, que a resposta chega em ${responder}.`
+    : "Responder este e-mail não chega a ninguém: a caixa do remetente não recebe mensagem.";
+}
+
+export function corpoTexto(
+  novas: Novidade[],
+  base: string,
+  urlSaida: string,
+  responder?: string,
+): string {
   const blocos = novas.map((n) => {
     const linhas = [`${rotuloDe(n).toUpperCase()}`, n.titulo];
     const valor = linhaDeValor(n);
@@ -185,6 +204,7 @@ export function corpoTexto(novas: Novidade[], base: string, urlSaida: string): s
     blocos.join("\n\n"),
     "",
     "Cada item acima tem a fonte na página, com nome de documento e data.",
+    linhaDeResposta(responder),
     "",
     "Você recebe este aviso porque entrou na lista do Link do Dia.",
     `Para sair: ${urlSaida}`,
@@ -206,7 +226,12 @@ function escapar(t: string): string {
  * de e-mail ignora metade do que a gente mandar, e um site que promete não
  * repassar endereço não vai abrir exceção para pixel de rastreio.
  */
-export function corpoHtml(novas: Novidade[], base: string, urlSaida: string): string {
+export function corpoHtml(
+  novas: Novidade[],
+  base: string,
+  urlSaida: string,
+  responder?: string,
+): string {
   const blocos = novas
     .map((n) => {
       const valor = linhaDeValor(n);
@@ -229,7 +254,7 @@ export function corpoHtml(novas: Novidade[], base: string, urlSaida: string): st
     '<div style="max-width:560px;margin:0 auto">',
     `<p style="margin:0 0 24px;font-family:Georgia,serif;font-size:20px;font-weight:600"><a href="${escapar(base)}" style="color:#14100e;text-decoration:none">Link do Dia</a></p>`,
     blocos,
-    '<p style="margin:0;font-size:13px;line-height:1.6;color:#7a716a">Cada item acima tem a fonte na página, com nome de documento e data.</p>',
+    `<p style="margin:0;font-size:13px;line-height:1.6;color:#7a716a">Cada item acima tem a fonte na página, com nome de documento e data. ${escapar(linhaDeResposta(responder))}</p>`,
     `<p style="margin:16px 0 0;font-size:13px;line-height:1.6;color:#7a716a">Você recebe este aviso porque entrou na lista do Link do Dia. <a href="${escapar(urlSaida)}" style="color:#7a716a">Sair da lista</a>.</p>`,
     "</div></div>",
   ].join("");

@@ -165,6 +165,23 @@ test("o número alterado mostra o valor de antes no corpo", () => {
   assert.match(corpoTexto(novas, "https://linkdodia.com", "x"), /4%, e era 3%/);
 });
 
+test("sem caixa de resposta configurada, o e-mail diz que ninguém lê", () => {
+  const novas = novidades(site(), {});
+  const texto = corpoTexto(novas, "https://linkdodia.com", "x");
+  const html = corpoHtml(novas, "https://linkdodia.com", "x");
+
+  assert.match(texto, /não chega a ninguém/);
+  assert.match(html, /não chega a ninguém/);
+});
+
+test("com caixa de resposta, o e-mail diz para onde a resposta vai", () => {
+  const novas = novidades(site(), {});
+  const texto = corpoTexto(novas, "https://linkdodia.com", "x", "alguem@exemplo.com");
+
+  assert.match(texto, /a resposta chega em alguem@exemplo\.com/);
+  assert.equal(texto.includes("não chega a ninguém"), false);
+});
+
 test("o html escapa o que veio do conteúdo", () => {
   const novas = novidades(site({ mudancas: [{ ...MUDANCA, titulo: '<script>"oi"' }] }), {});
   const html = corpoHtml(novas, "https://linkdodia.com", "https://linkdodia.com/sair/abc");

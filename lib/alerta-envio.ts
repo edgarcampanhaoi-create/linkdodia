@@ -41,6 +41,17 @@ function remetente(): string | null {
   return process.env.ALERTA_DE || null;
 }
 
+/**
+ * Para onde vai a resposta de quem apertar responder.
+ *
+ * Opcional. Sem ela, o rodapé do alerta diz com todas as letras que a caixa do
+ * remetente não recebe. O que não pode existir é a terceira via: caixa muda que
+ * engole resposta sem avisar.
+ */
+function paraResponder(): string | undefined {
+  return process.env.ALERTA_RESPONDER || undefined;
+}
+
 export function alertaLigado(): boolean {
   return Boolean(chaveResend() && remetente() && bancoLigado());
 }
@@ -103,6 +114,7 @@ async function gravarVisto(registro: Record<string, Visto>): Promise<void> {
 type Mensagem = {
   from: string;
   to: string[];
+  reply_to?: string;
   subject: string;
   text: string;
   html: string;
@@ -203,9 +215,10 @@ export async function rodarAlerta({ ensaio = false } = {}): Promise<Relatorio> {
     mensagens.push({
       from: remetente() as string,
       to: [email],
+      reply_to: paraResponder(),
       subject: titulo,
-      text: corpoTexto(novas, SITE.url, urlSaida),
-      html: corpoHtml(novas, SITE.url, urlSaida),
+      text: corpoTexto(novas, SITE.url, urlSaida, paraResponder()),
+      html: corpoHtml(novas, SITE.url, urlSaida, paraResponder()),
       headers: {
         // Faz o próprio programa de e-mail mostrar o botão de sair, que é o
         // caminho que a pessoa acha primeiro quando cansou da lista.
