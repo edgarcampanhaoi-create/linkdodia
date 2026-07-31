@@ -70,6 +70,9 @@ Tag canônica, `og:url` e `og:image` conferem com o endereço que serve. Nenhum 
 console. O Analytics carrega. O formulário de e-mail não aparece, que é o comportamento
 correto enquanto não houver destino configurado.
 
+O registro de mudanças, publicado em 31 de julho, acrescenta a décima segunda URL ao
+sitemap. Ela foi conferida na máquina, e ainda não no ar.
+
 As duas rotas de imagem de compartilhamento eram a maior dúvida, porque nunca puderam rodar
 na máquina de desenvolvimento: o gerador do Next falha no Windows ao resolver o caminho da
 fonte. No Linux da Vercel elas respondem. A tipografia da imagem não foi comparada lado a
@@ -188,32 +191,47 @@ humana, sobre esse material.
 O que não foi feito, e vale saber: nenhuma página tem imagem de compartilhamento própria além
 da home e dos posts.
 
-## Próximo passo decidido: o changelog de plataforma
+## O registro de mudanças de regra
+
+Em `/mudancas`, feito em 31 de julho, ligado no menu, no rodapé e na lateral da home. É a
+página que nasceu do erro de 30 de julho: ninguém mantém em português o registro datado de
+mudança de política da Shopee e da Meta, e por isso conselho vencido circula por anos com
+cara de novidade.
+
+Nasce com quatro entradas, todas com documento: o tagueamento nativo liberado no Brasil em
+1º de julho de 2026, a versão de 30 de junho de 2026 dos termos do programa de afiliados, a
+regra de originalidade do Instagram de 30 de abril de 2026, e a versão anterior dela, de 30
+de abril de 2024. Cada entrada traz o que mudou, a fonte e o que aquilo quebra na prática de
+quem opera.
+
+Duas decisões sustentam a página, e valem para toda entrada nova.
+
+**Regra vencida não é apagada.** Ela fica no ar marcada, com a data em que foi substituída e
+um link para a que vale. Quem procura "dez reposts em 30 dias" precisa achar exatamente
+isso, e ser levado dali para o critério atual. Apagar seria repetir, do outro lado, o erro
+que criou a página.
+
+**O post que explica é opcional.** Registrar a mudança no dia em que ela acontece vale mais
+que esperar o texto ficar pronto, porque a velocidade é metade do valor do registro. Quando
+o slug existe, ele precisa apontar para post publicado, como no resto do site.
+
+Os dados moram em `conteudo/mudancas.md` e `lib/mudancas.ts` valida na leitura, no mesmo
+padrão dos benchmarks. A validação foi provada com controle negativo em 31 de julho: sete
+corrupções propositais no arquivo (substituta inexistente, substituta mais antiga que a
+substituída, post não publicado, entrada sem fonte, confiança inventada, data fora do
+formato e id repetido), e as sete quebraram com a mensagem certa. O arquivo foi restaurado
+em seguida. Validação que ninguém tentou furar é decoração.
+
+O arquivo também passou a ser alvo do portão de estilo, junto com os posts e a lista de
+benchmarks.
+
+## Próximo passo, em ordem
 
 **É por aqui que a próxima sessão começa.**
 
-A ideia nasceu do erro de 30 de julho. Ninguém no Brasil mantém registro datado de mudança
-de política da Shopee e da Meta para quem vive disso, e o mercado inteiro segue citando
-versão vencida. A gente descobriu isso na marra.
-
-O que a página é: uma linha do tempo de mudanças de regra de plataforma, cada entrada com
-data da mudança, o que mudou, o documento linkado e o que ela quebra na prática de quem
-opera. Já temos três entradas para nascer com conteúdo:
-
-- 30/abr/2024, Instagram: originalidade em reels, com limiar de dez repostagens em 30 dias.
-- 30/abr/2026, Instagram: expansão a fotos e carrosséis, critério passa a ser proporção.
-- 1º/jul/2026, Shopee e Meta: tagueamento nativo disponível no Brasil.
-
-Por que ela vale mais que um post: é defensável, difícil de copiar, cresce sozinha a cada
-mudança, e dá motivo real para alguém voltar ao site e para assinar a lista.
-
-Formato provável: mesmo padrão de `conteudo/benchmarks.md`, arquivo de dados com validação
-na leitura, para que registrar mudança não exija mexer em componente.
-
-### Depois do changelog, em ordem
-
-1. **Alerta por e-mail quando um número mudar.** A lista existe e não tem uso. O motivo de
-   assinar deixa de ser newsletter e passa a ser vigilância.
+1. **Alerta por e-mail quando uma regra mudar.** A lista existe e não tem uso, e agora o
+   motivo de assinar está pronto: o registro de mudanças é a matéria-prima do alerta. O
+   motivo de assinar deixa de ser newsletter e passa a ser vigilância.
 2. **Página de correções.** Hoje a política está em `/sobre` e a correção está no post.
    Juntar tudo numa página vira prova de honestidade, que é o ativo do site.
 3. **Checklist do Status da Conta.** A descoberta de que bio e foto de perfil derrubam

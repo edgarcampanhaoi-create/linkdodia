@@ -60,6 +60,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Link href="/benchmarks" className="transition hover:text-papel">
                 Benchmarks
               </Link>
+              <Link href="/mudancas" className="transition hover:text-papel">
+                Mudanças
+              </Link>
               <Link href="/pesquisa" className="transition hover:text-papel">
                 Pesquisa
               </Link>
@@ -81,6 +84,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <nav className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-fumaca">
               <Link href="/benchmarks" className="transition hover:text-papel">
                 Os números
+              </Link>
+              <Link href="/mudancas" className="transition hover:text-papel">
+                O que mudou
               </Link>
               <Link href="/pesquisa" className="transition hover:text-papel">
                 A pesquisa

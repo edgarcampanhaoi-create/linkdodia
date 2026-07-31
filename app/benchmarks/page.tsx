@@ -213,6 +213,15 @@ export default async function Benchmarks() {
               O resultado nasce com o mesmo rótulo de confiança do resto: o número de
               respostas na cara, e o que a amostra não permite dizer escrito junto.
             </p>
+            <p className="mt-3 text-[15px] leading-relaxed text-tinta-2">
+              As regras que produzem esses números também mudam, e a data de cada mudança fica
+              em{" "}
+              <Link href="/mudancas" className="text-farol underline underline-offset-2">
+                o que mudou
+              </Link>
+              . Número desta página que sair de regra substituída aparece lá com a data da
+              troca.
+            </p>
           </div>
 
           {lista && <Inscrever origem="benchmarks" titulo="Quero acompanhar" />}

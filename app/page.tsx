@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { todosOsPosts, categorias, formatarData } from "@/lib/posts";
 import { todosOsNumeros } from "@/lib/numeros";
+import { todasAsMudancas } from "@/lib/mudancas";
 import { SITE } from "@/lib/site";
 import { siteWeb } from "@/lib/schema";
 import { capturaLigada } from "@/lib/lista";
@@ -28,6 +29,7 @@ export default function Home() {
 
   const numeros = todosOsNumeros();
   const [numeroDestaque, ...outrosNumeros] = numeros;
+  const mudancas = todasAsMudancas();
 
   return (
     <main>
@@ -159,6 +161,23 @@ export default function Home() {
 
               <aside className="mt-10 flex flex-col gap-4 md:mt-0">
                 {lista && <Inscrever origem="home-lateral" />}
+
+                <div className="rounded-xl border border-risco bg-papel-alto p-5">
+                  <Etiqueta>O que mudou</Etiqueta>
+                  <p className="mt-2 font-serif text-lg font-semibold leading-snug">
+                    O registro datado de mudança de regra
+                  </p>
+                  <p className="mt-1.5 text-sm leading-relaxed text-tinta-2">
+                    {mudancas.length} mudanças da Shopee, do Instagram e da Meta, cada uma com o
+                    documento e o que ela quebra. Regra substituída fica no ar, marcada.
+                  </p>
+                  <Link
+                    href="/mudancas"
+                    className="mt-3 inline-block text-sm font-semibold text-farol underline underline-offset-2"
+                  >
+                    Ver a linha do tempo
+                  </Link>
+                </div>
 
                 <div className="rounded-xl border border-risco bg-papel-alto p-5">
                   <Etiqueta>A pesquisa</Etiqueta>
