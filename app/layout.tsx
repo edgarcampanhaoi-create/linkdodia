@@ -42,6 +42,19 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
+/**
+ * O link de navegação, com área de toque maior que o desenho.
+ *
+ * Medido em 31 de julho: os links do menu tinham 20 pixels de altura, e a régua
+ * de alvo de toque pede perto de 44. Num polegar, fileira de alvo de 20 pixels é
+ * campo minado, e menu é controle, não texto corrido.
+ *
+ * O conserto é `-my-2.5 py-2.5`: a margem negativa devolve o espaço que o
+ * preenchimento tomou, então a área sensível vai a 40 pixels e o desenho na tela
+ * continua igual ao que era. Ninguém vê a diferença, e o dedo acerta.
+ */
+const LINK_MENU = "-my-2.5 py-2.5 transition hover:text-papel";
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR" className={`${serif.variable} ${sans.variable}`}>
@@ -53,25 +66,30 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Link href="/" className="font-serif text-xl font-semibold tracking-tight">
               Link do Dia
             </Link>
-            <nav className="flex items-center gap-5 text-sm font-medium text-fumaca">
-              <Link href="/" className="transition hover:text-papel">
-                Publicações
-              </Link>
-              <Link href="/benchmarks" className="transition hover:text-papel">
+            {/* Quatro itens, e não seis.
+
+                "Publicações" saiu porque levava para a home, que é onde o nome do
+                site ao lado já leva, e "RSS" saiu porque serve a um público
+                pequeno e continua no rodapé, além de ser anunciado no cabeçalho
+                da página para quem usa leitor de feed. Menu de telefone que
+                quebra em duas linhas cobra atenção de todo mundo para servir a
+                poucos.
+
+                `flex-wrap` fica mesmo assim, como rede de proteção para tela
+                muito estreita ou letra aumentada. */}
+            <nav className="flex flex-wrap items-center gap-x-4 gap-y-3 text-sm font-medium text-fumaca">
+              <Link href="/benchmarks" className={LINK_MENU}>
                 Benchmarks
               </Link>
-              <Link href="/mudancas" className="transition hover:text-papel">
+              <Link href="/mudancas" className={LINK_MENU}>
                 Mudanças
               </Link>
-              <Link href="/pesquisa" className="transition hover:text-papel">
+              <Link href="/pesquisa" className={LINK_MENU}>
                 Pesquisa
               </Link>
-              <Link href="/sobre" className="transition hover:text-papel">
+              <Link href="/sobre" className={LINK_MENU}>
                 Método
               </Link>
-              <a href="/rss.xml" className="transition hover:text-papel">
-                RSS
-              </a>
             </nav>
           </div>
         </header>
@@ -81,20 +99,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <footer className="mt-20 bg-carvao text-papel">
           <div className="mx-auto max-w-5xl px-5 py-12">
             <p className="max-w-leitura font-serif text-lg leading-snug">{SITE.promessa}</p>
-            <nav className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-fumaca">
-              <Link href="/benchmarks" className="transition hover:text-papel">
+            <nav className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-fumaca">
+              <Link href="/benchmarks" className={LINK_MENU}>
                 Os números
               </Link>
-              <Link href="/mudancas" className="transition hover:text-papel">
+              <Link href="/mudancas" className={LINK_MENU}>
                 O que mudou
               </Link>
-              <Link href="/pesquisa" className="transition hover:text-papel">
+              <Link href="/pesquisa" className={LINK_MENU}>
                 A pesquisa
               </Link>
-              <Link href="/sobre" className="transition hover:text-papel">
+              <Link href="/sobre" className={LINK_MENU}>
                 O método
               </Link>
-              <a href="/rss.xml" className="transition hover:text-papel">
+              <a href="/rss.xml" className={LINK_MENU}>
                 RSS
               </a>
             </nav>

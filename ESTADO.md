@@ -32,6 +32,32 @@ escuro, então escuro sozinho não diferencia.
 É por isso que a faixa do topo abre com um dado e o artigo do contrato, e o site não usa
 gradiente nenhum.
 
+## A passada de celular, em 31 de julho
+
+Medida, e não olhada: o painel do navegador não estava compondo imagem, então o instrumento
+foi o próprio DOM.
+
+**O que estava certo e continua.** Nenhuma página tem estouro horizontal, e nenhuma grade de
+duas colunas existe sem o prefixo de tela grande. No telefone, tudo vira coluna única, que
+era o risco mais provável e não se materializou.
+
+**O que estava errado.** Os links do menu tinham 20 pixels de altura, e a régua de alvo de
+toque pede perto de 44. Menu é controle, e não texto corrido, então a régua vale.
+
+O conserto é `-my-2.5 py-2.5`, guardado em `LINK_MENU`, no `app/layout.tsx`: a margem negativa
+devolve o espaço que o preenchimento tomou, a área sensível vai a 40 pixels e o desenho na
+tela fica idêntico. Medido antes e depois: alvo de 20 para 40, cabeçalho parado em 60.
+
+**O menu encolheu de seis itens para quatro.** Saíram "Publicações", que levava para a home,
+onde o nome do site ao lado já leva, e "RSS", que serve a um público pequeno, continua no
+rodapé e é anunciado no cabeçalho da página para leitor de feed. Com quatro, o menu pede 314
+pixels e cabe numa linha a partir de tela de 360. Abaixo disso ele quebra em duas linhas, que
+é o que `flex-wrap` garante, e que antes não existia: os seis ficavam numa fileira que só
+espremia.
+
+Regra que fica: item de menu se justifica pelo uso, não pela completude. Fileira que quebra
+cobra atenção de todo mundo para servir a poucos.
+
 ## Onde está
 
 **No ar**, em https://linkdodia.com.
