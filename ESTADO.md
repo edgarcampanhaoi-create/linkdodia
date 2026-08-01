@@ -58,6 +58,25 @@ espremia.
 Regra que fica: item de menu se justifica pelo uso, não pela completude. Fileira que quebra
 cobra atenção de todo mundo para servir a poucos.
 
+**A home invertia a própria promessa no celular.** O comentário no alto de `app/page.tsx` diz
+que quem chega "vê um dado duro e o artigo do contrato ao lado, antes de qualquer adjetivo".
+No computador é verdade, porque o cartão do número fica ao lado do texto. No telefone ele
+caía embaixo de tudo, em 656 pixels, e a tela útil acaba perto de 700: eram 616 pixels de
+adjetivo antes do primeiro dado.
+
+O conserto não foi encolher fonte, foi trocar a ordem. A coluna de texto virou duas células,
+manchete numa e parágrafo com botões noutra, e o cartão ganhou `md:row-span-2`. No telefone a
+ordem passa a ser manchete, número, e depois o resto; no computador o desenho é o mesmo de
+antes.
+
+Medido nas duas larguras, antes e depois, com quadro de verdade: no celular o cartão subiu de
+656 para 393. No computador as quatro medidas ficaram idênticas, casa por casa: manchete 166,
+cartão 189, parágrafo 378, faixa 628.
+
+O que sobra para uma próxima passada: a faixa da home ainda tem 1211 pixels no telefone, e a
+maior parte disso é a tira de oito números, que sozinha come 333. Ela está abaixo da dobra e
+não atrapalha, mas é o próximo candidato a encolher.
+
 ## Onde está
 
 **No ar**, em https://linkdodia.com.

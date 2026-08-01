@@ -37,7 +37,19 @@ export default function Home() {
 
       <section className="bg-carvao text-papel">
         <div className="mx-auto max-w-5xl px-5 py-12 sm:py-16">
-          <div className="grid gap-10 md:grid-cols-[1fr_minmax(0,20rem)] md:items-center">
+          {/* Três células, e não duas, por causa do celular.
+
+              Medido em 31 de julho, num quadro de 375: com a coluna de texto
+              inteira numa célula só, o cartão do número caía em 656 pixels, e a
+              tela útil de um telefone acaba perto de 700. Ou seja, quem chegava
+              pelo celular lia 616 pixels de adjetivo antes de ver um dado, que é
+              o oposto do que este site diz fazer.
+
+              Separando parágrafo e botões numa terceira célula, a ordem no
+              telefone vira manchete, número, e depois o resto. No computador o
+              `md:row-span-2` devolve o desenho de sempre: texto à esquerda
+              ocupando as duas linhas, cartão à direita. */}
+          <div className="grid gap-6 md:grid-cols-[1fr_minmax(0,20rem)] md:gap-x-10 md:gap-y-5">
             <div className="entra">
               <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-fumaca">
                 Publicação independente
@@ -47,8 +59,10 @@ export default function Home() {
                 O que está funcionando em marketing digital e marketplaces,{" "}
                 <em className="italic text-fumaca">com a fonte na mesa</em>.
               </h1>
+            </div>
 
-              <p className="mt-5 max-w-leitura text-[15px] leading-relaxed text-fumaca">
+            <div className="entra order-last md:order-none">
+              <p className="max-w-leitura text-[15px] leading-relaxed text-fumaca">
                 Todo número aqui vem com o documento que o sustenta, com artigo e data. O que
                 não deu para confirmar aparece escrito como não confirmado.
               </p>
@@ -72,7 +86,7 @@ export default function Home() {
             {numeroDestaque && (
               <Link
                 href={`/posts/${numeroDestaque.post}`}
-                className="entra entra-2 group block rounded-2xl bg-carvao-2 p-6 transition hover:bg-[#2c2723]"
+                className="entra entra-2 group block rounded-2xl bg-carvao-2 p-6 transition hover:bg-[#2c2723] md:col-start-2 md:row-start-1 md:row-span-2 md:self-center"
               >
                 <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-fumaca">
                   O número
