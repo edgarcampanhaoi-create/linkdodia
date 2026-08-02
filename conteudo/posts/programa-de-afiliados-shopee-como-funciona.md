@@ -15,8 +15,10 @@ fontes:
     url: "https://creators.instagram.com/blog/rewarding-original-creators-on-instagram"
   - texto: "Comunidade oficial ManyChat, resposta de moderador sobre obter o post ID no gatilho de comentários"
     url: "https://community.manychat.com/ideas/get-post-id-for-comments-trigger-3752"
-  - texto: "Documentação da Meta para webhooks de comentários do Instagram e requisitos de Advanced Access, conferida em 26 de julho de 2026"
+  - texto: "Documentação da Meta para webhooks de comentários do Instagram, níveis de acesso da Graph API e requisitos de Advanced Access, conferida em 1 de agosto de 2026"
 ---
+
+> **Correção, 1 de agosto de 2026.** O trecho sobre automação de comentário afirmava que a verificação de negócio da Meta exige site em HTTPS e que a documentação da Meta informa até 14 dias úteis para a análise. Refizemos a busca e não localizamos página oficial da Meta com esse prazo nem com esse requisito. O trecho foi corrigido, e o registro completo do erro está em [O limite do ManyChat](/posts/manychat-limite-post-id).
 
 A comissão base do afiliado Shopee é de 3%. Está nos Termos e Condições do Programa de Afiliados Shopee, artigos 124094 e 124095, na versão de 30 de junho de 2026. A faixa de 15% a 30% que dezenas de textos repetem também existe. Ela é o teto.
 
@@ -102,7 +104,7 @@ O ManyChat não entrega ao fluxo qual publicação gerou o comentário. Quem con
 
 Cruzar numa planilha também não fecha. Os campos de sistema do Instagram disponíveis nesses fluxos não trazem o texto do comentário nem o identificador da publicação, então não há o que cruzar.
 
-A via que funciona é o webhook de comentários da Meta, que entrega o identificador da publicação. O obstáculo é de cadastro, e vem em cadeia: o webhook exige Advanced Access, o Advanced Access exige verificação de negócio, e a verificação exige pessoa jurídica registrada, com documento batendo com os dados informados, e site em HTTPS. A documentação da Meta informa até 14 dias úteis para a análise.
+A via que funciona é o webhook de comentários da Meta, que entrega o identificador da publicação. O obstáculo é de cadastro, e vem em cadeia: o webhook exige Advanced Access, o Advanced Access exige App Review e conexão a uma empresa verificada, e empresa verificada exige documento de pessoa jurídica. Quanto tempo leva a análise, a Meta não publica.
 
 Isso não é problema de ferramenta. É problema de CNPJ, e trocar de plataforma não resolve. Enquanto isso, aponte a automação para um endereço fixo que passa a exibir a oferta do dia, em vez de apontar para o link do post, que muda todo dia. A corrente inteira está em [O limite do ManyChat](/posts/manychat-limite-post-id).
 

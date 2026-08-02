@@ -11,8 +11,10 @@ ressalva: "A limitação foi confirmada por moderador da própria ManyChat na co
 fontes:
   - texto: "Comunidade oficial ManyChat, resposta de moderador sobre obter o post ID no gatilho de comentários"
     url: "https://community.manychat.com/ideas/get-post-id-for-comments-trigger-3752"
-  - texto: "Documentação da Meta para webhooks de comentários do Instagram (campo comments, objeto media.id) e requisitos de Advanced Access"
+  - texto: "Documentação da Meta para webhooks de comentários do Instagram (campo comments, objeto media.id), níveis de acesso da Graph API e requisitos de Advanced Access, conferidos em 1 de agosto de 2026"
 ---
+
+> **Correção, 1 de agosto de 2026.** Este texto afirmava que a análise da verificação de negócio leva "até 14 dias úteis, segundo a documentação oficial", e que a verificação exige site em HTTPS. Refizemos a busca e não localizamos página oficial da Meta que publique esse prazo nem essa exigência. O prazo circula em guias de integradores, e o requisito de HTTPS era formulação nossa. As duas frases foram corrigidas abaixo, e o selo do número em [benchmarks](/benchmarks) caiu de verificado para parcial. É a segunda vez que esta casa cita um documento sem ter aberto a página exata, e a regra que saiu da primeira vez está em [Como a gente apura](/sobre): achar um documento não encerra a busca, e fonte sem endereço não fecha texto.
 
 Automação de comentário virou espinha de muita operação de venda no Instagram. A pessoa comenta uma palavra, o robô manda o link. Simples de descrever, e tem uma pedra no meio que quase ninguém menciona antes de você já ter montado tudo.
 
@@ -37,9 +39,9 @@ Existe caminho técnico. O webhook de comentários direto da Meta entrega o `med
 O preço é institucional, não técnico. A corrente é esta:
 
 1. O webhook de comentários exige Advanced Access.
-2. Advanced Access exige verificação de negócio.
-3. A verificação exige pessoa jurídica registrada, com documento batendo com os dados informados, e um site em HTTPS.
-4. A análise leva até 14 dias úteis, segundo a documentação oficial.
+2. Advanced Access exige App Review e conexão a uma empresa verificada, exigência que a Meta data de 1º de fevereiro de 2023.
+3. Empresa verificada exige documento de pessoa jurídica.
+4. Quanto tempo leva a análise, a Meta não publica. O prazo de até 14 dias úteis que circula sai de guias de integradores.
 
 Traduzindo: a automação que manda o link do post certo não é um problema de ferramenta. É um problema de CNPJ. Quem opera como pessoa física não passa desse portão, por mais que troque de plataforma.
 
