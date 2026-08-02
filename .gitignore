@@ -33,6 +33,12 @@ yarn-error.log*
 .env
 .env*.local
 
+# documento de trabalho
+# Rascunho, apuração em andamento e plano. Nada aqui é publicado, e nada aqui
+# passou pelos portões de estilo e de contraste. Fica fora do repositório para
+# que o histórico do site continue sendo só o que foi ao ar.
+/trabalho/
+
 # vercel
 .vercel
 
