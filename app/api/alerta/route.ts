@@ -12,6 +12,14 @@ import { normalizarEmail } from "@/lib/lista";
  * `?ensaio=1` faz a rodada inteira sem enviar e sem gravar, e devolve o que
  * sairia. Conferir alerta em produção sem ensaio significa usar a caixa de
  * e-mail de gente real como ambiente de teste.
+ *
+ * `?absorver=1` grava sem enviar. Serve para a errata: consertar um número muda
+ * a fonte dele, e mudança de fonte dispara aviso. Sem este caminho, publicar
+ * correção obriga a escolher entre mandar e-mail que ninguém pediu e deixar o
+ * erro no ar. O relatório devolve o que foi engolido e quantos assinantes
+ * deixaram de saber, porque quem absorve precisa ver o preço na hora.
+ *
+ * Combinado com `?ensaio=1`, mostra o que seria absorvido sem gravar nada.
  */
 
 export const dynamic = "force-dynamic";
@@ -35,6 +43,7 @@ export async function GET(pedido: Request) {
 
   const parametros = new URL(pedido.url).searchParams;
   const ensaio = parametros.get("ensaio") === "1";
+  const absorver = parametros.get("absorver") === "1";
 
   // `?prova=<endereço>` manda uma mensagem para um endereço só, sem mexer no
   // registro do que já saiu. É como se confere entrega de verdade sem usar a
@@ -49,7 +58,7 @@ export async function GET(pedido: Request) {
       return Response.json(relatorio, { status: relatorio.erro ? 502 : 200 });
     }
 
-    const relatorio = await rodarAlerta({ ensaio });
+    const relatorio = await rodarAlerta({ ensaio, absorver });
     return Response.json(relatorio, { status: relatorio.erro ? 502 : 200 });
   } catch (e) {
     return Response.json({ erro: (e as Error).message }, { status: 500 });

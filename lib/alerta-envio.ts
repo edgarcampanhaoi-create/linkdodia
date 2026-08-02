@@ -214,6 +214,8 @@ export type Relatorio = {
   falta?: string[];
   /** Verdadeiro na primeira rodada: registra o que existe e não manda nada. */
   semeou?: boolean;
+  /** Verdadeiro quando a rodada gravou sem enviar de propósito. */
+  absorveu?: boolean;
   ensaio?: boolean;
   novidades: number;
   itens: { raiz: string; titulo: string; alterado: boolean }[];
@@ -228,8 +230,19 @@ export type Relatorio = {
  * Em ensaio, faz tudo menos enviar e menos gravar: serve para olhar o que sairia
  * antes de sair. É o único jeito de conferir isto em produção sem usar a caixa de
  * e-mail de gente real como ambiente de teste.
+ *
+ * Em `absorver`, grava sem enviar. É o caso do meio, e ele existe porque faltava:
+ * o conserto de um erro nosso muda a fonte de um número, e mudança de fonte é
+ * gatilho de aviso. Sem este caminho, publicar uma errata obriga a escolher entre
+ * despachar e-mail que ninguém pediu ou deixar o erro no ar. As duas escolhas são
+ * ruins, e a segunda é pior.
+ *
+ * Quem absorve está decidindo que a lista nunca vai saber daquilo. Por isso o
+ * relatório devolve item por item o que foi engolido, e quantos assinantes
+ * deixaram de ser avisados. Gravação silenciosa que não presta contas é como se
+ * perde a régua que este site inteiro tenta manter.
  */
-export async function rodarAlerta({ ensaio = false } = {}): Promise<Relatorio> {
+export async function rodarAlerta({ ensaio = false, absorver = false } = {}): Promise<Relatorio> {
   if (!alertaLigado()) {
     return { ligado: false, falta: oQueFalta(), novidades: 0, itens: [], assinantes: 0, enviados: 0 };
   }
@@ -265,6 +278,20 @@ export async function rodarAlerta({ ensaio = false } = {}): Promise<Relatorio> {
   }
 
   const lista = await assinantes();
+
+  if (absorver) {
+    if (!ensaio) await gravarVisto(registroDe(itens));
+    return {
+      ligado: true,
+      absorveu: true,
+      ensaio,
+      novidades: novas.length,
+      itens: resumo,
+      assinantes: lista.length,
+      enviados: 0,
+    };
+  }
+
   if (lista.length === 0) {
     // Nada para enviar, mas o que está publicado passa a ser o novo ponto de
     // partida. Senão o primeiro assinante receberia todo o acúmulo de uma vez.

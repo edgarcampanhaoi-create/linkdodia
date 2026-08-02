@@ -109,6 +109,21 @@ test("número que troca de fonte ou de data também avisa", () => {
   assert.equal(outraData.length, 1);
 });
 
+test("errata absorvida não volta como novidade na rodada seguinte", () => {
+  // O caminho de `?absorver=1`. Consertar um número muda a fonte dele, e mudança
+  // de fonte é gatilho de aviso. O absorver grava sem enviar, e a rodada de
+  // amanhã precisa ficar calada. Se este teste cair, absorver vira aviso adiado
+  // em vez de aviso engolido, e a lista recebe a errata no dia seguinte, que é
+  // exatamente o que quem absorveu decidiu evitar.
+  const antes = registroDe(site());
+  const corrigido = site({
+    numeros: [{ ...NUMERO, fonte: "Guias de integradores", desde: "2026-08-01" }],
+  });
+
+  assert.equal(novidades(corrigido, antes).length, 1);
+  assert.equal(novidades(corrigido, registroDe(corrigido)).length, 0);
+});
+
 test("acerto de texto numa entrada antiga do registro não manda e-mail", () => {
   const registro = registroDe(site());
   const revisada = site({
