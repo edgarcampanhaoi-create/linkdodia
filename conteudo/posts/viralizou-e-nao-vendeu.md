@@ -73,7 +73,7 @@ Exporte os últimos 90 dias do painel. Não 30, porque trinta dias não separa s
 
 A primeira conta é a comissão média: divida a comissão pelo valor dos pedidos. Dividir pelo número de pedidos dá reais por pedido, que é outra informação e não se compara com a base do contrato. A calculadora em [/benchmarks](/benchmarks) faz essa conta e mostra o seu número ao lado da base.
 
-A segunda conta é a mesma, quebrada por categoria. Ela responde qual categoria paga a sua conta, e a que paga pode não ser a que você mais publica. Por que essa diferença existe, e o que fazer com cada resultado, está em [A comissão da Shopee é 3%](/posts/comissao-shopee-3-por-cento).
+A segunda conta é a mesma, quebrada por categoria. Ela responde qual categoria paga a sua conta, e a que paga pode não ser a que você mais publica. Por que essa diferença existe, e o que fazer com cada resultado, está em [Onde está o 3% da Shopee, e o que ele cobre](/posts/comissao-shopee-3-por-cento).
 
 A terceira conta é a distância entre estimado e validado, na mesma janela. A comissão só vale depois da entrega e da confirmação do pagamento, e pedido cancelado, devolvido ou não pago pode zerar o que já aparecia no painel. Se você planeja pelo estimado, planeja com um número que ainda vai encolher.
 

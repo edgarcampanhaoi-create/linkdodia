@@ -45,3 +45,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# editor
+# O Obsidian grava layout de janela e estado de painel dentro da pasta que ele
+# abre. Isso e configuracao de maquina, nao do projeto.
+.obsidian/

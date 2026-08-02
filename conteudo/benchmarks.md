@@ -11,14 +11,16 @@
 numeros:
   - id: "comissao-base-shopee"
     valor: "3%"
-    titulo: "Comissão base do afiliado Shopee"
-    curto: "comissão base"
-    oQueE: "É o piso que a plataforma paga. Tudo que passa disso é Comissão Extra, bancada pelo vendedor e variável por produto. A faixa de 15% a 30% que circula em blog é o teto, não a regra."
-    oQueFazer: "Calcule a sua comissão média dos últimos 90 dias. Se ela está perto de 3%, o gargalo é categoria, e trocar de categoria não custa audiência nova."
+    titulo: "A taxa de 3%, e as três situações em que ela é nomeada"
+    curto: "taxa de 3%"
+    oQueE: "O contrato do programa não traz percentual nenhum. Foram 60.752 caracteres conferidos em 1 de agosto de 2026, sem um único número seguido de sinal de porcentagem. Os 3% saem de uma página de ajuda, que nomeia a taxa em três situações: compra de cliente existente, venda em transmissão ao vivo e venda por Shopee Vídeo. A mesma página não publica a taxa para compra de cliente novo, e diz que para site de cupom, cashback e semelhantes a taxa é sob consulta."
+    oQueFazer: "Pare de tratar 3% como piso garantido, porque nenhum documento público diz isso. Calcule a sua comissão média dos últimos 90 dias: é o seu extrato que diz onde você está, e não a página de ajuda."
     categoria: "Afiliados"
-    confianca: "verificado"
-    fonte: "Termos e Condições do Programa de Afiliados Shopee, artigos 124094 e 124095"
-    desde: "2026-06-30"
+    confianca: "parcial"
+    fonte: "Central de Ajuda Shopee, artigo 124095, \"Entenda o Comissionamento da Shopee\". O contrato, artigo 124094, não traz percentual"
+    fonteUrl: "https://help.shopee.com.br/portal/10/article/124095"
+    desde: "2026-08-01"
+    dataDe: "consulta"
     post: "comissao-shopee-3-por-cento"
 
   - id: "janela-atribuicao-shopee"
@@ -128,6 +130,10 @@ numeros:
     post: "manychat-limite-post-id"
 
 lacunas:
+  - pergunta: "Qual a taxa de comissão para compra de cliente novo?"
+    porque: "A página de ajuda nomeia 3% para compra de cliente existente, para live e para Shopee Vídeo. Sobre cliente novo, ela não diz nada, e o contrato não traz percentual nenhum. Procuramos em 1 de agosto de 2026 e não achamos essa taxa publicada em lugar algum. É a lacuna mais estranha do conjunto, porque ela está no meio do que a plataforma escolheu explicar."
+    post: "comissao-shopee-3-por-cento"
+
   - pergunta: "Quanto um afiliado brasileiro ganha por mês?"
     porque: "Não existe resposta publicada com fonte, e a ausência tem causa: a venda que migra some do relatório, a comissão varia por produto e por vendedor, e o valor de hoje ainda pode encolher na validação. É a pergunta com mais procura do assunto, e a que mais recebe número inventado."
     post: "quanto-ganha-um-afiliado"

@@ -25,7 +25,7 @@ O que vem neste bloco é leitura nossa a partir de regras documentadas. As regra
 
 A primeira razão é a atribuição. Pelo artigo 124094 do contrato, na versão de 30 de junho de 2026, ela dura sete dias e o determinante é o último clique. Quem foi ultrapassado não vê o que perdeu, porque aquilo deixou de ser dele. A mecânica está em [A janela de 7 dias](/posts/shopee-janela-7-dias-ultimo-clique).
 
-A segunda é que a comissão não é uma taxa só. A base é do contrato e o excedente é bancado pelo vendedor, produto a produto. Duas operações com o mesmo volume podem fechar o mês com comissões bem diferentes, e nenhuma taxa média converte uma coisa na outra. O detalhe está em [A comissão da Shopee é 3%](/posts/comissao-shopee-3-por-cento).
+A segunda é que a comissão não é uma taxa só. O contrato não publica percentual nenhum, a página de ajuda nomeia 3% para três situações, e o excedente é bancado pelo vendedor, produto a produto. Duas operações com o mesmo volume podem fechar o mês com comissões bem diferentes, e nenhuma taxa média converte uma coisa na outra. O detalhe está em [Onde está o 3% da Shopee, e o que ele cobre](/posts/comissao-shopee-3-por-cento).
 
 A terceira é o tempo. A validação vem depois da entrega e da confirmação do pagamento, então quem opera não sabe hoje quanto ganhou hoje.
 
@@ -49,7 +49,7 @@ Funil com perda declarada em cada degrau. A divisão do diagnóstico em quatro e
 
 "Tantos reais por mil visualizações." Pelo contrato, quem determina a atribuição é o clique. A leitura que fazemos disso é que visualização não é o ativo comprado pelo conteúdo, e não encontramos taxa nenhuma que converta audiência em reais.
 
-Comissão dividida pela quantidade de pedidos. Isso dá reais por pedido, que é outra informação e não se compara com os 3% do contrato. O denominador certo é o valor dos pedidos.
+Comissão dividida pela quantidade de pedidos. Isso dá reais por pedido, que é outra informação e não se compara com percentual nenhum. O denominador certo é o valor dos pedidos.
 
 Tabela de comissão por categoria sem data ao lado. O valor muda por campanha, por vendedor e por período. Tabela sem data envelhece em semanas e vira desinformação com cara de referência, e é por isso que a nossa página de números se recusa a publicar essa.
 

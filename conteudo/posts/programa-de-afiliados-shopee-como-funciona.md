@@ -1,8 +1,8 @@
 ---
 titulo: "O que o contrato do programa de afiliados da Shopee diz, e o que os blogs copiam errado"
 tituloSeo: "Programa de afiliados da Shopee: como funciona, com a fonte"
-resumo: "A comissão base é 3%, a atribuição dura sete dias e vale por sessão, e a ausência de teto é revogável. Cada uma dessas regras está num artigo do contrato, e nenhuma delas aparece direito nos textos que ranqueiam."
-descricaoSeo: "A comissão base é 3%, a janela de atribuição dura 7 dias e vale por sessão, e a ausência de teto é revogável. As regras com o artigo e a data de cada uma."
+resumo: "A atribuição dura sete dias e vale por sessão, a base de cálculo é o valor líquido, e a ausência de teto é revogável. Cada uma dessas regras está num artigo do contrato. O percentual de comissão não está: o contrato não traz nenhum."
+descricaoSeo: "A janela de atribuição dura 7 dias e vale por sessão, e a ausência de teto é revogável. O contrato não traz percentual de comissão nenhum, e a taxa sai de outra página."
 data: 2026-07-26
 categoria: "Afiliados"
 tags: ["shopee", "afiliados", "comissão", "atribuição", "marketplace"]
@@ -18,21 +18,25 @@ fontes:
   - texto: "Documentação da Meta para webhooks de comentários do Instagram, níveis de acesso da Graph API e requisitos de Advanced Access, conferida em 1 de agosto de 2026"
 ---
 
-> **Correção, 1 de agosto de 2026.** O trecho sobre automação de comentário afirmava que a verificação de negócio da Meta exige site em HTTPS e que a documentação da Meta informa até 14 dias úteis para a análise. Refizemos a busca e não localizamos página oficial da Meta com esse prazo nem com esse requisito. O trecho foi corrigido, e o registro completo do erro está em [O limite do ManyChat](/posts/manychat-limite-post-id).
+> **Correção, 1 de agosto de 2026.** Duas correções no mesmo dia, e as duas ficam aqui.
+>
+> A primeira: o trecho sobre automação de comentário afirmava que a verificação de negócio da Meta exige site em HTTPS e que a documentação da Meta informa até 14 dias úteis para a análise. Refizemos a busca e não localizamos página oficial da Meta com esse prazo nem com esse requisito. O registro completo está em [O limite do ManyChat](/posts/manychat-limite-post-id).
+>
+> A segunda, e ela é maior: este texto abria dizendo que a comissão base é 3% e que isso estava nos Termos e Condições, artigos 124094 e 124095. Fomos abrir o contrato inteiro. Ele tem 60.752 caracteres e não traz um único percentual. O 124095 não é o contrato: é página de ajuda, e lá os 3% aparecem nomeados para três situações, sem serem descritos como piso. O texto foi corrigido, o selo do número em [benchmarks](/benchmarks) caiu para parcial, e a apuração completa está em [Onde está o 3% da Shopee, e o que ele cobre](/posts/comissao-shopee-3-por-cento).
 
-A comissão base do afiliado Shopee é de 3%. Está nos Termos e Condições do Programa de Afiliados Shopee, artigos 124094 e 124095, na versão de 30 de junho de 2026. A faixa de 15% a 30% que dezenas de textos repetem também existe. Ela é o teto.
+O contrato do programa, artigo 124094, na versão de 30 de junho de 2026, não traz percentual de comissão nenhum. A taxa de 3% que circula sai do artigo 124095, que é página de ajuda, e lá ela aparece nomeada para três situações específicas. A faixa de 15% a 30% que dezenas de textos repetem também existe, e quem banca o que passa da taxa padrão é o vendedor.
 
 Quem monta o mês em cima do número errado erra mais que a planilha. O que vem abaixo são as regras que decidem quanto entra na sua conta, cada uma com o artigo ao lado. Onde o contrato não responde, está escrito aqui que ele não responde.
 
-A data de referência do contrato, para a base de 3%, para o valor líquido, para a validação e para a janela de sete dias, é 30 de junho de 2026. Regra de plataforma muda, e texto sem data envelhece sem avisar.
+A data de referência do contrato, para o valor líquido, para a validação e para a janela de sete dias, é 30 de junho de 2026. Regra de plataforma muda, e texto sem data envelhece sem avisar.
 
-## A base é 3%, e o que passa disso vem do vendedor
+## O 3% não está no contrato, e o que passa dele vem do vendedor
 
-O piso que a plataforma paga é 3%. O que leva alguns produtos muito acima é a Comissão Extra, bancada pelo vendedor e variável por produto. Somando as duas, dá para chegar perto de 20% ou 30% em alguns itens e ficar nos 3% em outros.
+A página de ajuda nomeia 3% em três situações: compra de cliente existente, venda em transmissão ao vivo e venda por Shopee Vídeo. Ela não diz que 3% é piso, e não publica a taxa para compra de cliente novo. O que leva alguns produtos muito acima é a Comissão Extra, bancada pelo vendedor e variável por produto.
 
 A consequência é de decisão, e ela separa dois planos. Comissão média perto de 3% aponta a categoria como gargalo, e trocar de categoria não pede audiência nova. Comissão média perto de 15% deixa só o volume, e volume é caro.
 
-A conta está em [A comissão da Shopee é 3%](/posts/comissao-shopee-3-por-cento): exporte 90 dias do painel, divida a comissão pelo valor dos pedidos, e depois refaça a mesma conta quebrada por categoria. A segunda parte é a que costuma mudar plano, porque a categoria que paga e a categoria que você mais posta podem não ser a mesma.
+A conta está em [Onde está o 3% da Shopee, e o que ele cobre](/posts/comissao-shopee-3-por-cento): exporte 90 dias do painel, divida a comissão pelo valor dos pedidos, e depois refaça a mesma conta quebrada por categoria. A segunda parte é a que costuma mudar plano, porque a categoria que paga e a categoria que você mais posta podem não ser a mesma.
 
 ## "A comissão cai sobre o valor que o cliente pagou"
 

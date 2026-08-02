@@ -28,8 +28,8 @@ mudancas:
     data: 2026-06-30
     plataforma: "Shopee"
     titulo: "Entra em vigor a versão de 30 de junho dos termos do programa de afiliados"
-    oQueMudou: "É a versão que vale hoje, e é dela que saem a comissão base de 3%, a janela de sete dias por último clique, a base de cálculo pelo valor líquido e a ausência de teto por pedido descrita como ação por tempo limitado. A Shopee não publica registro do que mudou de uma versão para a anterior, então o que dá para afirmar é o conteúdo atual, e não a diferença."
-    oQueQuebra: "Toda tabela de comissão que circula sem data. Se o texto que você está lendo não diz de qual versão dos termos saiu o número, não dá para conferir se ele ainda vale."
+    oQueMudou: "É a versão que vale hoje, e é dela que saem a janela de sete dias por último clique, na seção 3.11, e a base de cálculo pelo valor líquido, na seção 1.7. O que não sai dela é percentual de comissão: conferimos os 60.752 caracteres em 1 de agosto de 2026 e o contrato não traz nenhum. A Shopee não publica registro do que mudou de uma versão para a anterior, então o que dá para afirmar é o conteúdo atual, e não a diferença."
+    oQueQuebra: "Toda tabela de comissão que diz vir do contrato. O contrato não tem tabela, não tem percentual e não promete taxa. Quem cita percentual como cláusula contratual está citando outro documento, ou nenhum."
     confianca: "parcial"
     fonte: "Termos e Condições do Programa de Afiliados Shopee, artigos 124094 e 124095"
     post: "comissao-shopee-3-por-cento"
