@@ -55,11 +55,11 @@ export default async function Benchmarks() {
         etiqueta="Referência"
         titulo={
           <>
-            Os números que valem,{" "}
-            <em className="italic text-fumaca">com o documento de cada um</em>.
+            Os {quantos} números{" "}
+            <em className="italic text-fumaca">que dá para provar</em>.
           </>
         }
-        texto="Aqui entra número que tem documento por trás, com nome e data. Estimativa de mercado, print de grupo e faixa repetida por blog ficam de fora. O que não deu para confirmar aparece no fim da página, dito com todas as letras."
+        texto="Cada um com o documento, o artigo e a data. Se você não conseguir conferir por conta própria em dois cliques, o número não deveria estar nesta página, e não está. Nenhum deles é estimativa nossa: onde o mercado publica média, aqui há artigo de contrato, e onde não há artigo, há uma lacuna declarada no fim da página."
         abaixo={
           <>
             {quantos} números conferidos
@@ -69,6 +69,15 @@ export default async function Benchmarks() {
       />
 
       <div className="mx-auto max-w-5xl px-5">
+
+      {/* A nota de método fica no alto, e não escondida no rodapé. A diferença
+          entre data de documento e data de consulta é o que diz se o número
+          pode ter mudado ontem sem ninguém avisar. */}
+      <p className="max-w-leitura border-b border-risco py-6 text-sm leading-relaxed text-tinta-2">
+        Número de contrato traz a data da versão do documento. Número de documentação sem
+        versionamento público traz a data em que consultamos. A diferença aparece em cada
+        linha, porque é ela que diz se o número pode ter mudado ontem sem ninguém avisar.
+      </p>
 
       {grupos.map((grupo) => (
         <section key={grupo.categoria} className="border-b border-risco py-10">
@@ -135,27 +144,40 @@ export default async function Benchmarks() {
       <section className="border-b border-risco py-10">
         <Etiqueta>Faça a sua conta</Etiqueta>
         <h2 className="mt-3 max-w-leitura font-serif text-2xl font-semibold leading-snug tracking-tight">
-          Um número do seu extrato decide qual é o seu problema
+          A sua comissão média dos últimos 90 dias
         </h2>
         <p className="mt-3 max-w-leitura text-[15px] leading-relaxed text-tinta-2">
-          Benchmark de fora só serve para comparar. O que muda decisão é o seu número ao
-          lado do piso da plataforma.
+          A conta é comissão recebida dividida pelo valor dos pedidos. Faça antes de
+          acreditar em qualquer tabela de categoria: o número certo para a sua operação está
+          no seu painel, e não no blog de ninguém. Se der perto de 3%, você está no piso do
+          contrato, e o gargalo provavelmente é o que você escolhe divulgar.
+        </p>
+        <p className="mt-2 max-w-leitura text-sm leading-relaxed text-tinta-3">
+          Roda inteira no seu navegador. Nada do que você digitar sai da sua máquina, porque
+          não existe para onde mandar.
         </p>
         <div className="mt-5">
           <Calculadora />
         </div>
       </section>
 
-      <section className="border-b border-risco py-10">
+      <section id="lacunas" className="scroll-mt-6 border-b border-risco py-10">
         <Etiqueta>O que ainda não sabemos</Etiqueta>
         <h2 className="mt-3 max-w-leitura font-serif text-2xl font-semibold leading-snug tracking-tight">
-          As perguntas que nenhuma fonte pública responde
+          As {lacunas.length} perguntas que ninguém responde
         </h2>
-        <p className="mt-3 max-w-leitura text-[15px] leading-relaxed text-tinta-2">
-          Esta lista é publicada de propósito. Site de referência que só mostra o que sabe
-          ensina o leitor a confiar demais, e a primeira lacuna que ele descobrir sozinho
-          derruba o resto junto.
-        </p>
+        <div className="mt-3 flex max-w-leitura flex-col gap-3 text-[15px] leading-relaxed text-tinta-2">
+          <p>
+            Esta lista é publicada de propósito. Site de referência que só mostra o que sabe
+            ensina o leitor a confiar demais, e a primeira lacuna que ele descobrir sozinho
+            derruba o resto junto.
+          </p>
+          <p>
+            Cada pergunta aqui embaixo vem com o motivo de não ter resposta. Não são
+            perguntas difíceis: são perguntas cuja resposta não existe em documento nenhum,
+            público ou divulgado. Publicar um número para elas exigiria inventar.
+          </p>
+        </div>
 
         <div className="mt-6 grid gap-5 md:grid-cols-2">
           {lacunas.map((l) => (
@@ -224,7 +246,13 @@ export default async function Benchmarks() {
             </p>
           </div>
 
-          {lista && <Inscrever origem="benchmarks" titulo="Quero acompanhar" />}
+          {lista && (
+            <Inscrever
+              origem="benchmarks-fim"
+              titulo="Número muda sem aviso"
+              texto={`Quando um destes ${quantos} números mudar de valor, de fonte ou de data, sai um e-mail. É o único motivo pelo qual mandamos e-mail.`}
+            />
+          )}
         </div>
       </section>
       </div>

@@ -20,7 +20,7 @@ export async function inscreverNaLista(
   dados: FormData,
 ): Promise<EstadoInscricao> {
   if (String(dados.get("sobrenome") ?? "").trim() !== "") {
-    return { ok: true, mensagem: "Pronto! Você recebe o próximo." };
+    return { ok: true, mensagem: "Pronto. Você é avisado quando mudar." };
   }
 
   const origem = String(dados.get("origem") ?? "site").slice(0, 60);
@@ -31,8 +31,8 @@ export async function inscreverNaLista(
   return {
     ok: true,
     mensagem: r.jaEstava
-      ? "Você já estava na lista. Tudo certo."
-      : "Pronto! Você recebe o próximo.",
+      ? "Você já estava na lista. Não fazemos nada duas vezes."
+      : "Pronto. Você é avisado quando mudar.",
   };
 }
 
@@ -85,7 +85,7 @@ export async function responderPesquisa(
   dados: FormData,
 ): Promise<EstadoPesquisa> {
   if (String(dados.get("sobrenome") ?? "").trim() !== "") {
-    return { ok: true, mensagem: "Resposta registrada. Obrigado." };
+    return { ok: true, mensagem: "Registrada. Obrigado." };
   }
 
   const bruto: Record<string, unknown> = {};
@@ -96,7 +96,7 @@ export async function responderPesquisa(
     if (!guardou) {
       return { ok: false, mensagem: "Faltou responder alguma pergunta. Confere e manda de novo?" };
     }
-    return { ok: true, mensagem: "Resposta registrada. Obrigado." };
+    return { ok: true, mensagem: "Registrada. Obrigado." };
   } catch {
     return { ok: false, mensagem: "Não consegui guardar agora. Tenta de novo em instantes?" };
   }

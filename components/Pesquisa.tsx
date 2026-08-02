@@ -23,7 +23,7 @@ function Botao() {
       disabled={pending}
       className="rounded-lg bg-farol px-5 py-3 text-sm font-semibold text-white transition hover:brightness-110 disabled:opacity-60"
     >
-      {pending ? "Enviando" : "Enviar minhas respostas"}
+      {pending ? "Enviando" : "Enviar as sete"}
     </button>
   );
 }

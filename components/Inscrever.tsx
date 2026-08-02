@@ -13,7 +13,7 @@ function Botao() {
       disabled={pending}
       className="shrink-0 rounded-lg bg-farol px-4 py-2.5 text-sm font-semibold text-white transition hover:brightness-110 disabled:opacity-60"
     >
-      {pending ? "Enviando" : "Quero receber"}
+      {pending ? "Enviando" : "Quero o aviso"}
     </button>
   );
 }
@@ -21,15 +21,23 @@ function Botao() {
 /**
  * Caixa de cadastro. Só é renderizada quando existe destino configurado. Quem
  * decide é o servidor, em `capturaLigada()`.
+ *
+ * O texto padrão vende o silêncio, e não a frequência. Quem assina esperando
+ * conteúdo diário cancela na terceira semana sem receber nada; quem assina
+ * entendendo que o silêncio é o produto fica. A `nota` existe para isso: ela
+ * avisa que o primeiro e-mail pode demorar, e é de propósito que ela não seja
+ * escondida. Quem lê aquilo e assina mesmo assim é o leitor certo.
  */
 export function Inscrever({
   origem,
-  titulo = "Receba o próximo",
-  texto = "Uma publicação por dia, com a fonte junto. Sem propaganda e sem repasse do seu e-mail.",
+  titulo = "O aviso",
+  texto = "Um e-mail quando a regra do jogo muda. Só isso. Sem bom dia, sem newsletter de sexta, sem convite para conferir nosso conteúdo. Se a Shopee e a Meta não mexerem em nada, você não recebe nada, e passar vinte dias sem notícia nossa é a melhor notícia possível.",
+  nota = "O primeiro e-mail pode demorar. Ele só sai quando algo mudar.",
 }: {
   origem: string;
   titulo?: string;
   texto?: string;
+  nota?: string;
 }) {
   const [estado, acao] = useFormState(inscreverNaLista, inicial);
 
@@ -77,9 +85,12 @@ export function Inscrever({
         <p className="mt-2 text-sm text-brasa">{estado.mensagem}</p>
       )}
 
-      <p className="mt-3 text-xs leading-relaxed text-tinta-3">
-        Guardamos só o endereço, para avisar quando uma regra ou um número mudar. Não
-        repassamos a ninguém, e dá para sair pelo link que vai no rodapé de todo aviso.
+      {nota && <p className="mt-3 text-sm font-medium leading-relaxed text-tinta-2">{nota}</p>}
+
+      <p className="mt-2 text-xs leading-relaxed text-tinta-3">
+        Três coisas disparam aviso: entrada nova no registro de mudanças, número do
+        benchmark que mudou de valor, de fonte ou de data, e publicação nova. Guardamos só o
+        endereço, não repassamos a ninguém, e a saída é um clique no rodapé de todo aviso.
       </p>
     </section>
   );

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { SITE } from "@/lib/site";
 import { migalhas } from "@/lib/schema";
 import { resultadoDaPesquisa, pesquisaLigada } from "@/lib/pesquisa";
-import { PERGUNTAS } from "@/lib/pesquisa-perguntas";
+import { PERGUNTAS, MIN_RESPOSTAS } from "@/lib/pesquisa-perguntas";
 import { Pesquisa } from "@/components/Pesquisa";
 import { Faixa } from "@/components/Faixa";
 import { Estruturado } from "@/components/Estruturado";
@@ -22,13 +22,13 @@ export const revalidate = 300;
 export const metadata: Metadata = {
   title: "Quanto um afiliado brasileiro tira de comissão? A pesquisa",
   description:
-    "Seis perguntas de faixa, dois minutos, sem nome e sem e-mail. As respostas viram o benchmark de comissão média que nenhuma plataforma divulga.",
+    "Sete perguntas de faixa, dois minutos, sem nome e sem e-mail. As respostas viram o benchmark de comissão média que nenhuma plataforma divulga.",
   alternates: { canonical: "/pesquisa" },
   openGraph: {
     type: "website",
     title: "A pesquisa do Link do Dia",
     description:
-      "Seis perguntas, dois minutos, anônima. O resultado volta público, com o número de respostas na cara.",
+      "Sete perguntas, dois minutos, anônima. O resultado volta público, com o número de respostas na cara.",
     url: `${SITE.url}/pesquisa`,
   },
 };
@@ -37,6 +37,18 @@ export default async function PaginaPesquisa() {
   const ligada = pesquisaLigada();
   const dados = await resultadoDaPesquisa();
 
+  /**
+   * A manchete é a única escassez que este site pode usar, porque é verdadeira.
+   * Ela conta quantas faltam, e o número vem do banco, não do texto. Quando a
+   * amostra atinge o piso, a manchete deixa de pedir e passa a entregar.
+   *
+   * E quando o banco não responde, `dados` vem nulo e a manchete não cita
+   * número nenhum. Carimbar o piso de {MIN_RESPOSTAS} como se fosse leitura
+   * seria anunciar um número que não foi conferido, na página que existe para
+   * dizer que número sem origem não vale.
+   */
+  const publicavel = dados?.publicavel ?? false;
+
   return (
     <main>
       <Estruturado dados={migalhas([{ nome: "A pesquisa", caminho: "/pesquisa" }])} />
@@ -44,10 +56,22 @@ export default async function PaginaPesquisa() {
       <Faixa
         etiqueta="A pesquisa"
         titulo={
-          <>
-            {PERGUNTAS.length} perguntas para montar o número que{" "}
-            <em className="italic text-fumaca">ninguém publica</em>.
-          </>
+          publicavel && dados ? (
+            <>
+              O que {dados.n} operadores{" "}
+              <em className="italic text-fumaca">responderam</em>.
+            </>
+          ) : dados ? (
+            <>
+              Faltam {dados.faltam} respostas para este mercado ter{" "}
+              <em className="italic text-fumaca">o primeiro número real</em>.
+            </>
+          ) : (
+            <>
+              {PERGUNTAS.length} perguntas para montar o número que{" "}
+              <em className="italic text-fumaca">ninguém publica</em>.
+            </>
+          )
         }
         texto="Quanto um afiliado brasileiro recebe de comissão por mês? Qual categoria paga a conta? Quanta gente já usa tagueamento nativo e quanta abandonou? Nenhuma plataforma divulga isso, e nenhum blog mede. Só dá para saber perguntando a quem opera."
         abaixo={
@@ -85,7 +109,35 @@ export default async function PaginaPesquisa() {
         </div>
       </section>
 
+      <section className="border-b border-risco py-10">
+        <h2 className="max-w-leitura font-serif text-2xl font-semibold leading-snug tracking-tight">
+          Por que {MIN_RESPOSTAS}, e por que {MIN_RESPOSTAS} ainda é pouco
+        </h2>
+        <div className="mt-3 flex max-w-leitura flex-col gap-3 text-[15px] leading-relaxed text-tinta-2">
+          <p>
+            Trinta é pouco para um censo e é o mínimo para não ser anedota. Abaixo disso esta
+            página não mostra porcentagem nenhuma: mostra quantas faltam.
+          </p>
+          <p>
+            Publicar percentual de oito respostas é precisamente o que acusamos os outros de
+            fazer. Não vamos fazer na nossa própria página.
+          </p>
+          <p>
+            E quando publicar, vai junto o que a amostra{" "}
+            <strong className="font-semibold text-tinta">não</strong> permite dizer: leitor
+            deste site não é amostra aleatória do mercado, tudo é autodeclarado, e resposta
+            anônima não dá para impedir de repetir. Mesmo com as três ressalvas, vai ser o
+            único número público que existe sobre isso.
+          </p>
+        </div>
+      </section>
+
       <section className="py-10">
+        {ligada && dados && !publicavel && (
+          <p className="mb-6 max-w-leitura font-serif text-xl font-semibold leading-snug">
+            Você é uma das {dados.faltam} que faltam.
+          </p>
+        )}
         {ligada ? (
           <Pesquisa />
         ) : (

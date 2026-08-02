@@ -55,8 +55,8 @@ export default function Mudancas() {
         etiqueta="Registro"
         titulo={
           <>
-            Quando a plataforma muda a regra,{" "}
-            <em className="italic text-fumaca">a data fica registrada aqui</em>.
+            O que mudou, quando,{" "}
+            <em className="italic text-fumaca">e o que isso quebrou</em>.
           </>
         }
         texto="Ninguém mantém esse registro em português para quem vive de marketplace e de rede social, e é por isso que conselho vencido circula por anos com cara de novidade. Cada entrada traz a data da mudança, o documento que a sustenta e o que ela quebra na prática. Regra substituída não sai do ar: fica apontando para a que vale."
@@ -213,6 +213,14 @@ export default function Mudancas() {
                 </li>
               </ul>
 
+              <h3 className="mt-7 font-serif text-lg font-semibold leading-snug">
+                O que este registro cobre hoje
+              </h3>
+              <p className="mt-3 text-[15px] leading-relaxed text-tinta-2">
+                Shopee, Instagram e Meta. Só isso. Quando entrar outra plataforma, a entrada
+                aparece aqui no dia em que for apurada, e não antes.
+              </p>
+
               <p className="mt-6 text-[15px] leading-relaxed text-tinta-2">
                 Os números que essas regras produzem ficam em{" "}
                 <Link href="/benchmarks" className="text-farol underline underline-offset-2">
@@ -224,9 +232,9 @@ export default function Mudancas() {
 
             {lista && (
               <Inscrever
-                origem="mudancas"
-                titulo="Quando a regra mudar"
-                texto="A lista recebe as publicações do site, e mudança de regra vira publicação. Sem propaganda e sem repasse do seu e-mail."
+                origem="mudancas-fim"
+                titulo="A próxima mudança vai pegar alguém de surpresa"
+                texto="Não precisa ser você. Entrada nova neste registro dispara um e-mail no mesmo dia. É a única lista deste site, e ela só existe para isso."
               />
             )}
           </div>

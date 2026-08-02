@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { todosOsPosts, categorias, formatarData } from "@/lib/posts";
-import { todosOsNumeros } from "@/lib/numeros";
+import { todosOsNumeros, todasAsLacunas } from "@/lib/numeros";
 import { todasAsMudancas } from "@/lib/mudancas";
 import { SITE } from "@/lib/site";
 import { siteWeb } from "@/lib/schema";
@@ -20,6 +20,11 @@ import { Inscrever } from "@/components/Inscrever";
  * Nenhum abre com um número e a fonte dele. É esse o espaço vazio, e é nele que
  * a gente entra: quem chega vê um dado duro e o artigo do contrato ao lado,
  * antes de qualquer adjetivo.
+ *
+ * A ordem da página serve à métrica única, que é endereço na lista. Promessa,
+ * pedido, prova, e só então o acervo. A caixa de cadastro ficava numa coluna de
+ * 220 pixels que, no telefone, aparecia depois de todos os posts: a única coisa
+ * que a página precisa conseguir estava enterrada abaixo de tudo.
  */
 export default function Home() {
   const posts = todosOsPosts();
@@ -29,7 +34,13 @@ export default function Home() {
 
   const numeros = todosOsNumeros();
   const [numeroDestaque, ...outrosNumeros] = numeros;
+  const lacunas = todasAsLacunas();
   const mudancas = todasAsMudancas();
+
+  const botaoCheio =
+    "rounded-lg bg-papel px-5 py-3 text-sm font-semibold text-carvao transition hover:bg-white";
+  const botaoVazio =
+    "rounded-lg border border-fumaca/40 px-5 py-3 text-sm font-semibold text-papel transition hover:border-farol-alto hover:text-farol-alto";
 
   return (
     <main>
@@ -52,33 +63,31 @@ export default function Home() {
           <div className="grid gap-6 md:grid-cols-[1fr_minmax(0,20rem)] md:gap-x-10 md:gap-y-5">
             <div className="entra">
               <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-fumaca">
-                Publicação independente
+                Publicação independente · Nenhum curso no final
               </p>
 
               <h1 className="mt-4 font-serif text-4xl font-semibold leading-[1.06] tracking-tight sm:text-5xl">
-                O que está funcionando em marketing digital e marketplaces,{" "}
-                <em className="italic text-fumaca">com a fonte na mesa</em>.
+                A regra muda sem aviso. A sua margem muda junto.{" "}
+                <em className="italic text-fumaca">Aqui está o documento.</em>
               </h1>
             </div>
 
             <div className="entra order-last md:order-none">
               <p className="max-w-leitura text-[15px] leading-relaxed text-fumaca">
-                Todo número aqui vem com o documento que o sustenta, com artigo e data. O que
-                não deu para confirmar aparece escrito como não confirmado.
+                Todo número deste site vem com o documento que o sustenta, com artigo e data.
+                O que não deu para confirmar aparece escrito como não confirmado, inclusive
+                quando a versão confirmada seria menos vendável. Você opera pelo texto do
+                contrato, e não pelo que disseram no grupo.
               </p>
 
               <div className="mt-7 flex flex-wrap gap-3">
-                <Link
-                  href="/benchmarks"
-                  className="rounded-lg bg-papel px-5 py-3 text-sm font-semibold text-carvao transition hover:bg-white"
-                >
+                {lista && (
+                  <a href="#aviso" className={botaoCheio}>
+                    Quero ser avisado
+                  </a>
+                )}
+                <Link href="/benchmarks" className={lista ? botaoVazio : botaoCheio}>
                   Ver os {numeros.length} números
-                </Link>
-                <Link
-                  href="/pesquisa"
-                  className="rounded-lg border border-fumaca/40 px-5 py-3 text-sm font-semibold text-papel transition hover:border-farol-alto hover:text-farol-alto"
-                >
-                  Responder a pesquisa
                 </Link>
               </div>
             </div>
@@ -127,6 +136,52 @@ export default function Home() {
       </section>
 
       <div className="mx-auto max-w-5xl px-5">
+        {lista && (
+          <div id="aviso" className="scroll-mt-6 pt-10">
+            <Inscrever origem="home-topo" />
+          </div>
+        )}
+
+        {/* A prova vem logo depois do pedido, e a vítima do exemplo somos nós.
+
+            Site que promete honestidade e mostra depoimento de cliente está
+            pedindo confiança. Site que mostra o próprio erro, com data e sem
+            apagar, está entregando a prova junto com a promessa. */}
+        <section className="border-b border-risco py-10">
+          <Etiqueta>Por que confiar</Etiqueta>
+          <h2 className="mt-3 max-w-leitura font-serif text-2xl font-semibold leading-snug tracking-tight">
+            Erramos em 30 de julho, e o erro está no ar até hoje
+          </h2>
+          <div className="mt-3 flex max-w-leitura flex-col gap-3 text-[15px] leading-relaxed text-tinta-2">
+            <p>
+              Descobrimos que o nosso próprio acervo citava a política de originalidade do
+              Instagram pelo nome sem nunca ter aberto o documento. O texto publicado dava
+              conselho contrário ao que o documento diz.
+            </p>
+            <p>
+              Corrigimos no mesmo dia, em duas etapas, e as duas ficaram públicas, inclusive a
+              etapa em que erramos de novo: achamos primeiro a versão de 2024 e publicamos o
+              número dela antes de encontrar a de 2026, que é a que vale.
+            </p>
+            <p>
+              Enquanto isso, o mercado continua repetindo{" "}
+              <strong className="font-semibold text-tinta">
+                dez repostagens em 30 dias
+              </strong>
+              . Esse número saiu da versão de abril de 2024. A versão em vigor, de abril de
+              2026, não traz número nenhum: o critério virou proporção, calculada sobre os
+              últimos 30 dias, e passou a valer também para foto e carrossel, exatamente para
+              onde quase todo mundo tinha migrado para escapar da regra antiga.
+            </p>
+          </div>
+          <Link
+            href="/mudancas"
+            className="mt-4 inline-block text-sm font-semibold text-farol underline underline-offset-2"
+          >
+            Ver as duas versões, lado a lado
+          </Link>
+        </section>
+
         {posts.length === 0 ? (
           <p className="py-16 text-tinta-2">Nada publicado ainda.</p>
         ) : (
@@ -174,16 +229,15 @@ export default function Home() {
               </div>
 
               <aside className="mt-10 flex flex-col gap-4 md:mt-0">
-                {lista && <Inscrever origem="home-lateral" />}
-
                 <div className="rounded-xl border border-risco bg-papel-alto p-5">
                   <Etiqueta>O que mudou</Etiqueta>
                   <p className="mt-2 font-serif text-lg font-semibold leading-snug">
                     O registro datado de mudança de regra
                   </p>
                   <p className="mt-1.5 text-sm leading-relaxed text-tinta-2">
-                    {mudancas.length} mudanças da Shopee, do Instagram e da Meta, cada uma com o
-                    documento e o que ela quebra. Regra substituída fica no ar, marcada.
+                    {mudancas.length} mudanças da Shopee, do Instagram e da Meta, cada uma com
+                    o documento e com o que ela quebra na prática. Regra vencida não é
+                    apagada: fica no ar, marcada, apontando para a que vale.
                   </p>
                   <Link
                     href="/mudancas"
@@ -199,8 +253,9 @@ export default function Home() {
                     Quanto um afiliado recebe por mês?
                   </p>
                   <p className="mt-1.5 text-sm leading-relaxed text-tinta-2">
-                    Sete perguntas de faixa, dois minutos, sem nome e sem e-mail. O resultado
-                    volta público para todo mundo.
+                    Ninguém sabe, e é por isso que estamos perguntando. Sete perguntas de
+                    faixa, dois minutos, sem nome e sem e-mail. O resultado volta público para
+                    todo mundo, inclusive para quem não respondeu.
                   </p>
                   <Link
                     href="/pesquisa"
@@ -241,6 +296,61 @@ export default function Home() {
             </div>
           </>
         )}
+
+        {/* Os dois argumentos de fechamento. Ficam depois do acervo de propósito:
+            quem rolou até aqui já viu o que a casa produz, e argumento sobre
+            método convence mais depois da amostra do que antes dela. */}
+        <section className="grid gap-x-10 gap-y-8 border-t border-risco py-10 md:grid-cols-2">
+          <div>
+            <Etiqueta>O padrão do nicho, medido</Etiqueta>
+            <h2 className="mt-3 font-serif text-2xl font-semibold leading-snug tracking-tight">
+              Contamos o que tem na tela dos outros
+            </h2>
+            <div className="mt-3 flex flex-col gap-3 text-[15px] leading-relaxed text-tinta-2">
+              <p>
+                Em 30 de julho de 2026 abrimos os quatro sites que ranqueiam nos mesmos termos
+                que este e contamos o que estava lá: 56, 24, 17 e 7 elementos com gradiente.
+                Vocabulário de venda nos quatro. Botão de WhatsApp em três. Os quatro abrindo
+                com promessa de benefício.
+              </p>
+              <p>
+                Nenhum abrindo com um número e a fonte dele. Não é falta de talento: fonte dá
+                trabalho e promessa não dá. Aqui não há gradiente nenhum, e há{" "}
+                {numeros.length} números com artigo e data.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <Etiqueta>O que não sabemos</Etiqueta>
+            <h2 className="mt-3 font-serif text-2xl font-semibold leading-snug tracking-tight">
+              {lacunas.length} perguntas que não têm resposta pública
+            </h2>
+            <div className="mt-3 flex flex-col gap-3 text-[15px] leading-relaxed text-tinta-2">
+              <p>
+                Quanto um afiliado brasileiro ganha por mês é uma delas. Não é preguiça nossa:
+                a venda que migra some do relatório, a comissão varia por produto e por
+                vendedor, e o valor de hoje ainda pode encolher na validação.
+              </p>
+              <p>
+                Quanta comissão migra para outro afiliado dentro da janela de sete dias é
+                outra. A Shopee não reporta a venda que deixou de ser sua, e não existe forma
+                pública de medir isso.
+              </p>
+              <p>
+                As {lacunas.length} estão publicadas, cada uma com o motivo de não ter
+                resposta. Quem te der um número exato para qualquer uma delas está estimando,
+                inclusive quando vem com gráfico.
+              </p>
+            </div>
+            <Link
+              href="/benchmarks#lacunas"
+              className="mt-4 inline-block text-sm font-semibold text-farol underline underline-offset-2"
+            >
+              Ver as {lacunas.length} lacunas
+            </Link>
+          </div>
+        </section>
       </div>
     </main>
   );
